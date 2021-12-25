@@ -10,7 +10,7 @@ const Main = new MyHTML({
   ]
 }).asHTML()
 
-export function changeMenu(e, index) {
+export const changeMenu = (e, index) => {
   document.querySelector('.container main').remove()
   const currentMenu = menuList[index]
   e.target.classList.add('active')

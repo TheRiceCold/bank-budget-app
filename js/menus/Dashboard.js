@@ -1,7 +1,7 @@
 import MyHTML from '../utils/MyHTML.js'
 import InsightCards from './dashboard/InsightCards.js'
 import TitleAndDate from './TitleAndDate.js'
-import { Recent } from './dashboard/Recent.js'
+import Recent from './dashboard/Recent.js'
 
 const Dashboard = new MyHTML({
   tag: 'main',
@@ -9,7 +9,7 @@ const Dashboard = new MyHTML({
   inner: [
     TitleAndDate('Dashboard').asString(), 
     InsightCards.asString(),
-    Recent
+    Recent.asString()
   ]
 }).asString()
 

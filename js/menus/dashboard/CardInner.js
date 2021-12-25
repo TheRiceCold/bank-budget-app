@@ -1,10 +1,7 @@
 import MyHTML from '../../utils/MyHTML.js'
 
-const CardContent = (card) => {
-  const { 
-    title,
-    total
-  } = card
+const CardContent = card => {
+  const { title, total } = card
 
   return new MyHTML({
     className: 'middle',
@@ -16,12 +13,8 @@ const CardContent = (card) => {
   })
 }
 
-const CardInner = (card) => {
-  const {
-    className,
-    description,
-    icon
-  } = card
+const CardInner = card => {
+  const { className, description, icon } = card
 
   return new MyHTML({
     className: className,
