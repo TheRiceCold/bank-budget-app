@@ -1,18 +1,17 @@
 class MyHTML {
   constructor({
-    tag,
-    className,
-    id,
-    text,
-    inner,
-    attr = Array(2)
+    tag = 'div',
+    className = '',
+    id = '',
+    text = '',
+    inner = '',
   }) {
-    this.html = document.createElement(tag || 'div')
-    this.html.id = id || ''
-    this.html.className = className || ''
-    this.html.textContent = text || ''
-    this.html.innerHTML = Array.isArray(inner) ? inner.join('') : inner || ''
-    this.html.setAttribute(attr[0], attr[1])
+    this.html = document.createElement(tag)
+    this.html.textContent = text
+    this.html.innerHTML = Array.isArray(inner) ? inner.join('') : inner
+
+    if (id.trim() !== '') this.html.id = id
+    if (className.trim() !== '') this.html.className = className
   }
 
   asHTML() {
