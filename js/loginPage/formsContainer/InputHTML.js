@@ -5,7 +5,7 @@ const validateIcons = `
   <i class="fas fa-exclamation-circle"></i>
   <small>Error Message</small>`
 
-class InputField extends MyHTML {
+class InputHTML extends MyHTML {
   constructor(data) {
     super({ className: 'input-field' })
     const { id, placeHolder, icon, type } = data
@@ -17,4 +17,4 @@ class InputField extends MyHTML {
   }
 }
 
-export default InputField
+export default InputHTML

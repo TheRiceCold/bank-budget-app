@@ -1,4 +1,4 @@
-import MyHTML from '../../utils/MyHTML.js'
+import MyHTML from '../../../utils/MyHTML.js'
 
 const recentTable = `
 <table>
@@ -43,6 +43,6 @@ const Recent = new MyHTML({
     recentTable,
     '<a href="#">See All</a>'
   ]
-})
+}).asString()
 
 export default Recent

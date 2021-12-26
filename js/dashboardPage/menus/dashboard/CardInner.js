@@ -1,4 +1,4 @@
-import MyHTML from '../../utils/MyHTML.js'
+import MyHTML from '../../../utils/MyHTML.js'
 
 const CardContent = card => {
   const { title, total } = card

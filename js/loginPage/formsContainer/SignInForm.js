@@ -1,4 +1,4 @@
-import Form from './Form.js'
+import FormHTML from './FormHTML.js'
 
 const inputList = [
   {
@@ -14,7 +14,7 @@ const inputList = [
   }
 ]
 
-const SignInForm = new Form('sign-in-form', 'signinform', 'Sign In') 
+const SignInForm = new FormHTML('sign-in-form', 'signInForm', 'Sign In') 
 SignInForm.setInputList(inputList)
 
-export default SignInForm
+export default SignInForm.asString()

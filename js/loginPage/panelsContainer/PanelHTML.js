@@ -1,8 +1,9 @@
 import MyHTML from '../../utils/MyHTML.js'
 
-class Panel extends MyHTML {
+class PanelHTML extends MyHTML {
   constructor(data) {
     super({ className: 'panel' })
+
     const {
       position,
       title,
@@ -23,4 +24,4 @@ class Panel extends MyHTML {
   }
 }
 
-export default Panel
+export default PanelHTML

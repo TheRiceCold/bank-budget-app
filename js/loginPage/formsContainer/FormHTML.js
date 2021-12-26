@@ -1,14 +1,14 @@
+import InputHTML from './InputHTML.js'
 import MyHTML from '../../utils/MyHTML.js'
-import InputField from './InputField.js'
 
-class Form extends MyHTML {
+class FormHTML extends MyHTML {
   constructor(className, id, title) {
     super({ tag: 'form', className: className, id: id })
     this.title = title
   }
 
   setInputList(inputList = []) {
-    const inputs = inputList.map(data => new InputField(data).asString()).join('')
+    const inputs = inputList.map(data => new InputHTML(data).asString()).join('')
     
     return this.html.innerHTML = 
       `<h2 class="title">${this.title}</h2>
@@ -17,4 +17,4 @@ class Form extends MyHTML {
   }
 }
 
-export default Form
+export default FormHTML
