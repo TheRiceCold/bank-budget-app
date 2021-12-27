@@ -1,7 +1,21 @@
-export const root = document.body
+const root = document.body
 
-export const getQueryAll = query => 
+const getAll = query => 
   Array.from(root.querySelectorAll(query))
 
-export const getQuery = query =>
+const get = query =>
   root.querySelector(query)
+
+const create = node => 
+  document.createElement(node)
+
+const click = (query, callback) =>
+  get(query).addEventListener('click', callback)
+
+const addClass = (target, className) =>
+  target.classList.add(className)
+
+const subClass = (target, className) => 
+  target.classList.remove(className)
+
+export { root, get, getAll, create, click, addClass, subClass }

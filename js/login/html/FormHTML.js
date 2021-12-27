@@ -7,7 +7,7 @@ class FormHTML extends MyHTML {
     this.title = title
   }
 
-  setInputList(inputList = []) {
+  set inputList(inputList = []) {
     const inputs = inputList
       .map(data => 
         new InputHTML(data).string).join('')

@@ -5,7 +5,7 @@ const panelRight = {
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
     ex ratione. Aliquid! `,
   buttonId: 'signInSwitch',
-  buttonText: 'Sign in',
+  buttonText: 'Login',
   image: 'register.svg'
 }
 
@@ -16,7 +16,7 @@ const panelLeft = {
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
     ex ratione. Aliquid!`,
   buttonId: 'signUpSwitch',
-  buttonText: 'Sign up',
+  buttonText: 'Register',
   image: 'log.svg'
 }
 

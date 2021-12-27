@@ -2,8 +2,8 @@ import FormHTML from '../html/FormHTML.js'
 
 const inputList = [
   {
-    id: 'usernameOrEmail',
-    placeHolder: 'Username/Email', 
+    id: 'emailOrPhone',
+    placeHolder: 'Email/Phone Number', 
     icon: 'user'
   },
   {
@@ -15,6 +15,6 @@ const inputList = [
 ]
 
 const SignInForm = new FormHTML('sign-in-form', 'signInForm', 'Sign In') 
-SignInForm.setInputList(inputList)
+SignInForm.inputList = inputList
 
 export default SignInForm.string

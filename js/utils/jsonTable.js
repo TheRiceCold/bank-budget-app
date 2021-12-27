@@ -1,16 +1,21 @@
+import * as dom from './dom.js'
+import { copyText } from './helpers.js'
+
 const jsonTable = (data, container) => { 
-  const table = document.createElement("table")
+  const table = dom.create('table')
   const thead = table.createTHead()
   const col = Object.keys(data[0])
-  let tr = document.createElement('tr')                  
+  let tr = dom.create('tr')                  
+
   col.forEach(i => tr.innerHTML += '<th>'+i+'</th>')
   thead.append(tr)
 
   for (let i = 0; i < data.length; i++) {
-    let row = document.createElement('tr')
+    let row = dom.create('tr')
     for (let j = 0; j < col.length; j++) {
-      let tabCell = row.insertCell(-1)
-      tabCell.innerHTML = data[i][col[j]]
+      const cell = row.insertCell(-1)
+      cell.textContent = data[i][col[j]]
+      //cell.addEventListener('click', copyText)
     }
     table.append(row)
   }

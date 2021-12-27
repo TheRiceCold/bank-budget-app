@@ -521,29 +521,25 @@ main .recent-orders a {
 .input-field small {
   visibility: hidden;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: -20px;
+  left: 15px;
 }
 
-.sign-up-form.success input {
-  border-color: #2ecc71;
-}
-
-.sign-up-form.error input {
+.input-field.error input {
   border-color: #e74c3c;
 }
 
-.sign-up-form.success i.fa-check-circle {
+.input-field.success i.fa-check-circle {
   color: #2ecc71;
   visibility: visible;
 }
 
-.sign-up-form.error i.fa-exclamation-circle {
+.input-field.error i.fa-exclamation-circle {
   color: #e74c3c;
   visibility: visible;
 }
 
-.sign-up-form.error small {
+.input-field.error small {
   color: #e74c3c;
   visibility: visible;
 }
@@ -600,27 +596,25 @@ form.sign-in-form {
 .title {
   font-size: 2.2rem;
   color: #444;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .input-field {
   max-width: 380px;
   width: 100%;
-  background-color: #f0f0f0;
+  background: #f0f0f0;
   margin: 10px 0;
-  height: 55px;
-  border-radius: 55px;
+  height: 45px;
+  border-radius: 15px;
   display: grid;
   grid-template-columns: 15% 85%;
-  padding: 0 0.4rem;
   position: relative;
 }
 
 .input-field i {
   text-align: center;
-  line-height: 55px;
+  line-height: 45px;
   color: #acacac;
-  transition: 0.5s;
   font-size: 1.1rem;
 }
 
@@ -639,53 +633,22 @@ form.sign-in-form {
   font-weight: 500;
 }
 
-.social-text {
-  padding: 0.7rem 0;
-  font-size: 1rem;
-}
-
-.social-media {
-  display: flex;
-  justify-content: center;
-}
-
-.social-icon {
-  height: 46px;
-  width: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0.45rem;
-  color: #333;
-  border-radius: 50%;
-  border: 1px solid #333;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.3s;
-}
-
-.social-icon:hover {
-  color: #4481eb;
-  border-color: #4481eb;
-}
-
 .btn {
   width: 150px;
-  background-color: #56C596;
-  border: none;
+  background: #56C596;
   outline: none;
   height: 49px;
-  border-radius: 49px;
+  border-radius: 15px;
   color: #fff;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin: 10px 0;
+  font-weight: 200;
+  font-size: 1.2em;
+  margin: 25px 0;
   cursor: pointer;
   transition: 0.5s;
 }
 
 .btn:hover {
-  background-color: #4d84e2;
+  background: #4d84e2;
 }
 .panels-container {
   position: absolute;
@@ -759,8 +722,8 @@ form.sign-in-form {
   border: 2px solid #fff;
   width: 130px;
   height: 41px;
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-weight: 200;
+  font-size: 1.1em;
 }
 
 .right-panel .image,

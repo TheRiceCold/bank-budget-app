@@ -1,39 +1,34 @@
-export const removeAllChild = parent => {
+const removeAllChild = parent => {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild)
   }
 }
 
-export function getTableData(query) {
+const copyText = e => {
+  const textCopy = e.target.textContent
+  const copyInput = document.createElement('input')
+  console.log('hey')
+
+  e.target.classList.toggle('copied')
+
+  copyInput.value = textCopy
+  document.body.append(copyInput)
+  copyInput.select()
+  document.execCommand('copy')
+  copyInput.remove()
+}
+
+const tableToArray = table => {
   const searchData = []
-  const table = document.querySelector(query)
-  Array.from(table.children[1].children)
-    .forEach(bodyRowEl =>
-      searchData.push(Array.from(bodyRowEl.children)
-        .map(cellEl => cellEl.innerHTML)))
+  const rowList = Array.from(table.children[1].children)
+
+  rowList.forEach(row => {
+    const datas = Array.from(row.children)
+    const terms = datas.map(cell => cell.textContent) 
+    searchData.push(terms)
+  })
+
   return searchData
 }
 
-export function searchTable(table, term) {
-  if (!term) 
-    return table
-
-  return table.filter(row => 
-    row.find(item => 
-      item.toLowerCase().includes(term.toLowerCase())))
-}
-
-export function refreshTable(data) {
-  const tableBody = document.querySelector('#accountsMenu tbody')
-  tableBody.innerHTML = ''
-
-  data.forEach(row => {
-    const curRow = document.createElement('tr')
-    row.forEach(dataItem => {
-      const curCell = document.createElement('td')
-      curCell.innerText = dataItem
-      curRow.append(curCell)
-    })
-    tableBody.append(curRow)
-  })
-}
+export { removeAllChild, copyText, tableToArray }

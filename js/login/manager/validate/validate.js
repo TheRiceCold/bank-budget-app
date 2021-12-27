@@ -1,22 +1,24 @@
 const setErrorFor = (input, message) => {
-  const formControl = input.parentElement
-  const small = formControl.querySelector('small')
+  const inputContainer = input.parentElement
+  const small = inputContainer.querySelector('small')
 
   small.textContent = message
-  formControl.className = 'sign-up-form error'
+  inputContainer.className = 'input-field error'
 }
 
 const setSuccessFor = input => {
-  const formControl = input.parentElement
-  formControl.className = 'sign-up-form success'
+  const inputContainer = input.parentElement
+  inputContainer.className = 'input-field success'
 }
 
-export const validate = (input, errCondition, errMessage) => {
+const checkInput = (input, errCondition, errMessage) => {
   if (errCondition)
     setErrorFor(input, errMessage)
   else 
     setSuccessFor(input)
 }
 
-export const isEmail = email => 
+const isEmail = email => 
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)
+
+export { checkInput, isEmail }

@@ -1,15 +1,17 @@
-import { getQuery, root } from '../../utils/dom.js'
+import * as dom from '../../utils/dom.js'
 import { removeAllChild } from '../../utils/helpers.js'
 import { dashboard } from '../../dashboard/dashboard.js'
-import { changeMenu } from '../../dashboard/manager/changeMenu.js'
+import { sidebarEvents } from '../../dashboard/manager/changeMenu.js'
+import { signInValidate } from './validate/signInValidate.js'
 
 const callback = e => {
   e.preventDefault()
-  removeAllChild(root)
-  root.append(dashboard)
-  changeMenu()
+  signInValidate(e.target)
+  //removeAllChild(dom.root)
+  //dom.root.append(dashboard)
+  //sidebarEvents()
 }
 
 export const signIn = () => 
-  getQuery('#signInForm')
+  dom.get('#signInForm')
     .addEventListener('submit', callback)

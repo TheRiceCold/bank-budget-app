@@ -31,6 +31,5 @@ const inputList = [
 ]
 
 const SignUpForm = new FormHTML('sign-up-form', 'signUpForm', 'Sign Up')
-SignUpForm.setInputList(inputList)
-
+SignUpForm.inputList = inputList
 export default SignUpForm.string

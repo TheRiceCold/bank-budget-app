@@ -1,15 +1,15 @@
-import { getQuery } from '../../utils/dom.js'
+import * as DOM from '../../utils/dom.js'
 
 const mode = e => {
-  const container = getQuery('#loginPage')
+  const container = DOM.get('#loginPage')
 
   if (e.target.id === 'signUpSwitch')
-    container.classList.add('sign-up-mode')
+    DOM.addClass(container, 'sign-up-mode')
   else 
-    container.classList.remove('sign-up-mode')
+    DOM.subClass(container, 'sign-up-mode')
 }
 
 export const switchAnim = () => {
-  getQuery('#signUpSwitch').addEventListener('click', mode)
-  getQuery('#signInSwitch').addEventListener('click', mode)
+  DOM.click('#signUpSwitch', mode)
+  DOM.click('#signInSwitch', mode)
 }
