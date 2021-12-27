@@ -1,4 +1,4 @@
-import MyHTML from '../../../utils/MyHTML.js'
+import MyHTML from '../../utils/MyHTML.js'
 
 class PanelHTML extends MyHTML {
   constructor(data) {

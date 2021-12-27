@@ -14,13 +14,8 @@ class MyHTML {
     if (className.trim() !== '') this.html.className = className
   }
 
-  asHTML() {
-    return this.html
-  }
-
-  asString() {
-    return this.html.outerHTML
-  }
+  get hmtl() { return this.html }
+  get string() { return this.html.outerHTML }
 }
-
+  
 export default MyHTML

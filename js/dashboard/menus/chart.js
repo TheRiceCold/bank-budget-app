@@ -1,4 +1,4 @@
-import MenuHTML from '../manager/MenuHTML.js'
+import MenuHTML from '../html/MenuHTML.js'
 
 const ChartMenu = new MenuHTML({ id: 'chartMenu', title: 'Chart' })
 

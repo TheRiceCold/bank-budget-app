@@ -1,5 +1,5 @@
-import { loginPage } from './login/page/loginPage.js'
+import { home } from './login/loginPage.js'
 import { loginManager } from './login/manager/LoginManager.js'
 
-document.body.append(loginPage)
+document.body.append(home)
 loginManager()

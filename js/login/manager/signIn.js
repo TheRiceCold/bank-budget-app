@@ -1,12 +1,12 @@
-import { changeMenu } from '../../utils/global.js'
 import { getQuery, root } from '../../utils/dom.js'
-import { removeAllChildNodes } from '../../utils/helpers.js'
-import DashboardPage from '../../dashboard/dashboardPage.js'
+import { removeAllChild } from '../../utils/helpers.js'
+import { dashboard } from '../../dashboard/dashboard.js'
+import { changeMenu } from '../../dashboard/manager/changeMenu.js'
 
 const callback = e => {
   e.preventDefault()
-  removeAllChildNodes(root)
-  root.append(DashboardPage)
+  removeAllChild(root)
+  root.append(dashboard)
   changeMenu()
 }
 

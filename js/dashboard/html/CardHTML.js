@@ -1,6 +1,6 @@
 import MyHTML from '../../utils/MyHTML.js'
 
-const CardContent = card => {
+const content = card => {
   const { title, total } = card
 
   return new MyHTML({
@@ -18,7 +18,7 @@ class CardHTML extends MyHTML {
     const { className, description, icon } = card
     const inner = [
       `<span class="material-icons-sharp">${icon}</span>`,
-      CardContent(card).asString(),
+      content(card).string,
       `<small class="text-muted">${description}</small>`
     ]
     super({ className: className, inner })

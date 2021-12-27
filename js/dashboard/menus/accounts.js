@@ -1,5 +1,5 @@
-import { jsonToTable } from '../../utils/helpers.js'
-import MenuHTML from '../manager/MenuHTML.js'
+import { jsonTable } from '../../utils/jsonTable.js'
+import MenuHTML from '../html/MenuHTML.js'
 import { accountList } from '../manager/accountList.js'
 
 const content = {
@@ -7,7 +7,7 @@ const content = {
   title: 'Accounts', 
   inner: [
     `Search: <input type="text" id="searchInput"/>`,
-    jsonToTable(accountList).outerHTML
+    jsonTable(accountList).outerHTML
   ]
 }
 

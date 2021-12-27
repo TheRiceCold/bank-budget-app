@@ -1,15 +1,15 @@
 import SignInForm from './signInForm.js'
 import SignUpForm from './signUpForm.js'
-import MyHTML from '../../../utils/MyHTML.js'
+import MyHTML from '../../utils/MyHTML.js'
 
 const SignInSignUp = new MyHTML({
   className: 'signin-signup',
   inner: [ SignInForm, SignUpForm ]
-}).asString()
+}).string
 
-const FormsContainer = new MyHTML({
+const forms = new MyHTML({
   className: 'forms-container',
   inner: SignInSignUp 
-}).asString()
+}).string
 
-export default FormsContainer
+export { forms }

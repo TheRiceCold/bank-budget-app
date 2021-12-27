@@ -1,5 +1,5 @@
 import MyHTML from '../../utils/MyHTML.js'
-import SideMenus from './SideMenus.js'
+import { sidebarMenu }from './sidebarMenu.js'
 
 const logo = new MyHTML({
   className: 'logo',
@@ -7,22 +7,15 @@ const logo = new MyHTML({
     '<img src="./img/logo.png"/>',
     '<h2>Walter</h2>'
   ]
-}).asString()
+}).string
 
 const closeBtn = new MyHTML({
   className: 'close',
   id: 'closeBtn',
   inner: '<span class="material-icons-sharp">close</span>'
-}).asString()
+}).string
 
-const SidebarTop = new MyHTML({
-  className: 'top',
-  inner: [ logo, closeBtn ]
-}).asString()
+const top = new MyHTML({ className: 'top', inner: [logo, closeBtn] }).string
+const sidebar = new MyHTML({ tag: 'aside', inner: [top, sidebarMenu] }).string
 
-const Sidebar = new MyHTML({
-  tag: 'aside',
-  inner: [ SidebarTop, SideMenus ]
-}).asString()
-
-export default Sidebar
+export { sidebar }

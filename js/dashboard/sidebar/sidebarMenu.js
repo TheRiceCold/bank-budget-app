@@ -9,10 +9,10 @@ const sidebarButtons = sidebarLabels
   .map(label => new MyHTML({
       tag: 'a',
       inner: sidebarButtonInner(label)
-    }).asString()
+    }).string
   ).join('')
 
 const content = { className: 'sidebar', inner: sidebarButtons }
 
-const SideMenus = new MyHTML(content).asString()
-export default SideMenus
+const sidebarMenu = new MyHTML(content).string
+export { sidebarMenu }

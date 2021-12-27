@@ -1,13 +1,13 @@
 import MyHTML from '../../../utils/MyHTML.js'
-import CardHTML from '../../manager/CardHTML.js'
+import CardHTML from '../../html/CardHTML.js'
 import { insightList } from '../../manager/insightList.js'
 
 const cards = insightList
   .map(card =>
-    new CardHTML(card).asString()
+    new CardHTML(card).string
   ).join('')
 
 const content = { className: 'insights', inner: cards }
 
-const Insights = new MyHTML(content).asString()
-export default Insights
+const insights = new MyHTML(content).string
+export { insights }
