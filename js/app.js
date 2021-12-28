@@ -1,7 +1,7 @@
 import { root } from './utils/dom.js'
-import { home } from './login/loginPage.js'
+import { home } from './home/homePage.js'
 import { dashboard } from './dashboard/dashboard.js'
-import { homeManager } from './login/manager/manager.js'
+import { homeManager } from './home/homeManager.js'
 import { dashboardManager } from './dashboard/manager/manager.js'
 
 if (!localStorage.isLoggedIn) {

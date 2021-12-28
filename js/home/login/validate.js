@@ -1,4 +1,4 @@
-import * as dom from '../../../utils/dom.js'
+import * as dom from '../../utils/dom.js'
 
 const emailOrPhone = form => {
   const input = form.emailOrPhone

@@ -1,12 +1,11 @@
 const setMessage = (input, message, type) => {
   const inputContainer = input.parentElement
   const small = inputContainer.querySelector('small')
-
   small.textContent = message
   inputContainer.className = 'input-field '+type
 }
 
-const isValid = (input, regex) => {
+const getValidValue = (input, regex) => {
   const value = input.value
 
   if (value.trim() === '')
@@ -25,4 +24,4 @@ const isValid = (input, regex) => {
   } 
 } 
 
-export { isValid }
+export { getValidValue }
