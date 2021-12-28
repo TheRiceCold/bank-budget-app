@@ -1,15 +1,13 @@
-import SignInForm from './signInForm.js'
-import SignUpForm from './signUpForm.js'
+import { signInForm } from './signInForm.js'
+import { signUpForm } from './signUpForm.js'
 import MyHTML from '../../utils/MyHTML.js'
 
-const SignInSignUp = new MyHTML({
+const content = {
   className: 'signin-signup',
-  inner: [ SignInForm, SignUpForm ]
-}).string
+  inner: [signInForm.string, signUpForm.string]
+}
 
-const forms = new MyHTML({
-  className: 'forms-container',
-  inner: SignInSignUp 
-}).string
+const signInSignUp = new MyHTML(content).string
 
+const forms = new MyHTML({ className: 'forms-container', inner: signInSignUp }).string
 export { forms }

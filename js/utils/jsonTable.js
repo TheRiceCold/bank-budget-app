@@ -5,8 +5,8 @@ const jsonTable = (data, container) => {
   const table = dom.create('table')
   const thead = table.createTHead()
   const col = Object.keys(data[0])
-  let tr = dom.create('tr')                  
 
+  let tr = dom.create('tr')                  
   col.forEach(i => tr.innerHTML += '<th>'+i+'</th>')
   thead.append(tr)
 

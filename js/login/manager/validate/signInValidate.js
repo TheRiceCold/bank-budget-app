@@ -1,25 +1,21 @@
 import * as dom from '../../../utils/dom.js'
-import * as validate from './validate.js'
 
 const emailOrPhone = form => {
   const input = form.emailOrPhone
-  const checkEmail =
-      input.value.trim === '' ||
-      !validate.isEmail(input.value.trim()) 
-  const emailErrMessage = 'Email is not valid'
-  validate.checkInput(input, checkEmail, emailErrMessage)
+  const condition = !isEmail(input.value) && !isPhNumber(input.value)
+  const message = 'invalid: email or phone number(09) or (+639)'
+  const elseMessage = 'user not registered'
+  checkInput(input, condition, message, elseMessage)
 }
 
 const password = form => {
   const input = form.password
-  const checkName = input.value.trim() === ''
-  const nameErrMessage = 'Password cannot be blank'
-  validate.checkInput(input, checkName, nameErrMessage)
+  //checkInput(input)
 }
 
 const signInValidate = form => {
-  emailOrPhone(form)
-  password(form)
+  //emailOrPhone(form) 
+  //password(form)
 }
 
 export { signInValidate }

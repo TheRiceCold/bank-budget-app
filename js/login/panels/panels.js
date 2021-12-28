@@ -1,15 +1,18 @@
 import PanelHTML from '../html/PanelHTML.js'
 import MyHTML from '../../utils/MyHTML.js'
-import PanelList from './panelsContent.js'
+import { panelList }from './panelList.js'
 
-const { right, left } = PanelList
+const { right, left } = panelList
 
-const RightPanel = new PanelHTML({...right}).string
-const LeftPanel = new PanelHTML({...left}).string
+const rightPanel = new PanelHTML()
+rightPanel.content = {...right}
+
+const leftPanel = new PanelHTML({...left})
+leftPanel.content = {...left}
 
 const content = {
   className: 'panels-container',
-  inner: [ LeftPanel, RightPanel ]
+  inner: [leftPanel.string, rightPanel.string]
 }
 
 const panels = new MyHTML(content).string

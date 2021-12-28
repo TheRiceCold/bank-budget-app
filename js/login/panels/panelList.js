@@ -20,5 +20,5 @@ const panelLeft = {
   image: 'log.svg'
 }
 
-const Panel = { right: panelRight, left: panelLeft }
-export default Panel
+const panelList = { right: panelRight, left: panelLeft }
+export { panelList }

@@ -9,13 +9,16 @@ const get = query =>
 const create = node => 
   document.createElement(node)
 
-const click = (query, callback) =>
-  get(query).addEventListener('click', callback)
+const click = (node, callback) =>
+  node.addEventListener('click', callback)
 
-const addClass = (target, className) =>
-  target.classList.add(className)
+const addClass = (node, className) =>
+  node.classList.add(className)
 
-const subClass = (target, className) => 
-  target.classList.remove(className)
+const delClass = (node, className) => 
+  node.classList.remove(className)
 
-export { root, get, getAll, create, click, addClass, subClass }
+const changeClass = (node, from, to) =>
+  node.classList.replace(from, to)
+
+export { root, get, getAll, create, click, addClass, delClass, changeClass }

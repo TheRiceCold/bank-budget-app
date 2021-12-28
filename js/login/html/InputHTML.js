@@ -8,14 +8,18 @@ const validateIcons = `
 class InputHTML extends MyHTML {
   constructor(data) {
     super({ className: 'input-field' })
-    const { id, placeHolder, icon, type } = data
+    const { id, name, placeHolder, icon, type } = data
 
     this.type = !type ? 'text' : type
+    
+    const eye = type === 'password' 
+      ? '<i class="fas fa-eye" id="eye"></i>'
+      : ''
 
     this.html.innerHTML = `
       <i class="fas fa-${icon}"></i>
-      <input type="${this.type}" placeholder="${placeHolder}" id="${id}"/>
-      ${ validateIcons }`
+      <input type="${this.type}" name="${name}" placeholder="${placeHolder}" id="${id}"/>
+      ${eye} ${ validateIcons }`
   }
 }
 

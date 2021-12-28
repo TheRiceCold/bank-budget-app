@@ -1,24 +1,28 @@
-const setErrorFor = (input, message) => {
+const setMessage = (input, message, type) => {
   const inputContainer = input.parentElement
   const small = inputContainer.querySelector('small')
 
   small.textContent = message
-  inputContainer.className = 'input-field error'
+  inputContainer.className = 'input-field '+type
 }
 
-const setSuccessFor = input => {
-  const inputContainer = input.parentElement
-  inputContainer.className = 'input-field success'
-}
+const isValid = (input, regex) => {
+  const value = input.value
 
-const checkInput = (input, errCondition, errMessage) => {
-  if (errCondition)
-    setErrorFor(input, errMessage)
-  else 
-    setSuccessFor(input)
-}
+  if (value.trim() === '')
+    setMessage(input, 'This field cannot be blank', 'error')
+  else if (regex) {
+    if (!regex.test(value))
+      setMessage(input, 'regex', 'warning')
+    else {
+      setMessage(input, '', 'success')
+      return value
+    }
+  }
+  else {
+    setMessage(input, '', 'success')
+    return value
+  } 
+} 
 
-const isEmail = email => 
-  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)
-
-export { checkInput, isEmail }
+export { isValid }

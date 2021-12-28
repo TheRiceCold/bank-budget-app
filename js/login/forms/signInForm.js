@@ -14,7 +14,7 @@ const inputList = [
   }
 ]
 
-const SignInForm = new FormHTML('sign-in-form', 'signInForm', 'Sign In') 
-SignInForm.inputList = inputList
+const signInForm = new FormHTML('sign-in-form', 'signInForm', 'Sign In') 
+signInForm.inputList = inputList
 
-export default SignInForm.string
+export { signInForm }

@@ -1,20 +1,14 @@
 import Menu from './menuList.js'
 import * as dom from '../../utils/dom.js'
-import { tableToArray } from '../../utils/helpers.js'
-import { searchTable } from '../../utils/searchTable.js'
-
-const accountsMenu = () => {
-  const table = dom.get('#accountsMenu table')
-  const tableData = tableToArray(table)
-  const searchInput = dom.get('#searchInput')
-
-  searchInput.addEventListener('keyup', e => {
-    const term = e.target.value
-    searchTable(tableData, term)
-  })
-}
+import { accountsManager } from '../menus/accounts/manager.js'
 
 const changeMenu = (e, index) => {
+  if (Menu[index] === 'logout') {
+    location.reload()
+    localStorage.removeItem('isLoggedIn')
+    return 
+  }
+
   const main = dom.get('.container')
   const lastMenu = dom.get('.container main')
   const currentMenu = Menu[index].html
@@ -23,10 +17,10 @@ const changeMenu = (e, index) => {
   main.append(currentMenu)
 
   if (dom.get('#accountsMenu')) 
-    accountsMenu()
+    accountsManager()
 }
 
-export const sidebarEvents = () => {
+export const dashboardManager = () => {
   const sidebarMenus = dom.getAll('.sidebar a')
   sidebarMenus.forEach((menu, i) => 
     menu.addEventListener('click', e => changeMenu(e, i)))

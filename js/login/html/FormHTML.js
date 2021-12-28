@@ -12,7 +12,7 @@ class FormHTML extends MyHTML {
       .map(data => 
         new InputHTML(data).string).join('')
     
-    return this.html.innerHTML = 
+    this.html.innerHTML = 
       `<h2 class="title">${this.title}</h2>
       ${ inputs }
       <input type="submit" value="${this.title}" class="btn solid"/>`

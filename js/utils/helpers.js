@@ -30,5 +30,4 @@ const tableToArray = table => {
 
   return searchData
 }
-
 export { removeAllChild, copyText, tableToArray }

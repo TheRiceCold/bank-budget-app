@@ -2,7 +2,7 @@ import MainMenu from '../menus/main.js'
 import ChartMenu from '../menus/chart.js'
 import BudgetMenu from '../menus/budget.js'
 import DepositMenu from '../menus/deposit.js'
-import AccountsMenu from '../menus/accounts.js'
+import AccountsMenu from '../menus/accounts/accounts.js'
 import WithdrawMenu from '../menus/withdraw.js'
 import TransferMenu from '../menus/transfer.js'
 
@@ -14,7 +14,8 @@ const Menu = [
   TransferMenu,
   BudgetMenu,
   ChartMenu,
-  'settings'
+  'settings',
+  'logout'
 ]
 
 export default Menu

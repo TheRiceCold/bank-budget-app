@@ -6,10 +6,12 @@ const mode = e => {
   if (e.target.id === 'signUpSwitch')
     DOM.addClass(container, 'sign-up-mode')
   else 
-    DOM.subClass(container, 'sign-up-mode')
+    DOM.delClass(container, 'sign-up-mode')
 }
 
 export const switchAnim = () => {
-  DOM.click('#signUpSwitch', mode)
-  DOM.click('#signInSwitch', mode)
+  const signUp = DOM.get('#signUpSwitch')
+  const signIn = DOM.get('#signInSwitch')
+  DOM.click(signUp, mode)
+  DOM.click(signIn, mode)
 }

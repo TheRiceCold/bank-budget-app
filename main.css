@@ -514,25 +514,32 @@ main .recent-orders a {
 .input-field i:not(:first-child) {
   visibility: hidden;
   position: absolute;
-  right: 25px;
+  right: 15px;
   font-size: 1.25rem;
 }
 
+.input-field i#eye {
+  cursor: pointer;
+  visibility: visible;
+  right: 40px;
+}
+
 .input-field small {
+  font-size: 1em;
   visibility: hidden;
   position: absolute;
   bottom: -20px;
   left: 15px;
 }
 
-.input-field.error input {
-  border-color: #e74c3c;
-}
-
 .input-field.success i.fa-check-circle {
   color: #2ecc71;
   visibility: visible;
 }
+
+.input-field.error { outline: 2px solid #E74C3C; }
+.input-field.warning { outline: 2px solid orange; }
+.input-field.success { outline: 2px solid #2ECC71; }
 
 .input-field.error i.fa-exclamation-circle {
   color: #e74c3c;
@@ -541,6 +548,11 @@ main .recent-orders a {
 
 .input-field.error small {
   color: #e74c3c;
+  visibility: visible;
+}
+
+.input-field.warning small {
+  color: orange; 
   visibility: visible;
 }
 
@@ -893,10 +905,8 @@ form.sign-in-form {
   }
 }
 
-#accountsMenu td {
-  font-weight: normal;
-  font-size: 1em;
-  box-shadow: 0 2px 2px -2px #0E1119;
+#accountsMenu table {
+  font-size: 1.15em;
 }
 
 #accountsMenu td:before {
@@ -919,30 +929,25 @@ form.sign-in-form {
 }
 
 #accountsMenu td, #accountsMenu th {
-  padding-bottom: 2%;
-  padding-top: 2%;
-  padding-left:2%;  
+  text-align: center;
 }
 
 #accountsMenu th {
+  padding: 1%;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 #accountsMenu td:first-child { color: #FB667A; }
 
-#accountsMenu tr:hover {
+#accountsMenu tbody tr:hover {
   box-shadow: 0 6px 6px -6px #0E1119;
 }
 
 #accountsMenu td:hover {
   cursor: pointer;
-  background: #FFF842;
   color: #403E10;
   font-weight: bold;
-  
-  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-  transform: translate3d(6px, -6px, 0);
-  transition: all .4s ease;
 }
 
 @keyframes copied {
