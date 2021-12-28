@@ -1,11 +1,11 @@
-import { registerManager } from './register/registerManager.js'
 import { togglePassword } from './extras/togglePassword.js'
+import { registration } from './register/registration.js'
 import { switchAnim } from './extras/switchAnimation.js'
-import { loginManager } from './login/loginManager.js'
+import { login } from './login/login.js'
 
 const homeManager = () => { 
-  loginManager()
-  registerManager()
+  login()
+  registration()
   switchAnim()
   togglePassword()
 } 

@@ -1,5 +1,5 @@
-import InputHTML from './InputHTML.js'
 import MyHTML from '../../utils/MyHTML.js'
+import InputHTML from './InputHTML.js'
 
 class FormHTML extends MyHTML {
   constructor(className, id, title) {

@@ -1,13 +1,19 @@
 import * as dom from '../../utils/dom.js'
+import { findAccount } from './findAccount.js'
 import { removeAllChild } from '../../utils/helpers.js'
 import { dashboard } from '../../dashboard/dashboard.js'
 import { dashboardManager } from '../../dashboard/manager/manager.js'
-//import { signInValidate } from './validate/signInValidate.js'
 
 const callback = e => {
   e.preventDefault()
+  const form = e.target
 
-  //if (signInValidate(e.target)) {
+  if (findAccount(form))
+    console.log('found!')
+  else 
+    console.log('not found!')
+
+  //if (findAccount(form)) {
     //localStorage.isLoggedIn = true
 
     //removeAllChild(dom.root)
@@ -16,8 +22,8 @@ const callback = e => {
   //}
 }
 
-const loginManager = () => 
+const login = () => 
   dom.get('#signInForm')
     .addEventListener('submit', callback)
 
-export { loginManager }
+export { login }

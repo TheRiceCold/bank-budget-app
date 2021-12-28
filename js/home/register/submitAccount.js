@@ -1,5 +1,5 @@
+import { registerValidate } from './registerValidate.js'
 import * as dom from '../../utils/dom.js'
-import { addAccount } from './addAccount.js'
 
 const callback = e => {
   e.preventDefault()
@@ -8,7 +8,7 @@ const callback = e => {
     ? JSON.parse(localStorage.accounts) : []
 
   const form = e.target
-  addAccount(form, accounts)
+  registerValidate(form, accounts)
 }
 
 const submitAccount = () => {
