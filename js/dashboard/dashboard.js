@@ -1,10 +1,10 @@
 import MyHTML from '../utils/MyHTML.js'
-import { sidebar }from './sidebar/sidebar.js'
-import MainMenu from './menus/main.js'
+import { sidebar } from './sidebar/sidebar.js'
+import { mainMenu } from './menus/main/mainMenu.js'
 
 const content = { 
   className: 'container', 
-  inner: [sidebar, MainMenu.string]
+  inner: [sidebar, mainMenu.string]
 }
 
 const dashboard = new MyHTML(content).html

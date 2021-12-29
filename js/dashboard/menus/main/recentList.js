@@ -1,4 +1,4 @@
-export const recentList = [
+const recentList = [
   {
     "Name": "Foldable Mini Drone",
     "Phone Number": 85631,
@@ -24,3 +24,5 @@ export const recentList = [
     "Status": "Pending"
   }
 ]
+
+export { recentList }

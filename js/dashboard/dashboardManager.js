@@ -1,9 +1,9 @@
-import Menu from './menuList.js'
-import * as dom from '../../utils/dom.js'
-import { accountsManager } from '../menus/accounts/manager.js'
+import { menus } from './menus/menuList.js'
+import * as dom from '../utils/dom.js'
+import { accountsManager } from './menus/accounts/manager.js'
 
-const changeMenu = (e, index) => {
-  if (Menu[index] === 'logout') {
+const changeMenu = i => {
+  if (menus[i] === 'logout') {
     location.reload()
     localStorage.removeItem('isLoggedIn')
     return 
@@ -11,7 +11,7 @@ const changeMenu = (e, index) => {
 
   const main = dom.get('.container')
   const lastMenu = dom.get('.container main')
-  const currentMenu = Menu[index].html
+  const currentMenu = menus[i].html
 
   lastMenu.remove()
   main.append(currentMenu)
@@ -20,8 +20,10 @@ const changeMenu = (e, index) => {
     accountsManager()
 }
 
-export const dashboardManager = () => {
+const dashboardManager = () => {
   const sidebarMenus = dom.getAll('.sidebar a')
   sidebarMenus.forEach((menu, i) => 
-    menu.addEventListener('click', e => changeMenu(e, i)))
+    menu.addEventListener('click', () => changeMenu(i)))
 }
+
+export { dashboardManager }

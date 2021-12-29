@@ -1,6 +1,6 @@
 import MyHTML from '../../../utils/MyHTML.js'
 import { jsonTable } from '../../../utils/jsonTable.js'
-import { recentList } from '../../manager/recentList.js'
+import { recentList } from './recentList.js'
 
 const content = {
   className: 'recent-orders',

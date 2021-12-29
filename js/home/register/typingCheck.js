@@ -2,9 +2,9 @@ import { getValidValue } from './validate.js'
 import * as DOM from '../../utils/dom.js'
 import { regexList } from './regex.js'
 
-const confirmPassword = () => {
-  const password = DOM.get('#signUpForm input[name="password"]')
-  const confirmPassword = DOM.get('#signUpForm input[name="confirmPassword"]')
+const confirmPassword = form => {
+  const password = form.password
+  const confirmPassword = form.confirmPassword
 
   confirmPassword.addEventListener('keyup', () => {
     if (password.value !== confirmPassword.value)
@@ -12,8 +12,8 @@ const confirmPassword = () => {
   })
 }
 
-const findEmail = () => {
-  const email = DOM.get('#signUpForm input[name="email"]')
+const findEmail = form => {
+  const email = form.email
   const accounts = JSON.parse(localStorage.accounts)
   const checkEmail = accounts.find(account => account.email === email.value)
 
@@ -22,13 +22,16 @@ const findEmail = () => {
 }
 
 const callback = (e, i) => {
+  const form = DOM.get('#signUpForm')
   const inputField = e.target
   const inputName = inputField.attributes.name.value
+
+  findEmail(form)
+  confirmPassword(form)
+
   const regex = regexList[i].regex
   const message = regexList[i].message
   getValidValue(inputField, regex, message)
-  findEmail()
-  confirmPassword()
 }
 
 const typingCheck = () => {

@@ -1,4 +1,4 @@
-export const insightList = [
+const insightList = [
   {
     className: 'sales',
     title: 'Total Accounts',
@@ -28,3 +28,5 @@ export const insightList = [
     icon: 'stacked_line_chart'
   }
 ]
+
+export { insightList }

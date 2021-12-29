@@ -1,6 +1,6 @@
 import MyHTML from '../../../utils/MyHTML.js'
 import CardHTML from '../../html/CardHTML.js'
-import { insightList } from '../../manager/insightList.js'
+import { insightList } from './insightList.js'
 
 const cards = insightList
   .map(card =>

@@ -1,4 +1,4 @@
-import { dashboardManager } from './dashboard/manager/manager.js'
+import { dashboardManager } from './dashboard/dashboardManager.js'
 import { homeManager } from './home/homeManager.js'
 import { dashboard } from './dashboard/dashboard.js'
 import { home } from './home/homePage.js'

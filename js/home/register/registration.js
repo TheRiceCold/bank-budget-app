@@ -1,10 +1,13 @@
-import { submitAccount } from './submitAccount.js'
+import * as DOM from '../../utils/dom.js'
+import { submitValidate } from './submitValidate.js'
 import { typingCheck } from './typingCheck.js'
 import { getValidValue } from './validate.js'
 
 const registration = () => {
   typingCheck()
-  submitAccount()
+
+  const form = DOM.get('#signUpForm')
+  form.addEventListener('submit', submitValidate)   
 }
 
 export { registration }
