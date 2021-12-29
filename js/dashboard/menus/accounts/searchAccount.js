@@ -2,7 +2,7 @@ import { searchTable } from '../../../utils/searchTable.js'
 import { tableToArray } from '../../../utils/helpers.js'
 import * as dom from '../../../utils/dom.js'
 
-const accountsManager = () => {
+const searchAccount = () => {
   const table = dom.get('#accountsMenu table')
   const tableData = tableToArray(table)
   const searchInput = dom.get('#searchInput')
@@ -13,4 +13,4 @@ const accountsManager = () => {
   })
 }
 
-export { accountsManager }
+export { searchAccount }

@@ -1,25 +1,25 @@
 import MyHTML from '../../utils/MyHTML.js'
-import { sidebarMenu }from './sidebarMenu.js'
+import { sidebarLabels } from './sidebarLabels.js'
 
-const logo = new MyHTML({
-  className: 'logo',
-  inner: '<img src="./img/logo.png"/> <h2>Walter</h2>' 
-}).string
+const sidebarButtonInner = ({ text, icon }) => `
+  <i class=\"fas fa-${icon}\"></i>
+  <h3>${text}</h3>`
 
-const closeBtn = new MyHTML({
-  className: 'close',
-  id: 'closeBtn',
-  inner: '<span class="material-icons-sharp">close</span>'
-}).string
+const sidebarButtons = sidebarLabels
+  .map(label => new MyHTML({
+      tag: 'a',
+      id: label.id,
+      inner: sidebarButtonInner(label)
+    }).string
+  ).join('')
 
-const top = new MyHTML({
-  className: 'top',
-  inner: [logo, closeBtn] 
-}).string
+const content = { className: 'sidebar', inner: sidebarButtons }
+
+const sidebarMenu = new MyHTML(content).string
 
 const sidebar = new MyHTML({ 
   tag: 'aside', 
-  inner: [top, sidebarMenu] 
+  inner: ['<img src="./img/logo.png"/>', sidebarMenu] 
 }).string
 
 export { sidebar }

@@ -1,11 +1,11 @@
 import MenuHTML from '../../html/MenuHTML.js'
-import { recent } from './recent.js'
+import { newAccounts } from './newAccounts.js'
 import { insights } from './insights.js'
 
 const content = {
-  id: 'dashboardMenu',
+  id: 'mainMenu',
   title: 'Dashboard',
-  inner: [insights, recent]
+  inner: [insights, newAccounts]
 }
 
 const mainMenu = new MenuHTML(content)

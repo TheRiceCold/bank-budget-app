@@ -186,7 +186,7 @@ aside .sidebar a {
   transition: all .3s ease;
 }
 
-aside .sidebar a span {
+aside .sidebar a i {
   font-size: 1.6rem;
   transition: all .3s ease;
 }
@@ -210,7 +210,7 @@ aside .sidebar a.active:before {
   background: var(--color-primary);
 }
 
-aside .sidebar a.active span {
+aside .sidebar a.active i {
   color: var(--color-primary);
   margin-left: calc(1rem - 3px);
 }
@@ -219,7 +219,7 @@ aside .sidebar a:hover {
   color: var(--color-primary);
 }
 
-aside .sidebar a:hover span {
+aside .sidebar a:hover i {
   margin-left: 1rem;
 }
 
@@ -271,7 +271,7 @@ main .insights > div:hover {
   box-shadow: none;
 }
 
-main .insights > div span {
+main .insights > div i {
   background: var(--color-primary);
   padding: .5rem;
   border-radius: 50%;
@@ -279,11 +279,11 @@ main .insights > div span {
   font-size: 2rem;
 }
 
-main .insights > div.expenses span {
+main .insights > div.expenses i {
   background: var(--color-danger);
 }
 
-main .insights > div.income span {
+main .insights > div.income i {
   background: var(--color-success);
 }
 
@@ -310,15 +310,15 @@ main .insights small {
   display: block;
 }
 
-main .recent-orders {
+#newAccounts {
   margin-top: 2rem;
 }
 
-main .recent-orders h2 {
+#newAccounts h2 {
   margin-bottom: .8rem;
 }
 
-main .recent-orders table {
+#newAccounts table {
   background: var(--color-white);
   width: 100%;
   border-radius: var(--card-border-radius);
@@ -328,7 +328,11 @@ main .recent-orders table {
   transition: all .3s ease;
 }
 
-main .recent-orders table:hover {
+#newAccounts table thead {
+  text-transform: uppercase;
+}
+
+#newAccounts table:hover {
   box-shadow: none;
 }
 
@@ -342,7 +346,7 @@ main table tbody tr:last-child td {
   border: none;
 }
 
-main .recent-orders a {
+#newAccounts a {
   text-align: center;
   display: block;
   margin: 1rem auto;

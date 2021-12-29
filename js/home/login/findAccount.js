@@ -9,6 +9,9 @@ const findAccount = form => {
 
     const findEmail = account.email === email.value
     const findPassword = decryptPassword === password.value
+
+    if (findEmail && findPassword)
+      localStorage.loggedAccount = JSON.stringify(account)
     
     return findEmail && findPassword
   })

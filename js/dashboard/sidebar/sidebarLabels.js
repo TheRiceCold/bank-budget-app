@@ -1,38 +1,39 @@
 export const sidebarLabels = [
   {
     text: 'Dashboard',
-    icon: 'grid_view'
+    icon: 'th-large'
   },
   {
+    id: 'accountsLink',
     text: 'Accounts',
-    icon: 'person_outline'
+    icon: 'user'
   },
   {
     text: 'Deposit',
-    icon: 'receipt_long'
+    icon: 'piggy-bank'
   },
   {
     text: 'Withdraw',
-    icon: 'insights'
+    icon: 'money-check'
   },
   {
     text: 'Transfer',
-    icon: 'mail_outline'
+    icon: 'coins'
   },
   {
     text: 'Budget',
-    icon: 'inventory'
+    icon: 'wallet'
   },
   {
     text: 'Chart',
-    icon: 'report_gmailerrorred'
+    icon: 'chart-bar'
   },
   {
-    text: 'Settings',
-    icon: 'settings'
+    text: 'Setting',
+    icon: 'user-cog'
   },
   {
     text: 'Logout',
-    icon: 'logout'
+    icon: 'sign-out-alt'
   }
 ]

@@ -9,13 +9,11 @@ const callback = e => {
   const form = e.target
 
   if (findAccount(form)) {
-    localStorage.isLoggedIn = true
-    
     removeAllChild(DOM.root)
     DOM.root.append(dashboard)
     dashboardManager()
   }
-  else console.log('account not found!')
+  else alert('account does not exist!')
 }
 
 const login = () => 
