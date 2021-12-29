@@ -1,40 +1,33 @@
-if (!localStorage.accounts)
-  localStorage.accounts = JSON.stringify(defaultList)
+import { storedAccounts } from '../../../utils/storage.js'
+import { loggedAccount } from '../../../utils/storage.js'
 
-const storedAccounts = localStorage.accounts
-  ? JSON.parse(localStorage.accounts) : []
-
-if (!localStorage.loggedAccount)
-  localStorage.loggedAccount = '{}'
-
-const loggedAccount = JSON.parse(localStorage.loggedAccount)
 const accounts = storedAccounts.length
-const lastRegisteredAccount = storedAccounts[accounts-1].fullname
+const newAccounts = storedAccounts[accounts-1].fullname
 const balance = loggedAccount.balance
 
 const insightList = [
   {
-    title: 'Current Balance',
+    title: 'balance',
     total: balance,
-    description: `Last saved: ${0}`,
+    description: `Last balance: ${0}`,
     icon: 'money-bill'
   },
   {
-    title: 'Total Savings',
+    title: 'total expenses',
     total: '524',
-    description: 'Last saved: 1000PHP',
+    description: `Last expense: ${0}`,
     icon: 'hand-holding-usd'
   },
   {
-    title: 'Total Withdrawal',
+    title: 'total withdrawal',
     total: '10,864',
-    description: 'Last saved: 1000PHP',
+    description: `Last withdraw: ${0}`,
     icon: 'receipt'
   },
   {
-    title: 'Total Accounts',
+    title: 'last transfer',
     total: accounts,
-    description: `Last added: ${lastRegisteredAccount}`,
+    description: `Transfered to: ${newAccounts}`,
     icon: 'users'
   }
 ]

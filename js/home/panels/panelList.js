@@ -11,7 +11,7 @@ const panelRight = {
 
 const panelLeft = {
   position: 'left',
-  title: 'New Here?',
+  title: 'Banking & Budgeting made Simple',
   description: `
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
     ex ratione. Aliquid!`,

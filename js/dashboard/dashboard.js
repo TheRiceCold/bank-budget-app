@@ -1,6 +1,6 @@
-import MyHTML from '../utils/MyHTML.js'
-import { sidebar } from './sidebar/sidebar.js'
 import { mainMenu } from './menus/main/mainMenu.js'
+import { sidebar } from './sidebar/sidebar.js'
+import MyHTML from '../utils/MyHTML.js'
 
 const content = { 
   className: 'container', 

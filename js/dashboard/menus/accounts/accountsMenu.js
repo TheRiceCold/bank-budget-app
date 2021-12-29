@@ -1,12 +1,7 @@
-import { defaultList } from './defaultList.js'
+import { storedAccounts } from '../../../utils/storage.js'
 import { jsonTable } from '../../../utils/jsonTable.js'
+import { defaultList } from './defaultList.js'
 import MenuHTML from '../../html/MenuHTML.js'
-
-if (!localStorage.accounts)
-  localStorage.accounts = JSON.stringify(defaultList)
-
-const storedAccounts = localStorage.accounts
-  ? JSON.parse(localStorage.accounts) : []
 
 const tableAccounts = list => {
   const accounts = list.map(account => {

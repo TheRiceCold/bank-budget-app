@@ -1,5 +1,5 @@
-import * as dom from './dom.js'
 import { copyText } from './helpers.js'
+import * as dom from './dom.js'
 
 const jsonTable = (data, container) => { 
   const table = dom.create('table')

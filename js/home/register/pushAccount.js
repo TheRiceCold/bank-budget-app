@@ -1,5 +1,5 @@
-import * as DOM from '../../utils/dom.js'
 import { getValidValue } from './validate.js'
+import * as DOM from '../../utils/dom.js'
 
 const pushAccount = (form, list) => {
   const id = list.length + 1

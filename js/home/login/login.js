@@ -1,8 +1,8 @@
-import * as DOM from '../../utils/dom.js'
-import { findAccount } from './findAccount.js'
-import { removeAllChild } from '../../utils/helpers.js'
-import { dashboard } from '../../dashboard/dashboard.js'
 import { dashboardManager } from '../../dashboard/dashboardManager.js'
+import { dashboard } from '../../dashboard/dashboard.js'
+import { removeAllChild } from '../../utils/helpers.js'
+import { findAccount } from './findAccount.js'
+import * as DOM from '../../utils/dom.js'
 
 const callback = e => {
   e.preventDefault()
@@ -13,7 +13,6 @@ const callback = e => {
     DOM.root.append(dashboard)
     dashboardManager()
   }
-  else alert('account does not exist!')
 }
 
 const login = () => 

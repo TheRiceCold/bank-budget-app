@@ -1,15 +1,14 @@
 import { dashboardManager } from './dashboard/dashboardManager.js'
-import { homeManager } from './home/homeManager.js'
 import { dashboard } from './dashboard/dashboard.js'
+import { homeManager } from './home/homeManager.js'
+import { isLoggedIn } from './utils/storage.js'
 import { home } from './home/homePage.js'
 import { root } from './utils/dom.js'
 
-const loggedAccount = JSON.parse(localStorage.loggedAccount)
-
-if (Object.keys(loggedAccount).length === 0) {
-  root.append(home)
-  homeManager()
-} else {
+if (isLoggedIn) {
   root.append(dashboard)
   dashboardManager()
+} else {
+  root.append(home)
+  homeManager()
 }

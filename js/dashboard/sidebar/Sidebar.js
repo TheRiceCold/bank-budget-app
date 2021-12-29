@@ -1,5 +1,5 @@
-import MyHTML from '../../utils/MyHTML.js'
 import { sidebarLabels } from './sidebarLabels.js'
+import MyHTML from '../../utils/MyHTML.js'
 
 const sidebarButtonInner = ({ text, icon }) => `
   <i class=\"fas fa-${icon}\"></i>

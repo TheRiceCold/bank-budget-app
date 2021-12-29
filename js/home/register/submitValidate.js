@@ -1,5 +1,5 @@
-import { getValidValue } from './validate.js'
 import { pushAccount } from './pushAccount.js'
+import { getValidValue } from './validate.js'
 
 const validate = (form, accounts) => {
   const fullname = form.fullname

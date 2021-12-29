@@ -294,6 +294,7 @@ main .insights > div .middle {
 }
 
 main .insights h3 {
+  text-transform: capitalize;
   margin: 1rem 0 .6rem;
   font-size: 1rem;
 }
@@ -329,7 +330,7 @@ main .insights small {
 }
 
 #newAccounts table thead {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 #newAccounts table:hover {
@@ -651,7 +652,7 @@ form.sign-in-form {
 
 .btn {
   width: 150px;
-  background: #56C596;
+  background: var(--color-primary);
   outline: none;
   height: 49px;
   border-radius: 15px;
@@ -684,7 +685,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #7BE495 0%, #56C596 100%);
+  background: #7380ec;
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -724,10 +725,12 @@ form.sign-in-form {
 .panel h3 {
   font-weight: 600;
   line-height: 1;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .panel p {
+  margin: 1rem 0;
+  color: #fff;
   font-size: 0.95rem;
   padding: 0.7rem 0;
 }
@@ -939,7 +942,7 @@ form.sign-in-form {
 #accountsMenu th {
   padding: 1%;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 #accountsMenu td:first-child { color: #FB667A; }

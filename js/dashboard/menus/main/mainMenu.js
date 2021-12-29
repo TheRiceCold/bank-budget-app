@@ -1,5 +1,5 @@
-import MenuHTML from '../../html/MenuHTML.js'
 import { newAccounts } from './newAccounts.js'
+import MenuHTML from '../../html/MenuHTML.js'
 import { insights } from './insights.js'
 
 const content = {

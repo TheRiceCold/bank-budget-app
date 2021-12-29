@@ -1,7 +1,7 @@
-import * as DOM from '../../utils/dom.js'
 import { submitValidate } from './submitValidate.js'
 import { typingCheck } from './typingCheck.js'
 import { getValidValue } from './validate.js'
+import * as DOM from '../../utils/dom.js'
 
 const registration = () => {
   typingCheck()

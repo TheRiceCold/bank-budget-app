@@ -1,13 +1,20 @@
+import * as DOM from './dom.js'
+
 const removeAllChild = parent => {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild)
   }
 }
 
+const currentDate = () => {
+  let today = new Date().toISOString().split('T')[0]
+  const date = DOM.get('header input[type="date"]')
+  date.value = today
+}
+
 const copyText = e => {
   const textCopy = e.target.textContent
   const copyInput = document.createElement('input')
-  console.log('hey')
 
   e.target.classList.toggle('copied')
 
@@ -30,4 +37,4 @@ const tableToArray = table => {
 
   return searchData
 }
-export { removeAllChild, copyText, tableToArray }
+export { removeAllChild, copyText, tableToArray, currentDate }
