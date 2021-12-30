@@ -1,4 +1,4 @@
-import { currentDate } from '../../utils/helpers.js'
+import { currentDate, showName } from '../../utils/helpers.js'
 import { sidebarLabels } from './sidebarLabels.js'
 import * as DOM from '../../utils/dom.js'
 
@@ -11,6 +11,7 @@ const logout = i => {
 }
 
 const sidebarMenus = i => {
+  showName()
   logout(i)
 
   const main = DOM.get('.container')

@@ -1,5 +1,5 @@
 import { dashboardManager } from '../../dashboard/dashboardManager.js'
-import { dashboard } from '../../dashboard/dashboard.js'
+import { dashboard } from '../../dashboard/dashboardPage.js'
 import { removeAllChild } from '../../utils/helpers.js'
 import { findAccount } from './findAccount.js'
 import * as DOM from '../../utils/dom.js'

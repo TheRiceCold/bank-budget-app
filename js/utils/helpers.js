@@ -1,4 +1,5 @@
 import * as DOM from './dom.js'
+import { firstName } from './storage.js'
 
 const removeAllChild = parent => {
   while (parent.firstChild) {
@@ -10,6 +11,11 @@ const currentDate = () => {
   let today = new Date().toISOString().split('T')[0]
   const date = DOM.get('header input[type="date"]')
   date.value = today
+}
+
+const showName = () => {
+  const name = DOM.get('#accountName')
+  name.textContent = 'Hello ' + firstName
 }
 
 const copyText = e => {
@@ -37,4 +43,5 @@ const tableToArray = table => {
 
   return searchData
 }
-export { removeAllChild, copyText, tableToArray, currentDate }
+
+export { removeAllChild, copyText, tableToArray, currentDate, showName }

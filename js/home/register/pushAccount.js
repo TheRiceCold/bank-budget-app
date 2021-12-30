@@ -20,6 +20,9 @@ const pushAccount = (form, list) => {
     mobile: mobile.value,
     password: encryptPassword,
     balance: 0,
+    expenses: 0,
+    withdraws: 0,
+    history: [],
     date: today
   })
   localStorage.accounts = JSON.stringify(list)

@@ -1,22 +1,9 @@
-import { storedAccounts } from '../../../utils/storage.js'
+import { accountsToDisplay } from '../../../utils/accountsToDisplay.js'
+import { getStoredAccounts } from '../../../utils/storage.js'
 import { jsonTable } from '../../../utils/jsonTable.js'
 import MyHTML from '../../../utils/MyHTML.js'
 
-const tableAccounts = list => {
-  const accounts = list.map(account => {
-    const cloneAccount = Object.assign({}, account)
-
-    delete cloneAccount.id
-    delete cloneAccount.password
-    delete cloneAccount.mobile
-    
-    return cloneAccount
-  })
-
-  return accounts
-}
-
-const list = tableAccounts(storedAccounts).reverse()
+const list = accountsToDisplay(getStoredAccounts()).reverse()
 list.length = 5
 
 const content = {

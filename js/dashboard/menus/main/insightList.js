@@ -1,8 +1,8 @@
-import { storedAccounts } from '../../../utils/storage.js'
+import { getStoredAccounts } from '../../../utils/storage.js'
 import { loggedAccount } from '../../../utils/storage.js'
 
-const accounts = storedAccounts.length
-const newAccounts = storedAccounts[accounts-1].fullname
+const accounts = getStoredAccounts().length
+const newAccounts = getStoredAccounts()[accounts-1].fullname
 const balance = loggedAccount.balance
 
 const insightList = [
@@ -10,25 +10,25 @@ const insightList = [
     title: 'balance',
     total: balance,
     description: `Last balance: ${0}`,
-    icon: 'money-bill'
+    icon: 'piggy-bank'
   },
   {
     title: 'total expenses',
     total: '524',
     description: `Last expense: ${0}`,
-    icon: 'hand-holding-usd'
+    icon: 'coins'
   },
   {
     title: 'total withdrawal',
     total: '10,864',
     description: `Last withdraw: ${0}`,
-    icon: 'receipt'
+    icon: 'money-check-alt'
   },
   {
     title: 'last transfer',
     total: accounts,
     description: `Transfered to: ${newAccounts}`,
-    icon: 'users'
+    icon: 'hand-holding-usd'
   }
 ]
 

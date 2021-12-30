@@ -164,11 +164,11 @@ aside .close {
 }
 
 aside .sidebar {
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   height: 86vh;
   position: relative;
-  top: 3rem;
 }
 
 aside h3 {
@@ -971,7 +971,12 @@ form.sign-in-form {
   }
 }
 
-#accountsMenu #searchInput {
+#accountName {
+  margin-top: 33px;
+  margin-left: 25px;
+}
+
+.search{
   padding: 5px;
   margin: 25px 5px;
   border-radius: 5px;
@@ -992,4 +997,57 @@ form.sign-in-form {
 @media (max-width: 800px) {
   #accountsMenu table td:nth-child(4),
   #accountsMenu table th:nth-child(4) { display: none; }
+}
+
+#historyMenu #buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#historyMenu .row {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  margin: 10px 80px;
+}
+
+#historyMenu .row, #historyMenu .card{
+  padding: 8px;
+}
+
+#historyMenu .card {
+  width: 250px;
+  margin-bottom: 10px;
+  border: 1px solid var(--color-primary);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+#historyMenu i {
+  color: var(--color-primary);
+  font-size: 1.75em;
+  margin: auto 15px;
+}
+
+#historyMenu h3 {
+  font-size: 1.25em;
+}
+
+.show { display: block; }
+
+#historyMenu .btn {
+  height: 40px;
+  width: 100px;
+  border: none;
+  outline: none;
+  color: var(--color-primary);
+  background: none;
+  cursor: pointer;
+}
+
+#historyMenu .btn:hover { background: #ddd; }
+
+#historyMenu .btn.active {
+  color: white;
+  background: var(--color-primary);
 }

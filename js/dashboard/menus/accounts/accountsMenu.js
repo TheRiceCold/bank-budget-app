@@ -1,29 +1,16 @@
-import { storedAccounts } from '../../../utils/storage.js'
+import { accountsToDisplay } from '../../../utils/accountsToDisplay.js'
+import { getStoredAccounts } from '../../../utils/storage.js'
 import { jsonTable } from '../../../utils/jsonTable.js'
-import { defaultList } from './defaultList.js'
 import MenuHTML from '../../html/MenuHTML.js'
 
-const tableAccounts = list => {
-  const accounts = list.map(account => {
-    const cloneAccount = Object.assign({}, account)
-
-    delete cloneAccount.password
-    delete cloneAccount.mobile
-    
-    return cloneAccount
-  })
-
-  return accounts
-}
-
-const list = tableAccounts(storedAccounts)
+const accounts = accountsToDisplay(getStoredAccounts())
 
 const content = {
   id: 'accountsMenu', 
   title: 'Accounts', 
   inner: [
-    `<input type="text" id="searchInput" placeholder="Search"/>`,
-    jsonTable(list).outerHTML
+    `<input type="text" id="accountSearch" class="search" placeholder="Search"/>`,
+    jsonTable(accounts).outerHTML,
   ]
 }
 

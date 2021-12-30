@@ -1,5 +1,5 @@
 import { dashboardManager } from './dashboard/dashboardManager.js'
-import { dashboard } from './dashboard/dashboard.js'
+import { dashboard } from './dashboard/dashboardPage.js'
 import { homeManager } from './home/homeManager.js'
 import { isLoggedIn } from './utils/storage.js'
 import { home } from './home/homePage.js'

@@ -1,24 +1,34 @@
 import { searchAccount } from './menus/accounts/searchAccount.js'
+import { historyFilter } from './menus/history/historyFilter.js'
+import { currentDate, showName } from '../utils/helpers.js'
 import { sidebarMenus } from './sidebar/sidebarMenus.js'
-import { currentDate } from '../utils/helpers.js'
 import { seeAll } from './menus/main/seeAll.js'
 import * as DOM from '../utils/dom.js'
 
 const changeMenus = i => { 
   sidebarMenus(i)
+
   if (DOM.get('#mainMenu'))
     seeAll()
   else if (DOM.get('#accountsMenu')) 
     searchAccount()
+  else if (DOM.get('#historyMenu')) {
+    historyFilter()
+
+  }
+}
+
+const sidebarButtons = () => {
+  const buttons = DOM.getAll('.sidebar a')
+  buttons.forEach((button, i) => 
+    button.addEventListener('click', () => changeMenus(i)))
 }
 
 const dashboardManager = () => {
-  const sidebarButtons = DOM.getAll('.sidebar a')
-  for (let i = 0; i < sidebarButtons.length; i++) {
-    const button = sidebarButtons[i]
-    button.addEventListener('click', () => changeMenus(i))
-  }
+  sidebarButtons() 
   currentDate()
+  showName()
+  seeAll()
 }
 
 export { dashboardManager }

@@ -5,7 +5,7 @@ import * as dom from '../../../utils/dom.js'
 const searchAccount = () => {
   const table = dom.get('#accountsMenu table')
   const tableData = tableToArray(table)
-  const searchInput = dom.get('#searchInput')
+  const searchInput = dom.get('#accountSearch')
 
   searchInput.addEventListener('keyup', e => {
     const term = e.target.value

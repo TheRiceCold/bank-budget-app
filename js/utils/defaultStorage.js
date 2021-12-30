@@ -6,7 +6,10 @@ const defaultAccounts = [
     mobile: '09612820594',
     password: 'MTIz',
     balance: 1000,
-    date: '12/23/2021'
+    expenses: 500,
+    withdraws: 2000,
+    history: [],
+    date: '12/23/2021',
   },
   {
     id: 2,
@@ -14,8 +17,11 @@ const defaultAccounts = [
     email: 'elonMusk@rocketScience.co',
     mobile: '639612820594',
     password: 'MTIz',
-    balance: 5000,
-    date: '12/23/2021'
+    balance: 5000, 
+    expenses: 500,
+    withdraws: 2000,
+    history: [],
+    date: '12/23/2021',
   },
   {
     id: 3,
@@ -24,7 +30,10 @@ const defaultAccounts = [
     mobile: '09612820594',
     password: 'MTIz',
     balance: 20000,
-    date: '12/23/2021'
+    expenses: 500,
+    withdraws: 2000,
+    history: [],
+    date: '12/23/2021',
   },
   {
     id: 4,
@@ -33,7 +42,10 @@ const defaultAccounts = [
     mobile: '639612820594',
     password: 'MTIz',
     balance: 15000,
-    date: '12/23/2021'
+    expenses: 500,
+    withdraws: 2000,
+    history: [],
+    date: '12/23/2021',
   },
   {
     id: 5,
@@ -42,6 +54,9 @@ const defaultAccounts = [
     mobile: '09612820594',
     password: 'MTIz',
     balance: 15000,
+    expenses: 500,
+    withdraws: 2000,
+    history: [],
     date: '12/23/2021'
   }
 ]

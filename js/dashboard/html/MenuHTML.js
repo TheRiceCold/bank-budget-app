@@ -9,11 +9,15 @@ const getHeader = title => `
   </header>`
 
 class MenuHTML extends MyHTML {
-  constructor({ id, title, inner = [] }) {
+  constructor({ id, title, inner }) {
+    inner = Array.isArray(inner) 
+        ? inner.join('') 
+        : inner
+
     const content = { 
       tag: 'main',
       id: id,
-      inner: [getHeader(title), inner.join('')]
+      inner: [getHeader(title), inner]
     }
     super(content)
   }

@@ -2,7 +2,7 @@ import { sidebarLabels } from './sidebarLabels.js'
 import MyHTML from '../../utils/MyHTML.js'
 
 const sidebarButtonInner = ({ text, icon }) => `
-  <i class=\"fas fa-${icon}\"></i>
+  <i class=\"${icon}\"></i>
   <h3>${text}</h3>`
 
 const sidebarButtons = sidebarLabels
@@ -19,7 +19,7 @@ const sidebarMenu = new MyHTML(content).string
 
 const sidebar = new MyHTML({ 
   tag: 'aside', 
-  inner: ['<img src="./img/logo.png"/>', sidebarMenu] 
+  inner: ['<h2 id="accountName">Welcome Shay</h2>', sidebarMenu] 
 }).string
 
 export { sidebar }
