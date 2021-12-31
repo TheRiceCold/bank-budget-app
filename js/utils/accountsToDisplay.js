@@ -4,9 +4,8 @@ const accountsToDisplay = list => {
 
     delete cloneAccount.password
     delete cloneAccount.mobile
-    delete cloneAccount.expenses
-    delete cloneAccount.withdraws
     delete cloneAccount.history
+    delete cloneAccount.plans
     
     return cloneAccount
   })

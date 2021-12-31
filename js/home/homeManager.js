@@ -1,11 +1,11 @@
 import { togglePassword } from './extras/togglePassword.js'
-import { registration } from './register/registration.js'
 import { switchAnim } from './extras/switchAnimation.js'
+import { register } from './register/register.js'
 import { login } from './login/login.js'
 
 const homeManager = () => { 
   login()
-  registration()
+  register()
   switchAnim()
   togglePassword()
 } 

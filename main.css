@@ -60,7 +60,7 @@ body {
   color: var(--color-dark);
 }
 
-.container {
+#dashboard {
   display: grid;
   width: 96%;
   margin: 0 auto;
@@ -1050,4 +1050,130 @@ form.sign-in-form {
 #historyMenu .btn.active {
   color: white;
   background: var(--color-primary);
+}
+
+#scheduleMenu #container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#scheduleMenu button {
+  width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px gray;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+#scheduleMenu #header {
+  width: 100%;
+  color: #d36c6c;
+  font-size: 26px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-around;
+}
+#scheduleMenu #header button {
+  background:#92a1d1;
+}
+#scheduleMenu #weekdays {
+  display: flex;
+  color: #247BA0;
+}
+#scheduleMenu #weekdays h3{
+  text-align: center;
+  width: 150px;
+  padding: 10px;
+}
+#scheduleMenu #calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 150px);
+  justify-items: center;
+}
+#scheduleMenu .day {
+  width: 125px;
+  padding: 10px;
+  height: 80px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: white;
+  margin: 5px;
+  box-shadow: 0 0 3px #CBD4C2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#scheduleMenu .day:hover {
+  background: #e8faed;
+}
+
+#scheduleMenu .day + #currentDay {
+  background-color:#e8f4fa;
+}
+#scheduleMenu .event {
+  font-size: 10px;
+  padding: 3px;
+  background-color: #58bae4;
+  color: white;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: hidden;
+}
+#scheduleMenu .padding {
+  cursor: default !important;
+  background-color: #FFFCFF !important;
+  box-shadow: none !important;
+}
+#scheduleMenu #newEventModal, #scheduleMenu #deleteEventModal {
+  display: none;
+  z-index: 20;
+  padding: 25px;
+  background-color: #e8f4fa;
+  box-shadow: 0px 0px 3px black;
+  border-radius: 5px;
+  width: 350px;
+  top: 100px;
+  left: calc(50% - 175px);
+  position: absolute;
+  font-family: sans-serif;
+}
+#scheduleMenu #eventTitleInput {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px gray;
+}
+#scheduleMenu #eventTitleInput.error {
+  border: 2px solid red;
+}
+#scheduleMenu #cancelButton, #scheduleMenu #deleteButton {
+  background-color: #d36c6c;
+}
+#scheduleMenu #saveButton, #scheduleMenu #closeButton {
+  background-color: #92a1d1;
+}
+#scheduleMenu #eventText {
+  font-size: 14px;
+}
+#scheduleMenu #modalBackDrop {
+  display: none;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+}
+#chartMenu .canvas-wrapper {
+  width: 1000px;
+  height: 500px;
+  display: inline-block;
+  margin: auto;
 }

@@ -11,11 +11,12 @@ if (!localStorage.loggedAccount)
   localStorage.loggedAccount = '[]'
 
 const loggedAccount = JSON.parse(localStorage.loggedAccount)
-let accountName = loggedAccount.fullname
-const history = loggedAccount.history
 
-if (!accountName)
+let accountName = loggedAccount.fullname
+if (!loggedAccount.fullname)
   accountName = ''
+
+const history = loggedAccount.history
 
 const firstName = accountName.substring(0, accountName.indexOf(' '))
 const isLoggedIn = !Array.isArray(loggedAccount)

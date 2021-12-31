@@ -17,7 +17,7 @@ class CardHTML extends MyHTML {
   constructor(card) {
     const { className, description, icon } = card
     const inner = [
-      `<i class="fas fa-${icon}"></i>`,
+      `<i class="${icon}"></i>`,
       content(card).string,
       `<small class="text-muted">${description}</small>`
     ]

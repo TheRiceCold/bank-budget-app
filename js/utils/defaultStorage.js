@@ -6,9 +6,8 @@ const defaultAccounts = [
     mobile: '09612820594',
     password: 'MTIz',
     balance: 1000,
-    expenses: 500,
-    withdraws: 2000,
     history: [],
+    plans: [],
     date: '12/23/2021',
   },
   {
@@ -18,9 +17,8 @@ const defaultAccounts = [
     mobile: '639612820594',
     password: 'MTIz',
     balance: 5000, 
-    expenses: 500,
-    withdraws: 2000,
     history: [],
+    plans: [],
     date: '12/23/2021',
   },
   {
@@ -30,9 +28,8 @@ const defaultAccounts = [
     mobile: '09612820594',
     password: 'MTIz',
     balance: 20000,
-    expenses: 500,
-    withdraws: 2000,
     history: [],
+    plans: [],
     date: '12/23/2021',
   },
   {
@@ -42,9 +39,8 @@ const defaultAccounts = [
     mobile: '639612820594',
     password: 'MTIz',
     balance: 15000,
-    expenses: 500,
-    withdraws: 2000,
     history: [],
+    plans: [],
     date: '12/23/2021',
   },
   {
@@ -54,9 +50,8 @@ const defaultAccounts = [
     mobile: '09612820594',
     password: 'MTIz',
     balance: 15000,
-    expenses: 500,
-    withdraws: 2000,
     history: [],
+    plans: [],
     date: '12/23/2021'
   }
 ]

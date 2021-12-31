@@ -3,7 +3,7 @@ import { sidebar } from './sidebar/sidebar.js'
 import MyHTML from '../utils/MyHTML.js'
 
 const content = { 
-  className: 'container', 
+  id: 'dashboard', 
   inner: [sidebar, mainMenu.string]
 }
 

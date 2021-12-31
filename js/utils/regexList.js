@@ -12,7 +12,7 @@ const regexList = [
     message: 'Mobile no. must be a valid, 09 or 639 format'
   },
   {
-    regex: /^(?=(.*\d){8})[a-zA-Z\d]{8,20}$/,
+    regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/,
     message: 'Password must 8 - 20 characters'
   },
   {

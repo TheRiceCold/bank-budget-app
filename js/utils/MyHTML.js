@@ -1,24 +1,28 @@
 class MyHTML {
-  constructor({ tag = 'div', className = '', id = '', text = '', inner = '', }) {
+  constructor(options) {
+    const className = options.className || ''
+    const tag = options.tag || 'div'
+    const id = options.id || ''
+
     this.html = document.createElement(tag)
-    this.html.textContent = text
+    this.inner(options.inner)
+    this.init(className, id)
+  }
 
-    this.html.innerHTML = 
-      Array.isArray(inner) 
-        ? inner.join('') 
-        : inner
-
+  init(className, id) {
     if (id.trim() !== '') 
       this.html.id = id
     if (className.trim() !== '')
       this.html.className = className
   }
 
-  attr(attr, value) {
-    this.html.setAtrribute(attr, value)
+  inner(content) {
+    this.html.innerHTML = 
+      Array.isArray(content) 
+        ? content.join('') 
+        : content
   }
 
-  get hmtl() { return this.html }
   get string() { return this.html.outerHTML }
 }
   

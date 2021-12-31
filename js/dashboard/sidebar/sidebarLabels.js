@@ -1,9 +1,9 @@
-import { withdrawMenu } from '../menus/withdraw/withdrawMenu.js'
+import { transactionMenu } from '../menus/transaction/transactionMenu.js'
 import { transferMenu } from '../menus/transfer/transferMenu.js'
 import { settingsMenu } from '../menus/settings/settingsMenu.js'
+import { scheduleMenu } from '../menus/schedule/scheduleMenu.js'
 import { accountsMenu } from '../menus/accounts/accountsMenu.js'
 import { historyMenu } from '../menus/history/historyMenu.js'
-import { depositMenu } from '../menus/deposit/depositMenu.js'
 import { budgetMenu } from '../menus/budget/budgetMenu.js'
 import { chartMenu } from '../menus/chart/chartMenu.js'
 import { mainMenu } from '../menus/main/mainMenu.js'
@@ -15,14 +15,9 @@ const sidebarLabels = [
     menu: mainMenu.html
   },
   {
-    text: 'Deposit',
+    text: 'Transaction',
     icon: 'far fa-credit-card',
-    menu: depositMenu.html
-  },
-  {
-    text: 'Withdraw',
-    icon: 'fas fa-money-check-alt',
-    menu: withdrawMenu.html
+    menu: transactionMenu.html
   },
   {
     text: 'Transfer',
@@ -35,10 +30,9 @@ const sidebarLabels = [
     menu: budgetMenu.html
   },
   {
-    id: 'accountsLink',
-    text: 'Accounts',
-    icon: 'fas fa-users',
-    menu: accountsMenu.html
+    text: 'Schedule',
+    icon: 'fas fa-calendar-alt',
+    menu: scheduleMenu.html
   },
   {
     text: 'History',
@@ -49,6 +43,12 @@ const sidebarLabels = [
     text: 'Chart',
     icon: 'fas fa-chart-bar',
     menu: chartMenu.html
+  },
+  {
+    id: 'accountsLink',
+    text: 'Accounts',
+    icon: 'fas fa-users',
+    menu: accountsMenu.html
   },
   {
     text: 'Setting',

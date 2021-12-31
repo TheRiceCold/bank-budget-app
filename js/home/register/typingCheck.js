@@ -1,25 +1,8 @@
-import { getValidValue } from './validate.js'
+import { confirmPassword } from './emailPassword.js'
+import { regexList } from '../../utils/regexList.js'
+import { getValidInput } from './validInput.js'
+import { findEmail } from './emailPassword.js'
 import * as DOM from '../../utils/dom.js'
-import { regexList } from './regex.js'
-
-const confirmPassword = form => {
-  const password = form.password
-  const confirmPassword = form.confirmPassword
-
-  confirmPassword.addEventListener('keyup', () => {
-    if (password.value !== confirmPassword.value)
-      getValidValue(confirmPassword, 'condition', 'password does not match')
-  })
-}
-
-const findEmail = form => {
-  const email = form.email
-  const accounts = JSON.parse(localStorage.accounts)
-  const checkEmail = accounts.find(account => account.email === email.value)
-
-  if (checkEmail) 
-    getValidValue(email, 'condition', 'Email already exist')
-}
 
 const callback = (e, i) => {
   const form = DOM.get('#signUpForm')
@@ -31,7 +14,7 @@ const callback = (e, i) => {
 
   const regex = regexList[i].regex
   const message = regexList[i].message
-  getValidValue(inputField, regex, message)
+  getValidInput(inputField, regex, message)
 }
 
 const typingCheck = () => {

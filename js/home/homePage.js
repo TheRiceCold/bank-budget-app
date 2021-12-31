@@ -7,5 +7,5 @@ const content = {
   inner: [ forms, panels ]
 }
 
-const loginPage = new MyHTML(content).html
-export { loginPage as home }
+const home = new MyHTML(content).html
+export { home }

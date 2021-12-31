@@ -6,7 +6,7 @@ const setMessage = (input, message, type) => {
   small.textContent = message
 }
 
-const getValidValue = (input, regex = null, message = '') => {
+const getValidInput = (input, regex = null, message = '') => {
   const value = input.value
 
   if (value.trim() === '')
@@ -27,4 +27,4 @@ const getValidValue = (input, regex = null, message = '') => {
   } 
 } 
 
-export { getValidValue }
+export { getValidInput }
