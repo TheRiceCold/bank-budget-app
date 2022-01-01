@@ -1,4 +1,3 @@
-import { cards } from './cards.js'
 import MyHTML from '../../../utils/MyHTML.js'
 import MenuHTML from '../../html/MenuHTML.js'
 
@@ -16,6 +15,8 @@ const buttons = new MyHTML({
   id: 'buttons',
   inner: getButtons()
 }).string
+
+const cards = new MyHTML({ id: 'cards' }).string
 
 const historyMenu = new MenuHTML({ 
   id: 'historyMenu', 

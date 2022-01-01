@@ -1004,13 +1004,13 @@ form.sign-in-form {
   justify-content: space-evenly;
 }
 
-#historyMenu .row {
+#historyMenu #cards {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   margin: 10px 80px;
 }
 
-#historyMenu .row, #historyMenu .card{
+#historyMenu #cards, #historyMenu .card{
   padding: 8px;
 }
 

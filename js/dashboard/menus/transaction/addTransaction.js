@@ -12,9 +12,7 @@ const callback = e => {
   e.preventDefault()
   const form = e.target
   const type = getType()
-  const amount = Number(form.amount.value)
-
-  submitTransaction(type, amount)
+  submitTransaction(form, type, amount)
 }
 
 const addTransaction = () => {
@@ -22,7 +20,6 @@ const addTransaction = () => {
   const form = DOM.get(id + 'form')
   const balanceTxt = DOM.get(id + '#balance')
   balanceTxt.innerText = loggedAccount.balance
-  
   form.onsubmit = callback
 }
   

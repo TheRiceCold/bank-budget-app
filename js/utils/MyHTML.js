@@ -1,11 +1,12 @@
 class MyHTML {
   constructor(options) {
     const className = options.className || ''
+    const inner = options.inner || ''
     const tag = options.tag || 'div'
     const id = options.id || ''
 
     this.html = document.createElement(tag)
-    this.inner(options.inner)
+    this.setInner(inner)
     this.init(className, id)
   }
 
@@ -16,7 +17,7 @@ class MyHTML {
       this.html.className = className
   }
 
-  inner(content) {
+  setInner(content) {
     this.html.innerHTML = 
       Array.isArray(content) 
         ? content.join('') 

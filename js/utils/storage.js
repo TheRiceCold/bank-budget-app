@@ -18,8 +18,7 @@ if (!loggedAccount.fullname) accountName = ''
 const history = loggedAccount.history
 
 const firstName = accountName.substring(0, accountName.indexOf(' '))
+
 const isLoggedIn = !Array.isArray(loggedAccount)
 
-const balance = loggedAccount.balance
-
-export { getStoredAccounts, loggedAccount, isLoggedIn, firstName, history, balance }
+export { getStoredAccounts, loggedAccount, isLoggedIn }

@@ -1,6 +1,6 @@
 import { addTransaction } from './menus/transaction/addTransaction.js'
+import { displayHistory } from './menus/history/displayHistory.js'
 import { searchAccount } from './menus/accounts/searchAccount.js'
-import { historyFilter } from './menus/history/historyFilter.js'
 import { scheduleManager } from './menus/schedule/manager.js'
 import { budgetManager } from './menus/budget/manager.js'
 import { sidebarMenus } from './sidebar/sidebarMenus.js'
@@ -18,7 +18,7 @@ const changeMenus = i => {
   else if (DOM.get('#budgetMenu'))
     budgetManager()
   else if (DOM.get('#historyMenu')) 
-    historyFilter()
+    displayHistory()
   else if (DOM.get('#scheduleMenu')) 
     scheduleManager()
   else if (DOM.get('#chartMenu'))

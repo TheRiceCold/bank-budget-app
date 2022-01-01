@@ -3,7 +3,8 @@ import { tableToArray } from '../../../utils/helpers.js'
 import * as dom from '../../../utils/dom.js'
 
 const searchAccount = () => {
-  const table = dom.get('#accountsMenu table')
+  const menu = '#accountsMenu '
+  const table = dom.get(menu + 'table')
   const tableData = tableToArray(table)
   const searchInput = dom.get('#accountSearch')
 

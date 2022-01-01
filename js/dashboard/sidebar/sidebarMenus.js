@@ -14,12 +14,12 @@ const sidebarMenus = i => {
   showName()
   logout(i)
 
-  const main = DOM.get('#dashboard')
+  const dashboard = DOM.get('#dashboard')
   const lastMenu = DOM.get('#dashboard main')
   const currentMenu = sidebarLabels[i].menu
 
   lastMenu.remove()
-  main.append(currentMenu)
+  dashboard.append(currentMenu)
 
   currentDate()
 }

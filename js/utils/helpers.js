@@ -1,5 +1,5 @@
 import * as DOM from './dom.js'
-import { firstName } from './storage.js'
+import { loggedAccount } from './storage.js'
 
 const removeAllChild = parent => {
   while (parent.firstChild) {
@@ -14,8 +14,11 @@ const currentDate = () => {
 }
 
 const showName = () => {
-  const name = DOM.get('#accountName')
-  name.textContent = 'Hello ' + firstName
+  const name = loggedAccount.fullname || ''
+  const firstName = name.substring(0, name.indexOf(' '))
+
+  const nameTxt = DOM.get('#accountName')
+  nameTxt.innerText = 'Hello ' + firstName
 }
 
 const copyText = e => {
