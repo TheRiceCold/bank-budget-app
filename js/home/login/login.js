@@ -13,6 +13,8 @@ const callback = e => {
     removeAllChild(DOM.root)
     DOM.root.append(dashboard)
     dashboardManager()
+  } else {
+    alert('Account does not exist')
   }
 }
 

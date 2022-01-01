@@ -1,10 +1,10 @@
 import MenuHTML from '../../html/MenuHTML.js'
-import { inner } from './inner.js'
+import { container } from './container.js'
 
 const transactionMenu = new MenuHTML({ 
   id: 'transactionMenu', 
   title: 'Transaction',
-  inner: inner
+  inner: container
 })
 
 export { transactionMenu }

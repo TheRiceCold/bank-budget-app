@@ -2,7 +2,6 @@ import Chart from './chart.js'
 
 const getChart = () => 
     new Chart('canvas', {
-    type: 'line',
     title: { text: 'Weekly Chart' },
     bgColor: 'whitesmoke',
     labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

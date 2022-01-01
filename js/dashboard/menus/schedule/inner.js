@@ -25,7 +25,7 @@ const container = new MyHTML({
 const newEventModal = new MyHTML({
   id: 'newEventModal',
   inner: `
-    <h2>New Event</h2>
+    <h2>Add Schedule</h2>
     <input id="eventTitleInput" placeholder="Event Title" />
     <button id="saveButton">Save</button>
     <button id="cancelButton">Cancel</button>`

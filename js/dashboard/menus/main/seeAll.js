@@ -7,7 +7,7 @@ const goto = () => {
 
 const seeAll = () => {
   const btn = DOM.get('#newAccounts a')
-  DOM.click(btn, goto)
+  btn.onclick = goto
 }
 
 export { seeAll }

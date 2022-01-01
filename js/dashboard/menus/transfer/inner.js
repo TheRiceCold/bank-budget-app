@@ -34,25 +34,6 @@ export const inner =   `
         <button class="btn" id="cancel">Cancel</button>
       </div>
 
-      <p>Budget List</p>
-      <ul id="list_of_transactions">
-        <li class="transaction income">
-          <p>Income 1</p>
-          <div class="right_side">
-            <p>$300</p>
-            <button>edit</button>
-            <button>delete</button>
-          </div>
-        </li>
 
-        <li class="transaction expense">
-          <p>Expense 1</p>
-          <div class="right_side">
-            <p>$100</p>
-            <button>edit</button>
-            <button>delete</button>
-          </div>
-        </li>
-      </ul>
     </div>
   </div>`

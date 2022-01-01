@@ -6,7 +6,7 @@ const historyFilter = () => {
    const cards = DOM.getAll('#historyMenu .card')
 
    buttons.forEach(b =>
-     b.addEventListener('click', () => {
+     b.onclick = () => {
        buttons.forEach(li => li.classList.remove('active'))
        b.classList.add('active')
 
@@ -16,7 +16,7 @@ const historyFilter = () => {
          if (card.dataset.filter === value.toLowerCase() || value === 'All')
            card.style.display = 'flex'
        })
-     }))
+     })
 }
 
 export { historyFilter }

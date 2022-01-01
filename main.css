@@ -1177,3 +1177,136 @@ form.sign-in-form {
   display: inline-block;
   margin: auto;
 }
+
+#budgetMenu .topbar {
+  margin-top: 50px;
+  padding: 20px;
+  min-width: 300px;
+}
+
+#budgetMenu .text {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+#budgetMenu #balance {
+  font-size: 2rem;
+}
+
+#budgetMenu .form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#budgetMenu .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#budgetMenu .form-control {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#budgetMenu .btn {
+  height: 40px;
+  margin: auto 50px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+#budgetMenu .transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  margin: 5px;
+}
+
+#budgetMenu .right_side {
+  display: flex;
+  gap: 5px;
+}
+
+#budgetMenu .right_side button {
+  color: #fff;
+  cursor: pointer;
+}
+
+#budgetMenu #cancel {
+  background: #E5415E
+}
+
+#transactionMenu .topbar {
+  margin-top: 50px;
+  padding: 20px;
+  min-width: 300px;
+}
+
+#transactionMenu .text {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+#transactionMenu #balance {
+  font-size: 2rem;
+}
+
+#transactionMenu .form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#transactionMenu .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#transactionMenu .form-control {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#transactionMenu .btn {
+  text-transform: capitalize;
+  height: 40px;
+  margin: auto 50px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+#transactionMenu .transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  margin: 5px;
+}
+
+#transactionMenu .right_side {
+  display: flex;
+  gap: 5px;
+}
+
+#transactionMenu .right_side button {
+  color: #fff;
+  cursor: pointer;
+}
+
+#transactionMenu #cancel {
+  background: #E5415E
+}
+
+#transactionMenu #cancel:hover {
+  background: red;
+}
