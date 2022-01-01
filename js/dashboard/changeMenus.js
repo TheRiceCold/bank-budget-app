@@ -1,4 +1,4 @@
-import { addTransaction } from './menus/transaction/addTransaction.js'
+import { transactionManager } from './menus/transaction/manager.js'
 import { displayHistory } from './menus/history/displayHistory.js'
 import { searchAccount } from './menus/accounts/searchAccount.js'
 import { scheduleManager } from './menus/schedule/manager.js'
@@ -14,7 +14,7 @@ const changeMenus = i => {
   if (DOM.get('#mainMenu'))
     seeAll()
   else if (DOM.get('#transactionMenu'))
-    addTransaction()
+    transactionManager()
   else if (DOM.get('#budgetMenu'))
     budgetManager()
   else if (DOM.get('#historyMenu')) 

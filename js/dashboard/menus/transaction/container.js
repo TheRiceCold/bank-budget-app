@@ -1,16 +1,21 @@
+import { modal } from './modal.js'
 import MyHTML from '../../../utils/MyHTML.js'
-import { form } from './form.js'
 
-const balance = new MyHTML({
+const buttons = ['deposit', 'withdraw', 'transfer']
+  .map(btn => `<button id="${btn}Btn">${btn}</button>`).join(' ')
+
+const header = new MyHTML({
   className: 'topbar',
-  inner: `
-  <p class="text">Your current balance</p>
-  <p id="balance">₱500</p>`
+  inner: ['<p class="text"></p>', '<p id="balance"></p>']
 }).string
 
-const container = new MyHTML({
-  className: 'container',
-  inner: [balance, form]
-}).string
+const content = {
+  className: 'transaction-container',
+  inner: [
+    header, buttons, modal, 
+    '<div id="modalBackground"></div>'
+  ]
+}
 
+const container = new MyHTML(content).string
 export { container }

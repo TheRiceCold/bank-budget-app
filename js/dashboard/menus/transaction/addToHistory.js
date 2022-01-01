@@ -1,5 +1,5 @@
-import * as DOM from '../../../utils/dom.js'
 import { loggedAccount } from '../../../utils/storage.js'
+import * as DOM from '../../../utils/dom.js'
 
 const addToHistory = (type, amount) => {
   const history = loggedAccount.history
@@ -25,23 +25,4 @@ const addToHistory = (type, amount) => {
   balanceTxt.innerText = '₱' + balance
 }
 
-const submitTransaction = (form, type) => {
-  let balance = Number(loggedAccount.balance)
-  const amount = Number(form.amount.value)
-
-  if (type === 'deposit') {
-    balance += amount
-    loggedAccount.balance = balance
-    addToHistory(type, amount)
-    form.reset()
-  }
-  else if (amount <= balance) {
-    balance -= amount
-    loggedAccount.balance = balance
-    addToHistory(type, amount)
-    form.reset()
-  }
-  else alert('not enough balance')
-}
-
-export { submitTransaction }
+export { addToHistory }

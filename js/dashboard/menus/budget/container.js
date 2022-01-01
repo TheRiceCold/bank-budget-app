@@ -9,7 +9,7 @@ const balance = new MyHTML({
 }).string
 
 const container = new MyHTML({
-  className: 'container',
+  className: 'transaction-container',
   inner: [balance, form]
 }).string
 

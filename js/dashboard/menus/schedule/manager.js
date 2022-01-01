@@ -8,7 +8,7 @@ export function scheduleManager() {
 
   const calendar = DOM.get('#calendar')
   const newEventModal = DOM.get('#newEventModal')
-  const deleteEventModal = DOM.get('#deleteEventModal')
+  const delEventModal = DOM.get('#delEventModal')
   const eventTitleInput = DOM.get('#eventTitleInput')
   const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
@@ -17,14 +17,14 @@ export function scheduleManager() {
 }
 
 function openModal(date, clicked, events) {
-  const backDrop = DOM.get('#modalBackDrop')
+  const backDrop = DOM.get('#modalBackground')
   clicked = date
 
   const eventForDay = events.find(e => e.date === clicked)
 
   if (eventForDay) {
     DOM.get('#eventText').innerText = eventForDay.title
-    deleteEventModal.style.display = 'block'
+    delEventModal.style.display = 'block'
   } 
   else newEventModal.style.display = 'block'
   
@@ -87,10 +87,10 @@ function load(nav, weekdays, events, clicked) {
 }
 
 function closeModal(clicked) {
-  const backDrop = DOM.get('#modalBackDrop')
+  const backDrop = DOM.get('#modalBackground')
   eventTitleInput.classList.remove('error')
   newEventModal.style.display = 'none'
-  deleteEventModal.style.display = 'none'
+  delEventModal.style.display = 'none'
   backDrop.style.display = 'none'
   eventTitleInput.value = ''
   clicked = null

@@ -1126,20 +1126,28 @@ form.sign-in-form {
   background-color: #FFFCFF !important;
   box-shadow: none !important;
 }
-#scheduleMenu #newEventModal, #scheduleMenu #deleteEventModal {
-  display: none;
+main .modal {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 20;
   padding: 25px;
-  background-color: #e8f4fa;
-  box-shadow: 0px 0px 3px black;
+  background: whitesmoke;
+  box-shadow: 0 0 3px black;
   border-radius: 5px;
-  width: 350px;
-  top: 100px;
+  width: 450px;
+  top: 150px;
   left: calc(50% - 175px);
   position: absolute;
   font-family: sans-serif;
 }
-#scheduleMenu #eventTitleInput {
+main .modal h2 {
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+}
+main .modal input {
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
@@ -1147,24 +1155,24 @@ form.sign-in-form {
   border-radius: 3px;
   outline: none;
   border: none;
-  box-shadow: 0px 0px 3px gray;
+  box-shadow: 0 0 3px gray;
 }
 #scheduleMenu #eventTitleInput.error {
   border: 2px solid red;
 }
-#scheduleMenu #cancelButton, #scheduleMenu #deleteButton {
-  background-color: #d36c6c;
+main .modal #cancelButton, main .modal #deleteButton {
+  background: #d36c6c;
 }
 #scheduleMenu #saveButton, #scheduleMenu #closeButton {
-  background-color: #92a1d1;
+  background: #92a1d1;
 }
 #scheduleMenu #eventText {
   font-size: 14px;
 }
-#scheduleMenu #modalBackDrop {
-  display: none;
-  top: 0px;
-  left: 0px;
+main #modalBackground{
+  visibility: hidden;
+  top: 0;
+  left: 0;
   z-index: 10;
   width: 100vw;
   height: 100vh;
@@ -1178,104 +1186,40 @@ form.sign-in-form {
   margin: auto;
 }
 
-#budgetMenu .topbar {
+.transaction-container .topbar {
   margin-top: 50px;
   padding: 20px;
   min-width: 300px;
 }
 
-#budgetMenu .text {
+.transaction-container .text {
   font-size: 1rem;
   margin-bottom: 2px;
 }
 
-#budgetMenu #balance {
+.transaction-container #balance {
   font-size: 2rem;
 }
 
-#budgetMenu .form {
+.transaction-container .form {
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-#budgetMenu .buttons {
+.transaction-container .buttons {
   display: flex;
   justify-content: center;
 }
 
-#budgetMenu .form-control {
+.transaction-container .form-control {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-#budgetMenu .btn {
-  height: 40px;
-  margin: auto 50px;
-  background: var(--color-primary);
-  color: #fff;
-  font-size: 1.2rem;
-}
-
-#budgetMenu .transaction {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  color: #fff;
-  margin: 5px;
-}
-
-#budgetMenu .right_side {
-  display: flex;
-  gap: 5px;
-}
-
-#budgetMenu .right_side button {
-  color: #fff;
-  cursor: pointer;
-}
-
-#budgetMenu #cancel {
-  background: #E5415E
-}
-
-#transactionMenu .topbar {
-  margin-top: 50px;
-  padding: 20px;
-  min-width: 300px;
-}
-
-#transactionMenu .text {
-  font-size: 1rem;
-  margin-bottom: 2px;
-}
-
-#transactionMenu #balance {
-  font-size: 2rem;
-}
-
-#transactionMenu .form {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#transactionMenu .buttons {
-  display: flex;
-  justify-content: center;
-}
-
-#transactionMenu .form-control {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#transactionMenu .btn {
+.transaction-container .btn {
   text-transform: capitalize;
   height: 40px;
   margin: auto 50px;
@@ -1284,7 +1228,7 @@ form.sign-in-form {
   font-size: 1.2rem;
 }
 
-#transactionMenu .transaction {
+.transaction-container .transaction {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1293,20 +1237,20 @@ form.sign-in-form {
   margin: 5px;
 }
 
-#transactionMenu .right_side {
+.transaction-container .right_side {
   display: flex;
   gap: 5px;
 }
 
-#transactionMenu .right_side button {
+.transaction-container .right_side button {
   color: #fff;
   cursor: pointer;
 }
 
-#transactionMenu #cancel {
+.transaction-container #cancel {
   background: #E5415E
 }
 
-#transactionMenu #cancel:hover {
+.transaction-container #cancel:hover {
   background: red;
 }

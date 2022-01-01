@@ -13,6 +13,11 @@ const currentDate = () => {
   date.value = today
 }
 
+const updateBalance = textElement => {
+  const balance = '₱' + loggedAccount.balance
+  textElement.innerText = balance
+}
+
 const showName = () => {
   const name = loggedAccount.fullname || ''
   const firstName = name.substring(0, name.indexOf(' '))
@@ -47,4 +52,4 @@ const tableToArray = table => {
   return searchData
 }
 
-export { removeAllChild, copyText, tableToArray, currentDate, showName }
+export { removeAllChild, copyText, tableToArray, currentDate, showName, updateBalance }

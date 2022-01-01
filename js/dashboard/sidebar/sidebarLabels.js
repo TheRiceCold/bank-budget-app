@@ -1,5 +1,4 @@
 import { transactionMenu } from '../menus/transaction/transactionMenu.js'
-import { transferMenu } from '../menus/transfer/transferMenu.js'
 import { settingsMenu } from '../menus/settings/settingsMenu.js'
 import { scheduleMenu } from '../menus/schedule/scheduleMenu.js'
 import { accountsMenu } from '../menus/accounts/accountsMenu.js'
@@ -18,11 +17,6 @@ const sidebarLabels = [
     text: 'Transaction',
     icon: 'far fa-credit-card',
     menu: transactionMenu.html
-  },
-  {
-    text: 'Transfer',
-    icon: 'fas fa-hand-holding-usd',
-    menu: transferMenu.html
   },
   {
     text: 'Budget',
