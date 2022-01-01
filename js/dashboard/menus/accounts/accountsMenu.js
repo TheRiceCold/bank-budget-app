@@ -3,16 +3,14 @@ import { getStoredAccounts } from '../../../utils/storage.js'
 import { jsonTable } from '../../../utils/jsonTable.js'
 import MenuHTML from '../../html/MenuHTML.js'
 
+const searchInput = `<input type="text" id="accountSearch" class="search" placeholder="Search"/>`
 const accounts = accountsToDisplay(getStoredAccounts())
+const table = jsonTable(accounts).outerHTML
 
 const content = {
   id: 'accountsMenu', 
   title: 'Accounts', 
-  inner: [
-    `<input type="text" id="accountSearch" class="search" placeholder="Search"/>`,
-    jsonTable(accounts).outerHTML,
-  ]
+  inner: [ searchInput, table]
 }
 
-const accountsMenu = new MenuHTML(content)
-export { accountsMenu }
+export const accountsMenu = new MenuHTML(content)

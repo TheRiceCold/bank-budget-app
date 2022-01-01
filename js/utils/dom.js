@@ -9,9 +9,6 @@ const get = query =>
 const create = node => 
   document.createElement(node)
 
-const click = (node, callback) =>
-  node.addEventListener('click', callback)
-
 const addClass = (node, className) =>
   node.classList.add(className)
 
@@ -21,4 +18,4 @@ const delClass = (node, className) =>
 const changeClass = (node, from, to) =>
   node.classList.replace(from, to)
 
-export { root, get, getAll, create, click, addClass, delClass, changeClass }
+export { root, get, getAll, create, addClass, delClass, changeClass }

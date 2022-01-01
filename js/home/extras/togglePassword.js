@@ -14,9 +14,7 @@ const callback = e => {
   }
 }
 
-const togglePassword = () => {
+export const togglePassword = () => {
   const icons = DOM.getAll('input[type="password"] + #eye') 
-  icons.forEach(icon => DOM.click(icon, callback))
+  icons.forEach(icon => icon.onclick = callback)
 }
-
-export { togglePassword }

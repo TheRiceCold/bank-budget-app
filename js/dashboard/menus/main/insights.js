@@ -9,5 +9,4 @@ const cards = insightList
 
 const content = { className: 'insights', inner: cards }
 
-const insights = new MyHTML(content).string
-export { insights }
+export const insights = new MyHTML(content).string

@@ -1,6 +1,6 @@
 import Chart from './chart.js'
 
-const getChart = () => 
+export const getChart = () => 
     new Chart('canvas', {
     title: { text: 'Weekly Chart' },
     bgColor: 'whitesmoke',
@@ -20,5 +20,3 @@ const getChart = () =>
         }
     ]
 })
-
-export { getChart }

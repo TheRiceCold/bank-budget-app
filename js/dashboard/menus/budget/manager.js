@@ -1,7 +1,7 @@
 import { loggedAccount } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 
-const budgetManager = () => {
+export const budgetManager = () => {
   const form = DOM.get('#budgetMenu form')
   const enterBtn = DOM.get('#budgetMenu #enter')
   const amountInput = form.amount
@@ -13,8 +13,12 @@ const budgetManager = () => {
     let balance = Number(loggedAccount.balance)
     const amount = Number(amountInput.value)
 
-    balance -= amount
+    if (amount > balance) {
+      alert('not enough balance')
+      return
+    }
 
+    balance -= amount
     loggedAccount.balance = balance
 
     const history = loggedAccount.history
@@ -27,5 +31,3 @@ const budgetManager = () => {
     console.log(loggedAccount)
   }
 }
-  
-export { budgetManager }

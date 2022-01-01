@@ -17,9 +17,7 @@ const content = { className: 'sidebar', inner: sidebarButtons }
 
 const sidebarMenu = new MyHTML(content).string
 
-const sidebar = new MyHTML({ 
+export const sidebar = new MyHTML({ 
   tag: 'aside', 
   inner: ['<h2 id="accountName">Welcome Shay</h2>', sidebarMenu] 
 }).string
-
-export { sidebar }

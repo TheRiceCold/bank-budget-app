@@ -1,6 +1,6 @@
 import MyHTML from '../../../utils/MyHTML.js'
 
-const btnLabels = ['enter', 'cancel']
+export const btnLabels = ['enter', 'cancel']
   .map(btn => `<button class="btn" id="${btn}">${btn}</button>`)
 
 const buttons = new MyHTML({ class: 'buttons', inner: btnLabels }).string
@@ -23,9 +23,7 @@ const list = `
   </li>
 </ul>`
 
-const form = new MyHTML({
+export const form = new MyHTML({
   tag: 'form',
   inner: [inputs, buttons, list]
 }).string
-
-export { form }

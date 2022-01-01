@@ -12,6 +12,6 @@ const mode = e => {
 export const switchAnim = () => {
   const signUp = DOM.get('#signUpSwitch')
   const signIn = DOM.get('#signInSwitch')
-  DOM.click(signUp, mode)
-  DOM.click(signIn, mode)
+  signUp.onclick = mode
+  signIn.onclick = mode
 }

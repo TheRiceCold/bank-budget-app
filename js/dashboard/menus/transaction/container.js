@@ -8,9 +8,7 @@ const balance = new MyHTML({
   <p id="balance">₱500</p>`
 }).string
 
-const container = new MyHTML({
+export const container = new MyHTML({
   className: 'container',
   inner: [balance, form]
 }).string
-
-export { container }

@@ -15,12 +15,10 @@ const callback = e => {
   submitTransaction(form, type, amount)
 }
 
-const addTransaction = () => {
+export const addTransaction = () => {
   const id = '#transactionMenu '
   const form = DOM.get(id + 'form')
   const balanceTxt = DOM.get(id + '#balance')
   balanceTxt.innerText = loggedAccount.balance
   form.onsubmit = callback
 }
-  
-export { addTransaction }

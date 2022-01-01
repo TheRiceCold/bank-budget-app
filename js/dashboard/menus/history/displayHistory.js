@@ -32,12 +32,10 @@ const addCards = () => {
 }
 
 
-const displayHistory = () => {
+export const displayHistory = () => {
   const menu = '#historyMenu '
   const cardList = DOM.get(menu + '#cards')
   cardList.innerHTML = addCards()
  
   historyFilter()
 }
-
-export { displayHistory }

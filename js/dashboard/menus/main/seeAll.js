@@ -5,9 +5,7 @@ const goto = () => {
   link.click()
 }
 
-const seeAll = () => {
+export const seeAll = () => {
   const btn = DOM.get('#newAccounts a')
   btn.onclick = goto
 }
-
-export { seeAll }
