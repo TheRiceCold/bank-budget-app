@@ -40,8 +40,10 @@ const delEventModal = new MyHTML({
     <button id="closeButton">Close</button>`
 }).string
 
-export const inner = `
+const inner = `
   ${container}
   ${newEventModal} 
   ${delEventModal}
   <div id="modalBackDrop"></div>`
+
+export { inner }

@@ -1,6 +1,6 @@
 import { defaultAccounts } from './defaultStorage.js'
 
-export const getStoredAccounts = () => {
+const getStoredAccounts = () => {
   if (!localStorage.accounts)
     localStorage.accounts = JSON.stringify(defaultAccounts)
 
@@ -10,6 +10,12 @@ export const getStoredAccounts = () => {
 if (!localStorage.loggedAccount)
   localStorage.loggedAccount = '[]'
 
-export let loggedAccount = JSON.parse(localStorage.loggedAccount)
+let loggedAccount = JSON.parse(localStorage.loggedAccount)
 
-export const isLoggedIn = !Array.isArray(loggedAccount)
+const isLoggedIn = !Array.isArray(loggedAccount)
+
+export { 
+  getStoredAccounts,
+  loggedAccount,
+  isLoggedIn
+}

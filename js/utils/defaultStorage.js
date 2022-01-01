@@ -1,4 +1,4 @@
-export const defaultAccounts = [
+const defaultAccounts = [
   {
     id: 1,
     fullname: 'Gon Freecs',
@@ -54,4 +54,6 @@ export const defaultAccounts = [
     plans: [],
     date: '12/23/2021'
   }
-]
+] 
+
+export { defaultAccounts }

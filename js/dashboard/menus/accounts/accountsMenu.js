@@ -13,4 +13,5 @@ const content = {
   inner: [ searchInput, table]
 }
 
-export const accountsMenu = new MenuHTML(content)
+const accountsMenu = new MenuHTML(content)
+export { accountsMenu }

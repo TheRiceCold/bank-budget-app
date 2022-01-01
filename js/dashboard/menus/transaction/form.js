@@ -6,7 +6,7 @@ const radios = ['deposit', 'withdraw']
     inner: `<input type="radio" name="type" id=${rdo} ${i === 0 ? 'checked' : ''} />${rdo}`
   }).string).join(' ')
 
-export const form = new MyHTML({
+const form = new MyHTML({
   tag: 'form',
   inner: [
     radios,
@@ -14,3 +14,5 @@ export const form = new MyHTML({
     '<input type="submit" class="btn" id="enter" value="enter">'
   ]
 }).string
+
+export { form }

@@ -5,7 +5,7 @@ const accounts = getStoredAccounts().length
 const newAccounts = getStoredAccounts()[accounts-1].fullname
 const balance = loggedAccount.balance
 
-export const insightList = [
+const insightList = [
   {
     title: 'balance',
     total: balance,
@@ -31,3 +31,5 @@ export const insightList = [
     icon: 'fas fa-hand-holding-usd'
   }
 ]
+
+export { insightList }

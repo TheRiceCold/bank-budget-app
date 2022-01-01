@@ -1,7 +1,7 @@
 import { loggedAccount } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 
-export const budgetManager = () => {
+const budgetManager = () => {
   const form = DOM.get('#budgetMenu form')
   const enterBtn = DOM.get('#budgetMenu #enter')
   const amountInput = form.amount
@@ -31,3 +31,5 @@ export const budgetManager = () => {
     console.log(loggedAccount)
   }
 }
+
+export { budgetManager }

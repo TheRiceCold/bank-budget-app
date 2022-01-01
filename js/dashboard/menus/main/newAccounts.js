@@ -16,4 +16,5 @@ const content = {
   ]
 }
 
-export const newAccounts = new MyHTML(content).string
+const newAccounts = new MyHTML(content).string
+export { newAccounts }

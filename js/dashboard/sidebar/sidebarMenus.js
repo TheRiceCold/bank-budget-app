@@ -10,7 +10,7 @@ const logout = i => {
   }
 }
 
-export const sidebarMenus = i => {
+const sidebarMenus = i => {
   showName()
   logout(i)
 
@@ -23,3 +23,5 @@ export const sidebarMenus = i => {
 
   currentDate()
 }
+
+export { sidebarMenus }

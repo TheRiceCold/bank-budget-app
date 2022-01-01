@@ -23,7 +23,9 @@ const list = `
   </li>
 </ul>`
 
-export const form = new MyHTML({
+const form = new MyHTML({
   tag: 'form',
   inner: [inputs, buttons, list]
 }).string
+
+export { form }

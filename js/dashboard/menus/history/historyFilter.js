@@ -1,6 +1,6 @@
 import * as DOM from '../../../utils/dom.js'
 
-export const historyFilter = () => {
+const historyFilter = () => {
   const menu = '#historyMenu '
   const cards = DOM.getAll(menu + '.card')
   const buttons = DOM.getAll(menu + 'button')
@@ -18,3 +18,5 @@ export const historyFilter = () => {
      })
    })
 }
+
+export { historyFilter }

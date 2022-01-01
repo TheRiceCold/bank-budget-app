@@ -25,7 +25,7 @@ const addToHistory = (type, amount) => {
   balanceTxt.innerText = '₱' + balance
 }
 
-export const submitTransaction = (form, type) => {
+const submitTransaction = (form, type) => {
   let balance = Number(loggedAccount.balance)
   const amount = Number(form.amount.value)
 
@@ -43,3 +43,5 @@ export const submitTransaction = (form, type) => {
   }
   else alert('not enough balance')
 }
+
+export { submitTransaction }

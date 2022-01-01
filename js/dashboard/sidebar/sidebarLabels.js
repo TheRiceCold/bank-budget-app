@@ -8,7 +8,7 @@ import { budgetMenu } from '../menus/budget/budgetMenu.js'
 import { chartMenu } from '../menus/chart/chartMenu.js'
 import { mainMenu } from '../menus/main/mainMenu.js'
 
-export const sidebarLabels = [
+const sidebarLabels = [
   {
     text: 'Dashboard',
     icon: 'fas fa-th-large',
@@ -61,3 +61,5 @@ export const sidebarLabels = [
     menu: 'logout'
   }
 ]
+
+export { sidebarLabels }

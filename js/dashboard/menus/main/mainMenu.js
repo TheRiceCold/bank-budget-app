@@ -8,4 +8,5 @@ const content = {
   inner: [insights, newAccounts]
 }
 
-export const mainMenu = new MenuHTML(content)
+const mainMenu = new MenuHTML(content)
+export { mainMenu }

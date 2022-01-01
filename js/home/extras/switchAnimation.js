@@ -9,9 +9,11 @@ const mode = e => {
     DOM.delClass(container, 'sign-up-mode')
 }
 
-export const switchAnim = () => {
+const switchAnim = () => {
   const signUp = DOM.get('#signUpSwitch')
   const signIn = DOM.get('#signInSwitch')
   signUp.onclick = mode
   signIn.onclick = mode
 }
+
+export { switchAnim }

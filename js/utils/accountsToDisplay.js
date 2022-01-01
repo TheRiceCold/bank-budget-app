@@ -1,4 +1,4 @@
-export const accountsToDisplay = list => {
+const accountsToDisplay = list => {
   const accounts = list.map(account => {
     const cloneAccount = Object.assign({}, account)
 
@@ -12,3 +12,5 @@ export const accountsToDisplay = list => {
 
   return accounts
 }
+
+export { accountsToDisplay }

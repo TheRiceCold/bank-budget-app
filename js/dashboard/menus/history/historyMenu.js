@@ -18,8 +18,10 @@ const buttons = new MyHTML({
 
 const cards = new MyHTML({ id: 'cards' }).string
 
-export const historyMenu = new MenuHTML({ 
+const historyMenu = new MenuHTML({ 
   id: 'historyMenu', 
   title: 'Transaction History',
   inner: [buttons, cards]
 })
+
+export { historyMenu }

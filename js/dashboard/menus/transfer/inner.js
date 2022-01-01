@@ -1,4 +1,4 @@
-export const inner =   `
+const inner =   `
 <div class="main">
     <div class="container">
       <div class="topbar">
@@ -37,3 +37,5 @@ export const inner =   `
 
     </div>
   </div>`
+
+export { inner }
