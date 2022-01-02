@@ -9,7 +9,7 @@ const table = jsonTable(accounts).outerHTML
 
 const content = {
   id: 'accountsMenu', 
-  title: 'Accounts', 
+  title: 'All Users', 
   inner: [ searchInput, table]
 }
 

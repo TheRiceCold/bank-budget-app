@@ -1,5 +1,5 @@
 import { currentDate, showName } from '../utils/helpers.js'
-import { seeAll } from './menus/main/seeAll.js'
+import { mainManager } from './menus/main/manager.js'
 import { changeMenus } from './changeMenus.js'
 import * as DOM from '../utils/dom.js'
 
@@ -11,9 +11,9 @@ const sidebarButtons = () => {
 
 const dashboardManager = () => {
   sidebarButtons() 
+  mainManager()
   currentDate()
   showName()
-  seeAll()
 }
 
 export { dashboardManager }

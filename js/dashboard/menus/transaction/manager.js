@@ -1,5 +1,4 @@
 import { updateBalance } from '../../../utils/helpers.js'
-import { loggedAccount } from '../../../utils/storage.js'
 import { openModal, closeModal } from './modal.js'
 import * as DOM from '../../../utils/dom.js'
 

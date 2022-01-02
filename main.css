@@ -109,10 +109,6 @@ small {
   overflow: hidden;
 }
 
-.text-muted {
-  color: var(--color-info-dark);
-}
-
 p {
   color: var(--color-dark-variant);
 }
@@ -252,26 +248,21 @@ main .date input[type='date'] {
   color: var(--color-dark);
 }
 
-main .insights {
+main #insights {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.6rem;
 }
 
-main .insights > div {
+main #insights .card {
   background: var(--color-white);
   padding: var(--card-padding);
   border-radius: var(--card-border-radius);
   margin-top: 1rem;
   box-shadow: var(--box-shadow);
-  transition: all .3s ease;
 }
 
-main .insights > div:hover {
-  box-shadow: none;
-}
-
-main .insights > div i {
+main #insights .card i {
   background: var(--color-primary);
   padding: .5rem;
   border-radius: 50%;
@@ -279,34 +270,26 @@ main .insights > div i {
   font-size: 2rem;
 }
 
-main .insights > div.expenses i {
-  background: var(--color-danger);
-}
+#insights .card#balance i { background: pink; }
 
-main .insights > div.income i {
-  background: var(--color-success);
-}
+#insights .card#expenses i { background: gold; }
 
-main .insights > div .middle {
+#insights .card#withdrawals i { background: lightgreen; }
+
+main #insights .card div {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-main .insights h3 {
+main #insights h3 {
   text-transform: capitalize;
   margin: 1rem 0 .6rem;
   font-size: 1rem;
 }
 
-main .insights .progress {
-  position: relative;
-  width: 92px;
-  height: 92px;
-  border-radius: 50%;
-}
-
-main .insights small {
+main #insights small {
+  color: var(--color-info-dark);
   margin-top: 1.6rem;
   display: block;
 }

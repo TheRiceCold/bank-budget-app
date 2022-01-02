@@ -1,27 +1,17 @@
 import MyHTML from '../../utils/MyHTML.js'
 
-const content = card => {
-  const { title, total } = card
-
-  return new MyHTML({
-    className: 'middle',
-    inner: `
-      <div class="left">
-        <h3>${title}</h3>
-        <h1>${total}</h1>
-      </div>`
-  })
-}
-
 class CardHTML extends MyHTML {
   constructor(card) {
-    const { className, description, icon } = card
-    const inner = [
-      `<i class="${icon}"></i>`,
-      content(card).string,
-      `<small class="text-muted">${description}</small>`
-    ]
-    super({ className: className, inner })
+    super({ className: 'card', id: card.id })
+    this.setInner(card)
+  }
+
+  setInner(card) {
+    const inner =
+      `<i class="${card.icon}"></i>
+      <h3>${card.title}</h3><h1 id="total">0</h1>
+      <small class="text-muted">description</small>`
+    this.html.innerHTML = inner
   }
 }
 

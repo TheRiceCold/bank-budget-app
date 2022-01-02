@@ -12,6 +12,12 @@ const openModal = e => {
   const title =  modal.querySelector('h2')
   title.innerText = e.target.innerText 
 
+  const enterBtn = modal.querySelector('button')
+  modal.keypress = e => {
+    if (e.key === 'Enter')
+      enterBtn.click()
+  }
+
   enterTransaction(modal)
   modalBg.onclick = () => closeModal(modalBg)
 }
