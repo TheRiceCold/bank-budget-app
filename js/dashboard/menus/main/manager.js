@@ -16,6 +16,7 @@ const updateInsights = () => {
   cards.forEach((card, i) => {
     const total = card.querySelector('#total')
     const info = card.querySelector('small')
+
     total.innerText = '₱'+updates[i].total
     info.innerText = updates[i].info
   })

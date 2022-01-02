@@ -1104,9 +1104,9 @@ form.sign-in-form {
   background-color: #FFFCFF !important;
   box-shadow: none !important;
 }
+
 main .modal {
-  visibility: hidden;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   z-index: 20;
@@ -1120,6 +1120,8 @@ main .modal {
   position: absolute;
   font-family: sans-serif;
 }
+main .modal.show { display: flex; }
+
 main .modal h2 {
   text-align: center;
   text-transform: capitalize;
@@ -1135,6 +1137,8 @@ main .modal input {
   border: none;
   box-shadow: 0 0 3px gray;
 }
+main .modal #receiver { display: none; }
+main .modal #receiver.show { display: block; }
 #scheduleMenu #eventTitleInput.error {
   border: 2px solid red;
 }
@@ -1147,8 +1151,8 @@ main .modal #cancelButton, main .modal #deleteButton {
 #scheduleMenu #eventText {
   font-size: 14px;
 }
-main #modalBackground{
-  visibility: hidden;
+main #modalBg {
+  display: none;
   top: 0;
   left: 0;
   z-index: 10;
@@ -1157,6 +1161,7 @@ main #modalBackground{
   position: absolute;
   background-color: rgba(0,0,0,0.8);
 }
+main #modalBg.show { display: block; }
 #chartMenu .canvas-wrapper {
   width: 1000px;
   height: 500px;

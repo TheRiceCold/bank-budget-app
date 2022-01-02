@@ -4,7 +4,6 @@ import * as DOM from '../../../utils/dom.js'
 import { closeModal } from './modal.js'
 
 const checkTransaction = (type, amount) => {
-  type = type.toLowerCase()
   let balance = Number(loggedAccount.balance)
 
   if (type === 'deposit') {
@@ -21,15 +20,21 @@ const checkTransaction = (type, amount) => {
 }
 
 const enterTransaction = modal => {
+  let type = modal.querySelector('h2')
+  type = type.innerText.toLowerCase()
+
+  if (type === 'transfer') {
+    const receiver = DOM.get('#receiver')
+    DOM.addClass(receiver, 'show')
+  }
+
   const enterBtn = modal.querySelector('button')
   enterBtn.onclick = () => {
-    const type = modal.querySelector('h2').innerText
     let amount = DOM.get('#amount').value
     checkTransaction(type, amount)
     amount = ''
 
-    const modalBg = DOM.get('#modalBackground')
-    closeModal(modalBg)
+    closeModal()
   }
 }
 

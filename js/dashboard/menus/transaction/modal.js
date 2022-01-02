@@ -1,37 +1,33 @@
 import { enterTransaction } from './enterTransaction.js'
-import MyHTML from '../../../utils/MyHTML.js'
 import * as DOM from '../../../utils/dom.js'
 
 const openModal = e => {
-  const modalBg = DOM.get('#modalBackground')
-  modalBg.style.visibility = 'visible'
-
   const modal = DOM.get('.modal')
-  modal.style.visibility = 'visible'
+  const modalBg = DOM.get('#modalBg')
+
+  DOM.addClass(modal, 'show')
+  DOM.addClass(modalBg, 'show')
 
   const title =  modal.querySelector('h2')
   title.innerText = e.target.innerText 
 
   enterTransaction(modal)
-  modalBg.onclick = () => closeModal(modalBg)
+  modalBg.onclick = closeModal
 }
 
-const closeModal = modalBg => {
+const closeModal = e => {
+  const modalBg = e ? e.target 
+    : DOM.get('#modalBg')
+
   const modal = DOM.get('.modal')
-  modal.style.visibility = 'hidden'
-  modalBg.style.visibility = 'hidden'
+
+  DOM.delClass(modal, 'show')
+  DOM.delClass(modalBg, 'show')
+
+  const receiver = DOM.get('#receiver')
+  DOM.delClass(receiver, 'show')
+
   modal.querySelector('#amount').value = ''
 }
 
-const content = {
-  className: 'modal',
-  id: 'transactionModal',
-  inner: [
-    '<h2></h2>',
-    '<input type="number" id="amount" placeholder="Amount"/>',
-    '<button class="btn" id="enterBtn">Enter</button>'
-  ]
-}
-
-const modal = new MyHTML(content).string
-export { modal, openModal, closeModal }
+export { openModal, closeModal }
