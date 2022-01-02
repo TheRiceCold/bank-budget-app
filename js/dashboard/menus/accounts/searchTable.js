@@ -1,5 +1,5 @@
 import { removeAllChild } from '../../../utils/helpers.js'
-import * as dom from '../../../utils/dom.js'
+import * as DOM from '../../../utils/dom.js'
 
 const findTerm = (tableData, term) => {
   term = term.toLowerCase()
@@ -13,10 +13,10 @@ const findTerm = (tableData, term) => {
 
 const createTable = (tbody, data) => {
   data.forEach(row => {
-    const curRow = dom.create('tr')
+    const curRow = DOM.create('tr')
     row.forEach(item => {
-      const curCell = dom.create('td')
-      curCell.textContent = item
+      const curCell = DOM.create('td')
+      curCell.innerText = item
       curRow.append(curCell)
     })
     tbody.append(curRow)
@@ -24,8 +24,9 @@ const createTable = (tbody, data) => {
 }
 
 const searchTable = (tableData, term) => {
+  const menu = '#accountsMenu '
   const data = findTerm(tableData, term)
-  const tbody = dom.get('#accountsMenu tbody')
+  const tbody = DOM.get(menu + 'tbody')
 
   removeAllChild(tbody)
   createTable(tbody, data)  

@@ -1,12 +1,12 @@
+import { mainManager } from './menus/main/mainManager.js'
+import { menuManager } from './menus/menuManager.js'
 import { loggedAccount } from '../utils/storage.js'
-import { mainManager } from './menus/main/manager.js'
-import { changeMenus } from './changeMenus.js'
 import * as DOM from '../utils/dom.js'
 
 const sidebarButtons = () => {
   const buttons = DOM.getAll('.sidebar a')
   buttons.forEach((button, i) => 
-    button.addEventListener('click', () => changeMenus(i)))
+    button.addEventListener('click', () => menuManager(i)))
 }
 
 const currentDate = () => {

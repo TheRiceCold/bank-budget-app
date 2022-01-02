@@ -1,19 +1,17 @@
 import MyHTML from '../../utils/MyHTML.js'
 
 class PanelHTML extends MyHTML {
-  constructor() {
+  constructor(options) {
     super({ className: 'panel' })
+    this.setContent(options)
   }
 
-  set content(data) {
+  setContent(options) {
     const {
-      position,
-      title,
-      description,
-      buttonId,
-      buttonText,
-      image
-      } = data
+      position, title,
+      description, buttonId,
+      buttonText, image
+      } = options
 
     this.html.classList.add(position.concat('-panel'))
     this.html.innerHTML = `

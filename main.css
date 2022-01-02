@@ -167,6 +167,7 @@ aside h3 {
 }
 
 aside .sidebar a {
+  cursor: pointer;
   display: flex;
   color: var(--color-info-dark);
   margin-left: 2rem;
@@ -993,7 +994,7 @@ form.sign-in-form {
 }
 
 #historyMenu .card {
-  width: 250px;
+  width: 275px;
   margin-bottom: 10px;
   border: 1px solid var(--color-primary);
   border-radius: 15px;

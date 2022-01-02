@@ -1,7 +1,32 @@
+import { getStoredAccounts } from '../../../utils/storage.js'
 import { loggedAccount } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
+import { closeModal } from './modal.js'
 
-const addToHistory = (type, amount) => {
+const findEmail = email => {
+  let found = false
+  const accounts = getStoredAccounts()
+  found = accounts.find(account => {
+    if (account.email === email)
+      return account
+  })
+  return found
+}
+
+const replaceInStorage = (email, amount) => {
+  const newAccount = {...findEmail(email)}
+  newAccount.balance += amount
+  
+  const newList = getStoredAccounts().map(account => {
+    if (account.email === email)
+      account = newAccount
+    return account
+  })
+
+  localStorage.accounts = JSON.stringify(newList)
+}
+
+const addToHistory = (type, amount, email) => {
   const history = loggedAccount.history
 
   const date = new Date()
@@ -14,15 +39,24 @@ const addToHistory = (type, amount) => {
   const balanceTxt = DOM.get('#transactionMenu #balance')
   const balance = loggedAccount.balance
 
-  history.push({
-    type: type,
-    amount: amount,
-    time: time,
-    date: today
-  })
+  const toPush = type === 'transfer' 
+    ? {
+      type: type,
+      amount: amount,
+      date: `(${time}) ${today}`,
+      email: email
+    } : { 
+      type: type, amount: amount, 
+      time: time, date: today 
+    }
+
+  history.push(toPush)
 
   localStorage.loggedAccount = JSON.stringify(loggedAccount)
   balanceTxt.innerText = '₱' + balance
+
+  replaceInStorage(email || loggedAccount.email, amount)
+  closeModal()
 }
 
-export { addToHistory }
+export { addToHistory, findEmail }

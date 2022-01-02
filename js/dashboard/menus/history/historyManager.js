@@ -1,4 +1,5 @@
 import * as DOM from '../../../utils/dom.js'
+import { allCards } from './allCards.js'
 
 const historyFilter = () => {
   const menu = '#historyMenu '
@@ -19,4 +20,11 @@ const historyFilter = () => {
    })
 }
 
-export { historyFilter }
+const historyManager = () => {
+  const menu = '#historyMenu '
+  const cardList = DOM.get(menu + '#cards')
+  cardList.innerHTML = allCards()
+  historyFilter()
+}
+
+export { historyManager } 

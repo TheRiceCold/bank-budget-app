@@ -1,6 +1,6 @@
-import { panels } from './panels/panels.js'
 import { forms } from './forms/forms.js'
 import MyHTML from '../utils/MyHTML.js'
+import { panels } from './panels.js'
 
 const content = {
   id: 'loginPage',

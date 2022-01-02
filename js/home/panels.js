@@ -1,4 +1,7 @@
-const panelRight = {
+import PanelHTML from './html/PanelHTML.js'
+import MyHTML from '../utils/MyHTML.js'
+
+const rightPanelContent = {
   position: 'right',
   title: 'One of us?',
   description: `
@@ -9,7 +12,7 @@ const panelRight = {
   image: 'register.svg'
 }
 
-const panelLeft = {
+const leftPanelContent = {
   position: 'left',
   title: 'Banking & Budgeting made Simple',
   description: `
@@ -20,5 +23,13 @@ const panelLeft = {
   image: 'log.svg'
 }
 
-const panelList = { right: panelRight, left: panelLeft }
-export { panelList }
+const rightPanel = new PanelHTML(rightPanelContent).string
+const leftPanel = new PanelHTML(leftPanelContent).string
+
+const content = {
+  className: 'panels-container',
+  inner: [leftPanel, rightPanel]
+}
+
+const panels = new MyHTML(content).string
+export { panels }

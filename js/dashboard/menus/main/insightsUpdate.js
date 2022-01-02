@@ -3,6 +3,7 @@ import * as DOM from '../../../utils/dom.js'
 
 const getTotalFromHistory = type => {
   const history = loggedAccount.history
+  if (!history) location.reload()
 
   if (history.length === 0) return 0
 

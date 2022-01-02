@@ -6,7 +6,7 @@ const tableToArray = table => {
 
   const searchData = rowList.map(row => {
     const datas = Array.from(row.children)
-    return datas.map(cell => cell.textContent) 
+    return datas.map(cell => cell.innerText) 
   })
 
   return searchData

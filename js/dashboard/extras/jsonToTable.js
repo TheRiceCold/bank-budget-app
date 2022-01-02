@@ -1,7 +1,7 @@
 import { copyText } from '../../utils/helpers.js'
 import * as dom from '../../utils/dom.js'
 
-const jsonTable = (data, container) => { 
+const jsonToTable = (data, container) => { 
   const table = dom.create('table')
   const thead = table.createTHead()
   const col = Object.keys(data[0])
@@ -15,7 +15,7 @@ const jsonTable = (data, container) => {
     let row = dom.create('tr')
     for (let j = 0; j < col.length; j++) {
       const cell = row.insertCell(-1)
-      cell.textContent = data[i][col[j]]
+      cell.innerText = data[i][col[j]]
       //cell.addEventListener('click', copyText)
     }
     tbody.append(row)
@@ -24,4 +24,4 @@ const jsonTable = (data, container) => {
   return table
 }
 
-export { jsonTable }
+export { jsonToTable }

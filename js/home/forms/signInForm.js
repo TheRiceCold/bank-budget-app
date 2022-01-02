@@ -14,7 +14,13 @@ const inputList = [
   }
 ]
 
-const signInForm = new FormHTML('sign-in-form', 'signInForm', 'Sign In') 
+const content = { 
+  className:'sign-in-form', 
+  id: 'signInForm', 
+  title: 'Sign In' 
+}
+
+const signInForm = new FormHTML(content) 
 signInForm.inputList = inputList
 
 export { signInForm }

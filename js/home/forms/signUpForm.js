@@ -35,6 +35,12 @@ const inputList = [
   }
 ]
 
-const signUpForm = new FormHTML('sign-up-form', 'signUpForm', 'Sign Up')
+const content = {
+  className: 'sign-up-form',
+  id: 'signUpForm',
+  title: 'Sign Up'
+}
+
+const signUpForm = new FormHTML(content)
 signUpForm.inputList = inputList
 export { signUpForm }
