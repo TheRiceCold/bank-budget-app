@@ -1,25 +1,26 @@
-import { dashboardManager } from '../../dashboard/dashboardManager.js'
-import { dashboard } from '../../dashboard/dashboardPage.js'
+import { setLoggedAccount } from '../../utils/storage.js'
 import { removeAllChild } from '../../utils/helpers.js'
-import { getAccount } from './findAccount.js'
+import Dashboard from '../../dashboard/Dashboard.js'
+import { getFindAccount } from './findAccount.js'
 import * as DOM from '../../utils/dom.js'
 
 const callback = e => {
   e.preventDefault()
   const form = e.target
+  const user = getFindAccount(form)
 
-  if (getAccount(form)) {
-    localStorage.loggedAccount = JSON.stringify(getAccount(form))
-    removeAllChild(DOM.root)
-    DOM.root.append(dashboard)
-    dashboardManager()
-  } else {
-    alert('Account does not exist')
-  }
+  if (user) {
+    setLoggedAccount(user)
+    const dashboard = new Dashboard()
+    dashboard.render()
+  } 
+  else
+    alert('account not found')
 }
 
-const login = () => 
-  DOM.get('#signInForm')
-    .addEventListener('submit', callback)
+const login = () => { 
+  const form =  DOM.get('#signInForm')
+  form.onsubmit = callback
+}
 
 export { login }

@@ -1,5 +1,24 @@
-import { checkTransaction } from './checkTransaction.js'
+import { getLoggedAccount } from '../../../utils/storage.js'
+import { addToHistory } from './addToHistory.js'
 import * as DOM from '../../../utils/dom.js'
+import { closeModal } from './modal.js'
+
+const checkTransaction = (type, amount) => {
+  let loggedUser = {...getLoggedAccount()}
+  let balance = Number(getLoggedAccount().balance)
+
+  if (type === 'deposit') {
+    balance += Number(amount)
+    loggedUser.balance = balance
+    addToHistory(type, amount)
+  }
+  else if (amount <= balance) {
+    balance -= amount
+    loggedUser.balance = balance
+    addToHistory(type, amount)
+  }
+  else alert('not enough balance')
+}
 
 const enterTransaction = modal => {
   let type = modal.querySelector('h2')
@@ -15,6 +34,8 @@ const enterTransaction = modal => {
     let amount = DOM.get('#amount').value
     checkTransaction(type, amount)
     amount = ''
+
+    closeModal()
   }
 }
 

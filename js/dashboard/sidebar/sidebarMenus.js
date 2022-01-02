@@ -5,7 +5,6 @@ const logout = i => {
   if (sidebarLabels[i].menu === 'logout') {
     location.reload()
     delete localStorage.loggedAccount
-    return 
   }
 }
 
@@ -17,7 +16,8 @@ const sidebarMenus = i => {
   const currentMenu = sidebarLabels[i].menu
 
   lastMenu.remove()
-  dashboard.append(currentMenu)
+  dashboard.append(currentMenu.html)
+  currentMenu.manager()
 }
 
 export { sidebarMenus }

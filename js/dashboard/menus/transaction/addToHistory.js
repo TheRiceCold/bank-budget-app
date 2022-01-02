@@ -1,5 +1,5 @@
 import { getStoredAccounts } from '../../../utils/storage.js'
-import { loggedAccount } from '../../../utils/storage.js'
+import { getLoggedAccount } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 import { closeModal } from './modal.js'
 
@@ -27,7 +27,7 @@ const replaceInStorage = (email, amount) => {
 }
 
 const addToHistory = (type, amount, email) => {
-  const history = loggedAccount.history
+  const history = getLoggedAccount().history
 
   const date = new Date()
   const today = date.toLocaleDateString()

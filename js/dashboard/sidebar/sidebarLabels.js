@@ -1,22 +1,22 @@
-import { transactionMenu } from '../menus/transaction/transactionMenu.js'
-import { settingsMenu } from '../menus/settings/settingsMenu.js'
+import TransactionMenu from '../menus/transaction/TransactionMenu.js'
 import { scheduleMenu } from '../menus/schedule/scheduleMenu.js'
-import { accountsMenu } from '../menus/accounts/accountsMenu.js'
 import { historyMenu } from '../menus/history/historyMenu.js'
 import { budgetMenu } from '../menus/budget/budgetMenu.js'
 import { chartMenu } from '../menus/chart/chartMenu.js'
-import { mainMenu } from '../menus/main/mainMenu.js'
+import SettingsMenu from '../menus/SettingsMenu.js'
+import MainMenu from '../menus/main/MainMenu.js'
+import UsersMenu from '../menus/UsersMenu.js'
 
 const sidebarLabels = [
   {
     text: 'Dashboard',
     icon: 'fas fa-th-large',
-    menu: mainMenu.html
+    menu: new MainMenu()
   },
   {
     text: 'Transaction',
     icon: 'far fa-credit-card',
-    menu: transactionMenu.html
+    menu: new TransactionMenu()
   },
   {
     text: 'Budget',
@@ -42,12 +42,12 @@ const sidebarLabels = [
     id: 'accountsLink',
     text: 'Accounts',
     icon: 'fas fa-users',
-    menu: accountsMenu.html
+    menu: new UsersMenu()
   },
   {
     text: 'Setting',
     icon: 'fas fa-user-cog',
-    menu: settingsMenu.html
+    menu: new SettingsMenu()
   },
   {
     text: 'Logout',

@@ -291,11 +291,12 @@ main #insights small {
 }
 
 #newAccounts {
-  margin-top: 2rem;
+  margin-top: 2.5em;
 }
 
 #newAccounts h2 {
-  margin-bottom: .8rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 #newAccounts table {
@@ -310,10 +311,7 @@ main #insights small {
 
 #newAccounts table thead {
   text-transform: capitalize;
-}
-
-#newAccounts table:hover {
-  box-shadow: none;
+  font-size: 1.1em;
 }
 
 main table tbody td {

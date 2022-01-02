@@ -1,7 +1,8 @@
-import { loggedAccount } from '../../../utils/storage.js'
+import { getLoggedAccount } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 
 const budgetManager = () => {
+  const loggedAccount = getLoggedAccount()
   const form = DOM.get('#budgetMenu form')
   const enterBtn = DOM.get('#budgetMenu #enter')
   const amountInput = form.amount

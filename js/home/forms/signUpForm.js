@@ -5,32 +5,32 @@ const inputList = [
     id: 'fullname',
     name: 'fullname',
     placeHolder: 'Fullname',
-    icon: 'user'
+    icon: 'fas fa-user'
   },
   {
     id: 'email',
     name: 'email',
     placeHolder: 'Email',
-    icon: 'envelope'
+    icon: 'fas fa-envelope'
   },
   {
     id: 'mobile',
     name: 'mobile',
     placeHolder: 'Mobile No.',
-    icon: 'phone'
+    icon: 'fas fa-phone'
   },
   {
     id: 'password',
     name: 'password',
     placeHolder: 'Password',
-    icon: 'lock',
+    icon: 'fas fa-lock',
     type: 'password'
   },
   {
     id: 'confirmPassword',
     name: 'confirmPassword',
     placeHolder: 'Confirm Password',
-    icon: 'lock',
+    icon: 'fas fa-lock',
     type: 'password'
   }
 ]

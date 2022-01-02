@@ -18,7 +18,7 @@ class InputHTML extends MyHTML {
       ? '<i class="fas fa-eye" id="eye"></i>' : ''
 
     this.html.innerHTML = `
-      <i class="fas fa-${icon}"></i>
+      <i class="${icon}"></i>
       <input type="${this.type}" name="${name}" placeholder="${placeHolder}" id="${id}"/>${eyeIcon}`
   }
 

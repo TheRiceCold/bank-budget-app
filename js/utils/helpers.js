@@ -1,15 +1,10 @@
+import { getLoggedAccount } from './storage.js'
 import * as DOM from './dom.js'
-import { loggedAccount } from './storage.js'
 
 const removeAllChild = parent => {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild)
   }
-}
-
-const updateBalance = textElement => {
-  const balance = '₱' + loggedAccount.balance
-  textElement.innerText = balance
 }
 
 const copyText = e => {
@@ -25,4 +20,4 @@ const copyText = e => {
   copyInput.remove()
 }
 
-export { removeAllChild, copyText, updateBalance }
+export { removeAllChild, copyText }

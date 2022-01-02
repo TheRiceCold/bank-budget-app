@@ -1,14 +1,11 @@
-import { dashboardManager } from './dashboard/dashboardManager.js'
-import { dashboard } from './dashboard/dashboardPage.js'
-import { homeManager } from './home/homeManager.js'
+import Dashboard from './dashboard/Dashboard.js'
 import { isLoggedIn } from './utils/storage.js'
-import { home } from './home/homePage.js'
-import { root } from './utils/dom.js'
+import Home from './home/Home.js'
 
 if (isLoggedIn) {
-  root.append(dashboard)
-  dashboardManager()
+  const dashboard = new Dashboard()
+  dashboard.render()
 } else {
-  root.append(home)
-  homeManager()
+  const home = new Home()
+  home.render()
 }

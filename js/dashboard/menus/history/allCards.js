@@ -1,8 +1,8 @@
-import { loggedAccount } from '../../../utils/storage.js'
+import { getLoggedAccount } from '../../../utils/storage.js'
 import { cardContent } from './cardContent.js'
 
 const allCards = () => {
-  const history = loggedAccount.history
+  const history = getLoggedAccount().history
   let cards = history.map(card => {
     const { type } = card
     const icon = 

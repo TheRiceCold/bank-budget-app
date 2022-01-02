@@ -1,5 +1,5 @@
-import { removeAllChild } from '../../../utils/helpers.js'
-import * as DOM from '../../../utils/dom.js'
+import { removeAllChild } from '../../utils/helpers.js'
+import * as DOM from '../../utils/dom.js'
 
 const findTerm = (tableData, term) => {
   term = term.toLowerCase()

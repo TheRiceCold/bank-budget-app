@@ -2,14 +2,14 @@ import FormHTML from '../html/FormHTML.js'
 
 const inputList = [
   {
-    id: 'emailOrPhone',
-    placeHolder: 'Email/Phone Number', 
-    icon: 'user'
+    id: 'email',
+    placeHolder: 'Email', 
+    icon: 'fas fa-user'
   },
   {
     id: 'password',
     placeHolder: 'Password',
-    icon: 'lock',
+    icon: 'fas fa-lock',
     type: 'password'
   }
 ]

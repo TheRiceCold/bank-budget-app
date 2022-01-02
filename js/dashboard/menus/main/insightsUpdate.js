@@ -1,8 +1,8 @@
-import { loggedAccount } from '../../../utils/storage.js'
+import { getLoggedAccount } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 
 const getTotalFromHistory = type => {
-  const history = loggedAccount.history
+  const history = getLoggedAccount().history
   if (!history) location.reload()
 
   if (history.length === 0) return 0
@@ -17,7 +17,7 @@ const getTotalFromHistory = type => {
 }
 
 const getInsightsUpdate = () => {
-  const balance = loggedAccount.balance
+  const balance = getLoggedAccount().balance
   const totalExpenses = getTotalFromHistory('expense')
   const totalWithdrawals = getTotalFromHistory('withdraw')
   

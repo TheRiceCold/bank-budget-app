@@ -1,10 +1,11 @@
 import { getStoredAccounts } from '../../../utils/storage.js'
-import { loggedAccount } from '../../../utils/storage.js'
+import { getLoggedAccount } from '../../../utils/storage.js'
 import { addToHistory } from './addToHistory.js'
 import { findEmail } from './addToHistory.js'
 import * as DOM from '../../../utils/dom.js'
 
 const checkTransaction = (type, amount) => {
+  const loggedAccount = {...getLoggedAccount()}
   let balance = Number(loggedAccount.balance)
   amount = Number(amount)
 
