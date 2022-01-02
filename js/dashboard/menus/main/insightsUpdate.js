@@ -2,10 +2,17 @@ import { loggedAccount } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 
 const getTotalFromHistory = type => {
-  const listByType = loggedAccount.history.filter(i => i.type === type)
-  const amountList = listByType.map(i => Number(i.amount)) 
-  const total = amountList.reduce((prevValue, curValue) => prevValue + curValue)
-  return total || 0
+  const history = loggedAccount.history
+
+  if (history.length === 0) return 0
+
+  const listByType = history.filter(item => item.type === type)
+  const amountList = listByType.map(item => Number(item.amount))
+
+  if (amountList.length === 0) return 0
+
+  const total = amountList.reduce((prevVal, curVal) => prevVal + curVal)
+  return total
 }
 
 const getInsightsUpdate = () => {

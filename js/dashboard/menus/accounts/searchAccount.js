@@ -1,6 +1,16 @@
-import { searchTable } from '../../../utils/searchTable.js'
-import { tableToArray } from '../../../utils/helpers.js'
+import { searchTable } from './searchTable.js'
 import * as dom from '../../../utils/dom.js'
+
+const tableToArray = table => {
+  const rowList = Array.from(table.children[1].children)
+
+  const searchData = rowList.map(row => {
+    const datas = Array.from(row.children)
+    return datas.map(cell => cell.textContent) 
+  })
+
+  return searchData
+}
 
 const searchAccount = () => {
   const menu = '#accountsMenu '

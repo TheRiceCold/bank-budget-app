@@ -1,6 +1,6 @@
-import { accountsToDisplay } from '../../../utils/accountsToDisplay.js'
+import { accountsToDisplay } from '../../extras/usersToDisplay.js'
 import { getStoredAccounts } from '../../../utils/storage.js'
-import { jsonTable } from '../../../utils/jsonTable.js'
+import { jsonTable } from '../../extras/jsonToTable.js'
 import MenuHTML from '../../html/MenuHTML.js'
 
 const searchInput = `<input type="text" id="accountSearch" class="search" placeholder="Search"/>`
@@ -10,7 +10,7 @@ const table = jsonTable(accounts).outerHTML
 const content = {
   id: 'accountsMenu', 
   title: 'All Users', 
-  inner: [ searchInput, table]
+  inner: [searchInput, table]
 }
 
 const accountsMenu = new MenuHTML(content)

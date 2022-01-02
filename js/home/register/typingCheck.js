@@ -1,7 +1,7 @@
 import { confirmPassword } from './emailPassword.js'
-import { regexList } from '../../utils/regexList.js'
 import { getValidInput } from './validInput.js'
 import { findEmail } from './emailPassword.js'
+import { regexList } from './regexList.js'
 import * as DOM from '../../utils/dom.js'
 
 const callback = (e, i) => {

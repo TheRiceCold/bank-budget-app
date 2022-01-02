@@ -1,4 +1,3 @@
-import { currentDate, showName } from '../../utils/helpers.js'
 import { sidebarLabels } from './sidebarLabels.js'
 import * as DOM from '../../utils/dom.js'
 
@@ -11,7 +10,6 @@ const logout = i => {
 }
 
 const sidebarMenus = i => {
-  showName()
   logout(i)
 
   const dashboard = DOM.get('#dashboard')
@@ -20,8 +18,6 @@ const sidebarMenus = i => {
 
   lastMenu.remove()
   dashboard.append(currentMenu)
-
-  currentDate()
 }
 
 export { sidebarMenus }
