@@ -1,8 +1,8 @@
 import TransactionMenu from '../menus/transaction/TransactionMenu.js'
 import { scheduleMenu } from '../menus/schedule/scheduleMenu.js'
-import { historyMenu } from '../menus/history/historyMenu.js'
-import { budgetMenu } from '../menus/budget/budgetMenu.js'
+import HistoryMenu from '../menus/history/HistoryMenu.js'
 import { chartMenu } from '../menus/chart/chartMenu.js'
+import BudgetMenu from '../menus/budget/BudgetMenu.js'
 import SettingsMenu from '../menus/SettingsMenu.js'
 import MainMenu from '../menus/main/MainMenu.js'
 import UsersMenu from '../menus/UsersMenu.js'
@@ -21,7 +21,7 @@ const sidebarLabels = [
   {
     text: 'Budget',
     icon: 'fas fa-wallet',
-    menu: budgetMenu.html
+    menu: new BudgetMenu()
   },
   {
     text: 'Schedule',
@@ -31,7 +31,7 @@ const sidebarLabels = [
   {
     text: 'History',
     icon: 'fas fa-search-dollar',
-    menu: historyMenu.html
+    menu: new HistoryMenu()
   },
   {
     text: 'Chart',

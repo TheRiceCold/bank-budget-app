@@ -1,4 +1,6 @@
 import { getStoredAccounts } from '../../../utils/storage.js'
+import { setStoredAccounts } from '../../../utils/storage.js'
+import { setLoggedAccount } from '../../../utils/storage.js'
 import { getLoggedAccount } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 import { closeModal } from './modal.js'
@@ -23,11 +25,12 @@ const replaceInStorage = (email, amount) => {
     return account
   })
 
-  localStorage.accounts = JSON.stringify(newList)
+  setStoredAccounts(newList)
 }
 
 const addToHistory = (type, amount, email) => {
-  const history = getLoggedAccount().history
+  const loggedAccount = getLoggedAccount()
+  const history = loggedAccount.history
 
   const date = new Date()
   const today = date.toLocaleDateString()
@@ -52,7 +55,7 @@ const addToHistory = (type, amount, email) => {
 
   history.push(toPush)
 
-  localStorage.loggedAccount = JSON.stringify(loggedAccount)
+  setLoggedAccount(loggedAccount)
   balanceTxt.innerText = '₱' + balance
 
   replaceInStorage(email || loggedAccount.email, amount)

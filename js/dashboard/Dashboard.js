@@ -1,10 +1,6 @@
-import { historyManager } from './menus/history/historyManager.js'
-import { scheduleManager } from './menus/schedule/manager.js'
-import { budgetManager } from './menus/budget/manager.js'
-import { sidebarMenus } from './sidebar/sidebarMenus.js'
+import { sidebarLabels } from './sidebar/sidebarLabels.js'
 import { getLoggedAccount } from '../utils/storage.js'
 import { removeAllChild } from '../utils/helpers.js'
-import { getChart } from './menus/chart/manager.js'
 import MainMenu from './menus/main/MainMenu.js'
 import { sidebar } from './sidebar/sidebar.js'
 import MyHTML from '../utils/MyHTML.js'
@@ -38,7 +34,7 @@ class Dashboard extends MyHTML {
     const buttons = DOM.getAll('.sidebar a')
     buttons.forEach((button, i) => 
       button.onclick = () => {
-        sidebarMenus(i)
+        this.changeMenu(i)
         this.currentDate() 
       })
   }
@@ -56,17 +52,19 @@ class Dashboard extends MyHTML {
     nameTxt.innerText = 'Hello ' + firstName
   }
 
-  menuManager(index) { 
-    //sidebarMenus(index)
+  changeMenu(i) {
+   if (sidebarLabels[i].menu === 'logout') {
+      location.reload()
+      delete localStorage.loggedAccount
+    }
 
-    //if (DOM.get('#budgetMenu'))
-      //budgetManager()
-    //else if (DOM.get('#historyMenu')) 
-      //historyManager()
-    //else if (DOM.get('#scheduleMenu')) 
-      //scheduleManager()
-    //else if (DOM.get('#chartMenu'))
-      //getChart()
+    const dashboard = DOM.get('#dashboard')
+    const lastMenu = DOM.get('#dashboard main')
+    const currentMenu = sidebarLabels[i].menu
+
+    lastMenu.remove()
+    dashboard.append(currentMenu.html)
+    currentMenu.manager()
   }
 }
 

@@ -1,27 +1,62 @@
-import MyHTML from '../../../utils/MyHTML.js'
+import { getLoggedAccount } from '../../../utils/storage.js'
+import { buttons, cards, cardContent } from './content.js'
 import MenuHTML from '../../html/MenuHTML.js'
+import * as DOM from '../../../utils/dom.js'
 
-const getButtons = () => {
-  const list = ['All', 'Deposit', 'Withdraw', 'Transfer', 'Expense']
-  const html = list.map((button, i) => {
-    const isActive = (i === 0) ? ' active' : ''
-    return `<button class="btn${isActive}">${button}</button>`
-  })
+class HistoryMenu extends MenuHTML {
+  constructor() {
+    const id = 'historyMenu'
+    const title = 'Transaction History'
+    const content = [buttons, cards]
+    super({ id: id, title: title, inner: content })
+  }
 
-  return html
+  manager() {
+    const menu = '#historyMenu '
+    const cardList = DOM.get(menu + '#cards')
+    cardList.innerHTML = this.allCards()
+    this.historyFilter()
+  }
+
+  historyFilter() {
+    const menu = '#historyMenu '
+    const cards = DOM.getAll(menu + '.card')
+    const buttons = DOM.getAll(menu + 'button')
+
+    buttons.forEach(b =>
+     b.onclick = () => {
+       buttons.forEach(li => li.classList.remove('active'))
+       b.classList.add('active')
+
+       const value = b.textContent
+       cards.forEach(card => {
+         card.style.display = 'none'
+         if (card.dataset.filter === value.toLowerCase() || value === 'All')
+           card.style.display = 'flex'
+       })
+     })
+  }
+
+  allCards() {
+    const history = getLoggedAccount().history
+    let cards = history.map(card => {
+      const { type } = card
+      const icon = 
+        type === 'deposit' ?
+          'far fa-credit-card' :
+        type === 'withdraw' ?
+          'fas fa-money-check-alt' :
+        type === 'transfer' ? 
+          'fas fa-hand-holding-usd' :
+          'fas fa-coins'
+
+      return cardContent(card, icon)
+    })
+    
+    cards = cards.reverse()
+    cards.length = 15
+    return cards.join(' ')
+  }
 }
 
-const buttons = new MyHTML({
-  id: 'buttons',
-  inner: getButtons()
-}).string
-
-const cards = new MyHTML({ id: 'cards' }).string
-
-const historyMenu = new MenuHTML({ 
-  id: 'historyMenu', 
-  title: 'Transaction History',
-  inner: [buttons, cards]
-})
-
-export { historyMenu }
+export default HistoryMenu

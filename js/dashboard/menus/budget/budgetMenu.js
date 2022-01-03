@@ -1,10 +1,16 @@
 import MenuHTML from '../../html/MenuHTML.js'
 import { container } from './container.js'
 
-const budgetMenu = new MenuHTML({ 
-  id: 'budgetMenu', 
-  title: 'Budget',
-  inner: container
-})
+class BudgetMenu extends MenuHTML {
+  constructor() {
+    const id = 'budgetMenu'
+    const title = 'Budget'
+    super({ id: id, title: title, inner: container })
+  }
 
-export { budgetMenu }
+  manager() {
+
+  }
+}
+
+export default BudgetMenu
