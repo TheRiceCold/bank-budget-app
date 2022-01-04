@@ -5,7 +5,7 @@ const usersToDisplay = list => {
     delete cloneAccount.password
     delete cloneAccount.mobile
     delete cloneAccount.history
-    delete cloneAccount.plans
+    delete cloneAccount.expenses
     
     return cloneAccount
   })

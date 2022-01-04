@@ -17,13 +17,19 @@ class MainMenu extends MenuHTML {
     const tableContent  = [ tableTitle, tableUsers, tableBtn]
     const newUsersTable = new MyHTML({ id: tableId, inner: tableContent }).string
 
-    const content = [ insights, newUsersTable ]
-    super({ id: id, title: title, inner: content })
+    super({ id: id, title: title, inner: [insights, newUsersTable] })
   }
 
   manager() {
     this.updateInsights()
+    this.updateTable()
     this.seeAllUsers()
+  }
+
+  updateTable() {
+    const oldTable = DOM.get('#mainMenu table')
+    const newTable = getUsersAsTable('desc', 5)
+    oldTable.innerHTML = newTable
   }
 
   seeAllUsers() {

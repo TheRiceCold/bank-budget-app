@@ -9,14 +9,20 @@ class UsersMenu extends MenuHTML {
     const id = 'accountsMenu'
     const title = 'All Users'
     const searchInput = `<input type="text" id="accountSearch" class="search" placeholder="Search"/>`
-    const table = getUsersAsTable()
-    const content = [searchInput, table]
-
-    super({ id: id, title: title, inner: content })
+    super({ id: id, title: title, inner: searchInput })
   }
 
   manager() {
+    this.updateTable()
     this.search()
+  }
+
+  updateTable() {
+    const oldTable = DOM.get('#accountsMenu table')
+    if (oldTable) oldTable.remove()
+
+    const newTable = getUsersAsTable()
+    this.html.innerHTML += newTable
   }
 
   search() {
