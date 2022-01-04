@@ -3,7 +3,7 @@ import MyHTML from '../../utils/MyHTML.js'
 
 const sidebarButtons = sidebarLabels
   .map(label => {
-    const { id, icon, text } = label
+    const { icon, text } = label
 
     return new MyHTML({
       tag: 'a', id: label.id,

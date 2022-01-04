@@ -1,5 +1,5 @@
+import { getLoggedUser } from '../../../storage/control.js'
 import { buttons, cards, cardContent } from './content.js'
-import { getLoggedUser } from '../../../utils/storage.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
 

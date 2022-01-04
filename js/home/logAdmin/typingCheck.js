@@ -7,7 +7,6 @@ import * as DOM from '../../utils/dom.js'
 const callback = (e, i) => {
   const form = DOM.get('#signUpForm')
   const inputField = e.target
-  const inputName = inputField.attributes.name.value
 
   findEmail(form)
   confirmPassword(form)

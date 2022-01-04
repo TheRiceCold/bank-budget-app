@@ -1,6 +1,6 @@
-import MenuHTML from '../html/MenuHTML.js'
+import MenuHTML from '../../html/MenuHTML.js'
 
-class SettingsMenu extends MenuHTML {
+class AddUserMenu extends MenuHTML {
   constructor() {
     const id = 'settingsMenu'
     const title = 'Account Settings'
@@ -12,4 +12,4 @@ class SettingsMenu extends MenuHTML {
   }
 }
 
-export default SettingsMenu
+export default AddUserMenu

@@ -1,8 +1,8 @@
+import { adminLoggedIn } from './storage/control.js'
 import Dashboard from './dashboard/Dashboard.js'
-import { isLoggedIn } from './utils/storage.js'
 import Home from './home/Home.js'
 
-if (isLoggedIn) {
+if (adminLoggedIn) {
   const dashboard = new Dashboard()
   dashboard.render()
 } else {

@@ -4,7 +4,7 @@ const inputList = [
   {
     id: 'email',
     placeHolder: 'Email', 
-    icon: 'fas fa-user'
+    icon: 'fas fa-envelope'
   },
   {
     id: 'password',
@@ -16,8 +16,8 @@ const inputList = [
 
 const content = { 
   className:'sign-in-form', 
-  id: 'signInForm', 
-  title: 'Sign In' 
+  id: 'clientSignInForm', 
+  title: 'User'
 }
 
 const signInForm = new FormHTML(content) 

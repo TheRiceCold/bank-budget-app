@@ -3,10 +3,10 @@ import MyHTML from '../../utils/MyHTML.js'
 class ModalHTML extends MyHTML {
   constructor(options) {
     super({ className: 'modal', id: options.id })
-    this.setContent(options)
+    this.setContent()
   }
 
-  setContent(options) {
+  setContent() {
     const inner =
       `<h2></h2>
       <input type="text" id="receiver" placeholder="Receiver\'s email"/>

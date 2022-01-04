@@ -266,12 +266,6 @@ main #insights .card i {
   font-size: 2rem;
 }
 
-#insights .card#balance i { background: pink; }
-
-#insights .card#expenses i { background: gold; }
-
-#insights .card#withdrawals i { background: lightgreen; }
-
 main #insights .card div {
   display: flex;
   align-items: center;
@@ -325,6 +319,7 @@ main table tbody tr:last-child td {
 }
 
 #newAccounts a {
+  cursor: pointer;
   text-align: center;
   display: block;
   margin: 1rem auto;

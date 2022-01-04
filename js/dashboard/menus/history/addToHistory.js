@@ -1,6 +1,6 @@
-import { getStoredUsers } from '../../../utils/storage.js'
-import { setLoggedUser } from '../../../utils/storage.js'
-import { getLoggedUser } from '../../../utils/storage.js'
+import { getStoredUsers } from '../../../storage/control.js'
+import { setLoggedUser } from '../../../storage/control.js'
+import { getLoggedUser } from '../../../storage/control.js'
 import * as DOM from '../../../utils/dom.js'
 
 const addToHistory = (type, amount, email) => {

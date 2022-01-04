@@ -1,4 +1,4 @@
-import { defaultUsers } from './defaultStorage.js'
+import { defaultUsers } from './defaultUsers.js'
 
 const setStoredUsers = list => {
   list = JSON.stringify(list)
@@ -24,7 +24,7 @@ const getLoggedUser = () => {
   return JSON.parse(localStorage.loggedUser)
 }
 
-const isLoggedIn = !Array.isArray(getLoggedUser())
+const adminLoggedIn = !Array.isArray(getLoggedUser())
 
 const updateUserInStorage = newUser => {
   const users = [...getStoredUsers()]
@@ -40,7 +40,7 @@ const updateUserInStorage = newUser => {
 }
 
 export { 
-  isLoggedIn,
+  adminLoggedIn,
   updateUserInStorage,
   setLoggedUser, setStoredUsers,
   getLoggedUser, getStoredUsers

@@ -1,4 +1,4 @@
-import { getLoggedUser } from '../../../utils/storage.js'
+import { getLoggedUser } from '../../../storage/control.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
 import { openModal } from './modal.js'

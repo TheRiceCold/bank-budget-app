@@ -1,4 +1,3 @@
-import { getLoggedUser } from './storage.js'
 import * as DOM from './dom.js'
 
 const removeAllChild = parent => {

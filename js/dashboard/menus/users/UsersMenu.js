@@ -1,5 +1,4 @@
 import { getUsersAsTable } from '../../extras/getUsersAsTable.js'
-import { tableToArray } from '../../extras/tableToArray.js'
 import { removeAllChild } from '../../../utils/helpers.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
@@ -28,7 +27,7 @@ class UsersMenu extends MenuHTML {
   search() {
     const menu = '#accountsMenu '
     const table = DOM.get(menu + 'table')
-    const tableData = tableToArray(table)
+    const tableData = this.tableToArray(table)
     const searchInput = DOM.get('#accountSearch')
 
     searchInput.onkeyup = e => {
@@ -44,6 +43,15 @@ class UsersMenu extends MenuHTML {
 
     removeAllChild(tbody)
     this.createTable(tbody, data)  
+  }
+
+  tableToArray(table) {
+    const rowList = Array.from(table.children[1].children)
+    const searchData = rowList.map(row => {
+      const datas = Array.from(row.children)
+      return datas.map(cell => cell.innerText) 
+    })
+    return searchData
   }
 
   createTable (tbody, data) {

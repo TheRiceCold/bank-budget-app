@@ -7,7 +7,7 @@ const content = {
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
     ex ratione. Aliquid! `,
   buttonId: 'signInSwitch',
-  buttonText: 'Login',
+  buttonText: 'Sign in as user',
   image: 'register.svg'
 }
 

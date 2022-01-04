@@ -1,6 +1,6 @@
 import { sidebarLabels } from './sidebar/sidebarLabels.js'
+import { getLoggedUser } from '../storage/control.js'
 import { removeAllChild } from '../utils/helpers.js'
-import { getLoggedUser } from '../utils/storage.js'
 import MainMenu from './menus/main/MainMenu.js'
 import { sidebar } from './sidebar/sidebar.js'
 import MyHTML from '../utils/MyHTML.js'

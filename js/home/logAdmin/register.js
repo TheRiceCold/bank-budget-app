@@ -1,4 +1,3 @@
-import { getStoredUsers } from '../../utils/storage.js'
 import { getValidInput } from './validInput.js'
 import { typingCheck } from './typingCheck.js'
 import * as DOM from '../../utils/dom.js'

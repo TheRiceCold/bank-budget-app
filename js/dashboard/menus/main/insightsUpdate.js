@@ -1,5 +1,5 @@
-import { getLoggedUser } from '../../../utils/storage.js'
-import { getStoredUsers } from '../../../utils/storage.js'
+import { getStoredUsers } from '../../../storage/control.js'
+import { getLoggedUser } from '../../../storage/control.js'
 import * as DOM from '../../../utils/dom.js'
 
 const getTotalFromHistory = type => {
@@ -33,8 +33,8 @@ const getInsightsUpdate = () => {
 
   const balance = user.balance
   const lastDeposit = getLastFromHistory('deposit')
-  const depositAmount = lastDeposit.amount
-  const depositDate = lastDeposit.date
+  const depositAmount = lastDeposit ? lastDeposit.amount : 0
+  const depositDate = lastDeposit ? lastDeposit.date : ''
   const depositInfo = lastDeposit ? 
     `Last deposit: ${depositAmount} at ${depositDate}` : 'No deposits yet'
 
@@ -42,14 +42,14 @@ const getInsightsUpdate = () => {
 
   const totalWithdrawals = getTotalFromHistory('withdraw') 
   const lastWithdraw = getLastFromHistory('withdraw')
-  const withdrawAmount = lastWithdraw.amount
-  const withdrawDate = lastWithdraw.date
+  const withdrawAmount = lastWithdraw ? lastWithdraw.amount : 0
+  const withdrawDate = lastWithdraw ? lastWithdraw.date : ''
   const withdrawInfo = lastWithdraw ?
     `Last withdraw: ${withdrawAmount} at ${withdrawDate}` : 'No withdrawals yet'
 
   const lastTransfer = getLastFromHistory('transfer')
-  const transferAmount = lastTransfer.amount || 0
-  const transferEmail = lastTransfer.email
+  const transferAmount = lastTransfer ? lastTransfer.amount : 0
+  const transferEmail = lastTransfer ? lastTransfer.email : ''
   const transferInfo = lastTransfer ?
     `Receiver: ${transferEmail}` : 'No transfers yet'
   

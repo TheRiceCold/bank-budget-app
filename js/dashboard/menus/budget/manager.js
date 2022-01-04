@@ -1,8 +1,8 @@
-import { getLoggedAccount } from '../../../utils/storage.js'
+import { getLoggedUser } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 
 const budgetManager = () => {
-  const loggedAccount = getLoggedAccount()
+  const user = getLoggedUser()
   const form = DOM.get('#budgetMenu form')
   const enterBtn = DOM.get('#budgetMenu #enter')
   const amountInput = form.amount
@@ -11,7 +11,7 @@ const budgetManager = () => {
     e.preventDefault()
 
     const today = new Date().toLocaleDateString()
-    let balance = Number(loggedAccount.balance)
+    let balance = Number(user.balance)
     const amount = Number(amountInput.value)
 
     if (amount > balance) {
@@ -20,16 +20,6 @@ const budgetManager = () => {
     }
 
     balance -= amount
-    loggedAccount.balance = balance
-
-    const history = loggedAccount.history
-    history.push({
-      type: 'expense',
-      amount: amount,
-      date: today
-    })
-
-    console.log(loggedAccount)
   }
 }
 
