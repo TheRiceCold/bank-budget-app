@@ -1,33 +1,47 @@
-import { defaultAccounts } from './defaultStorage.js'
+import { defaultUsers } from './defaultStorage.js'
 
-const setStoredAccounts = list => {
+const setStoredUsers = list => {
   list = JSON.stringify(list)
-  localStorage.accounts = list
+  localStorage.users = list
 }
 
-const getStoredAccounts = () => {
-  if (!localStorage.accounts)
-    localStorage.accounts = JSON.stringify(defaultAccounts)
-
-  return JSON.parse(localStorage.accounts)
-}
-
-const setLoggedAccount = user => {
+const setLoggedUser = user => {
   user = JSON.stringify(user)
-  localStorage.loggedAccount = user
+  localStorage.loggedUser = user
 }
 
-const getLoggedAccount = () => {
-  if (!localStorage.loggedAccount)
-    localStorage.loggedAccount = '[]'
+const getStoredUsers = () => {
+  if (!localStorage.users)
+    localStorage.users = JSON.stringify(defaultUsers)
+
+  return JSON.parse(localStorage.users)
+}
+
+const getLoggedUser = () => {
+  if (!localStorage.loggedUser)
+    localStorage.loggedUser = '[]'
       
-  return JSON.parse(localStorage.loggedAccount)
+  return JSON.parse(localStorage.loggedUser)
 }
 
-const isLoggedIn = !Array.isArray(getLoggedAccount())
+const isLoggedIn = !Array.isArray(getLoggedUser())
+
+const updateUserInStorage = newUser => {
+  const users = [...getStoredUsers()]
+
+  const updateUsers = users.map(user => {
+    if (user.email === newUser.email) 
+      user = newUser
+    
+    return user
+  })
+
+  setStoredUsers(updateUsers)
+}
 
 export { 
   isLoggedIn,
-  getLoggedAccount, setLoggedAccount,
-  getStoredAccounts, setStoredAccounts
+  updateUserInStorage,
+  setLoggedUser, setStoredUsers,
+  getLoggedUser, getStoredUsers
 }

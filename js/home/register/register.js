@@ -1,8 +1,8 @@
-import { getStoredAccounts } from '../../utils/storage.js'
+import { getStoredUsers } from '../../utils/storage.js'
 import { getValidInput } from './validInput.js'
 import { typingCheck } from './typingCheck.js'
-import { addAccount } from './addAccount.js'
 import * as DOM from '../../utils/dom.js'
+import { addUser } from './addUser.js'
 
 const callback = e => {
   e.preventDefault()
@@ -19,7 +19,7 @@ const callback = e => {
     && getValidInput(mobile)
     && getValidInput(password)
     && getValidInput(confirmPassword) === getValidInput(password)) {
-      addAccount(form)
+      addUser(form)
       console.log('Registered!')
   } else 
     console.log('INVALID!')

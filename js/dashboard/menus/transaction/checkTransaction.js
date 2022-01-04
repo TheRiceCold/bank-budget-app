@@ -1,44 +1,76 @@
-import { getStoredAccounts } from '../../../utils/storage.js'
-import { getLoggedAccount } from '../../../utils/storage.js'
-import { setLoggedAccount } from '../../../utils/storage.js'
-//import { replaceInStorage } from '../../../utils/storage.js'
-import { addToHistory } from './addToHistory.js'
-import { findEmail } from './addToHistory.js'
+import { updateUserInStorage } from '../../../utils/storage.js'
+import { getStoredUsers } from '../../../utils/storage.js'
+import { getLoggedUser } from '../../../utils/storage.js'
+import { setLoggedUser } from '../../../utils/storage.js'
+import { addToHistory } from '../history/addToHistory.js'
 import * as DOM from '../../../utils/dom.js'
+import { closeModal } from './modal.js'
+
+const getUserByEmail = email => {
+  let found = false
+  const users = getStoredUsers()
+  found = users.find(user => {
+    if (user.email === email)
+      return user
+  })
+  return found
+}
+
+const updateBalance = (user, balance) => {
+  user.balance = balance
+  updateUserInStorage(user)
+
+  if (user.email === getLoggedUser().email) {
+    const id = '#transactionMenu '
+    const balanceTxt = DOM.get(id + '#balance')
+    balanceTxt.innerText = '₱' + balance
+  }
+}
+
+const transfer = (user, amount) => {
+  let balance = Number(user.balance)
+  const email = DOM.get('#receiver').value
+  const receiver = getUserByEmail(email)
+
+  if(receiver) {
+    balance -= amount
+    receiver.balance += amount
+
+    updateBalance(user, balance)   
+    updateBalance(receiver, receiver.balance)
+
+    setLoggedUser(user)
+    addToHistory('transfer', amount, receiver.email)
+    closeModal()
+  }
+  else if(!receiver)
+    alert('cannot find email')
+  else 
+    alert('email cannot be empty')
+}
 
 const checkTransaction = (type, amount) => {
-  const loggedAccount = {...getLoggedAccount()}
-  let balance = Number(loggedAccount.balance)
+  const user = {...getLoggedUser()}
+  let balance = Number(user.balance)
   amount = Number(amount)
 
   if (type === 'deposit') {
     balance += amount
-    loggedAccount.balance = balance
-    setLoggedAccount(loggedAccount)
+    updateBalance(user, balance)
+    setLoggedUser(user)
     addToHistory(type, amount)
+    closeModal()
   }
   else if (amount <= balance) {
-    if (type === 'transfer') {
-      balance -= amount
-      loggedAccount.balance = balance
-      setLoggedAccount(loggedAccount)
-      const email = DOM.get('#receiver').value
-      if(findEmail(email)) {
-        addToHistory(type, amount, email)
-        //replaceInStorage(email, amount)
-      }
-      else if(!findEmail(email))
-        alert('cannot find email')
-      else 
-        alert('receiver cannot be empty')
-    }
-    else if (type === 'withdraw') {
+    if (type === 'withdraw') {
       balance -= amount 
-      loggedAccount.balance = balace
-      setLoggedAccount(loggedAccount)
-    }
-    else
+      updateBalance(user, balance)
+      setLoggedUser(user)
       addToHistory(type, amount)
+      closeModal()
+    }
+    else if (type === 'transfer') 
+      transfer(user, amount)
   }
   else alert('not enough balance')
 }

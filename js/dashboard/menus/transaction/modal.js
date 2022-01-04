@@ -1,19 +1,5 @@
-import { enterTransaction } from './enterTransaction.js'
+import { checkTransaction } from './checkTransaction.js'
 import * as DOM from '../../../utils/dom.js'
-
-const openModal = e => {
-  const modal = DOM.get('.modal')
-  const modalBg = DOM.get('#modalBg')
-
-  DOM.addClass(modal, 'show')
-  DOM.addClass(modalBg, 'show')
-
-  const title =  modal.querySelector('h2')
-  title.innerText = e.target.innerText 
-
-  enterTransaction(modal)
-  modalBg.onclick = closeModal
-}
 
 const closeModal = e => {
   const modalBg = e ? e.target 
@@ -28,6 +14,42 @@ const closeModal = e => {
   DOM.delClass(receiver, 'show')
 
   modal.querySelector('#amount').value = ''
+}
+
+const modalType = modal => {
+  let type = modal.querySelector('h2')
+  type = type.innerText.toLowerCase()
+
+  if (type === 'transfer') {
+    const receiver = DOM.get('#receiver')
+    DOM.addClass(receiver, 'show')
+  }
+  const enterBtn = modal.querySelector('button')
+  enterBtn.onclick = () => {
+    let amount = DOM.get('#amount').value
+
+    if (amount < 0) {
+      alert('Cannot in negative values')
+      return
+    }
+    checkTransaction(type, amount)
+    amount = ''
+    closeModal()
+  }
+}
+
+const openModal = e => {
+  const modal = DOM.get('.modal')
+  const modalBg = DOM.get('#modalBg')
+
+  DOM.addClass(modal, 'show')
+  DOM.addClass(modalBg, 'show')
+
+  const title =  modal.querySelector('h2')
+  title.innerText = e.target.innerText 
+
+  modalType(modal)
+  modalBg.onclick = closeModal
 }
 
 export { openModal, closeModal }

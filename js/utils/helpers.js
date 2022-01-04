@@ -1,4 +1,4 @@
-import { getLoggedAccount } from './storage.js'
+import { getLoggedUser } from './storage.js'
 import * as DOM from './dom.js'
 
 const removeAllChild = parent => {
@@ -9,14 +9,14 @@ const removeAllChild = parent => {
 
 const copyText = e => {
   const textCopy = e.target.textContent
-  const copyInput = document.createElement('input')
+  const copyInput = DOM.create('input')
 
   e.target.classList.toggle('copied')
 
   copyInput.value = textCopy
-  document.body.append(copyInput)
+  DOM.root.append(copyInput)
   copyInput.select()
-  document.execCommand('copy')
+  DOM.root.execCommand('copy')
   copyInput.remove()
 }
 

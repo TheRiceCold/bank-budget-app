@@ -1,15 +1,13 @@
 import { removeAllChild } from '../utils/helpers.js'
 import { register } from './register/register.js'
 import { login } from './login/login.js'
-import { forms } from './forms/forms.js'
 import MyHTML from '../utils/MyHTML.js'
+import { content } from './content.js'
 import * as DOM from '../utils/dom.js'
-import { panels } from './panels.js'
 
 class Home extends MyHTML {
   constructor() {
     const id = 'loginPage'
-    const content = [forms, panels]
     super({ id: id, inner: content })
   }
 

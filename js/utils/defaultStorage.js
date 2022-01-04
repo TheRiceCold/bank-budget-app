@@ -1,4 +1,4 @@
-const defaultAccounts = [
+const defaultUsers = [
   {
     id: 1,
     fullname: 'Gon Freecs',
@@ -7,7 +7,7 @@ const defaultAccounts = [
     password: 'MTIz',
     balance: 1000,
     history: [],
-    plans: [],
+    expenses: [],
     date: '12/23/2021',
   },
   {
@@ -18,7 +18,7 @@ const defaultAccounts = [
     password: 'MTIz',
     balance: 5000, 
     history: [],
-    plans: [],
+    expenses: [],
     date: '12/23/2021',
   },
   {
@@ -29,7 +29,7 @@ const defaultAccounts = [
     password: 'MTIz',
     balance: 20000,
     history: [],
-    plans: [],
+    expenses: [],
     date: '12/23/2021',
   },
   {
@@ -40,7 +40,7 @@ const defaultAccounts = [
     password: 'MTIz',
     balance: 15000,
     history: [],
-    plans: [],
+    expenses: [],
     date: '12/23/2021',
   },
   {
@@ -51,9 +51,20 @@ const defaultAccounts = [
     password: 'MTIz',
     balance: 15000,
     history: [],
-    plans: [],
+    expenses: [],
+    date: '12/23/2021'
+  },
+  {
+    id: 6,
+    fullname: 'Dale Walter Hicban',
+    email: 'dalewaltergh@gmail.com',
+    mobile: '09612820594',
+    password: 'dGVzdDEyMzQ=',
+    balance: 5000,
+    history: [],
+    expenses: [],
     date: '12/23/2021'
   }
 ] 
 
-export { defaultAccounts }
+export { defaultUsers }

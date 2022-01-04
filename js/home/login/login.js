@@ -1,21 +1,21 @@
-import { setLoggedAccount } from '../../utils/storage.js'
+import { setLoggedUser } from '../../utils/storage.js'
 import { removeAllChild } from '../../utils/helpers.js'
 import Dashboard from '../../dashboard/Dashboard.js'
-import { getFindAccount } from './findAccount.js'
+import { getFindUser } from './findUser.js'
 import * as DOM from '../../utils/dom.js'
 
 const callback = e => {
   e.preventDefault()
   const form = e.target
-  const user = getFindAccount(form)
+  const user = getFindUser(form)
 
   if (user) {
-    setLoggedAccount(user)
+    setLoggedUser(user)
     const dashboard = new Dashboard()
     dashboard.render()
   } 
   else
-    alert('account not found')
+    alert('user not found')
 }
 
 const login = () => { 

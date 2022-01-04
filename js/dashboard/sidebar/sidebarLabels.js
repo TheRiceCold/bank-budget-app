@@ -4,8 +4,8 @@ import HistoryMenu from '../menus/history/HistoryMenu.js'
 import { chartMenu } from '../menus/chart/chartMenu.js'
 import BudgetMenu from '../menus/budget/BudgetMenu.js'
 import SettingsMenu from '../menus/SettingsMenu.js'
+import UsersMenu from '../menus/users/UsersMenu.js'
 import MainMenu from '../menus/main/MainMenu.js'
-import UsersMenu from '../menus/UsersMenu.js'
 
 const sidebarLabels = [
   {

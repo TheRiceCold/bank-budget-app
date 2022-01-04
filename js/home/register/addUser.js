@@ -1,15 +1,15 @@
-import { getStoredAccounts } from '../../utils/storage.js'
-import { setStoredAccounts } from '../../utils/storage.js'
+import { getStoredUsers } from '../../utils/storage.js'
+import { setStoredUsers } from '../../utils/storage.js'
 import { getValidInput } from './validInput.js'
 import * as DOM from '../../utils/dom.js'
 
-const addAccount = form => {
-  const allUsers = [...getStoredAccounts()]
+const addUser = form => {
+  const users = [...getStoredUsers()]
 
   const wordsInName = form.fullname.value.split(" ");
   const fullname = wordsInName.map(word => word[0].toUpperCase() + word.substring(1)).join(" ")
 
-  const id = allUsers.length + 1
+  const id = users.length + 1
   const email = form.email.value
   const mobile = form.mobile.value
 
@@ -24,13 +24,13 @@ const addAccount = form => {
     password: encryptPassword,
     balance: 0,
     history: [],
-    plans: [],
+    expenses: [],
     date: today
   }
 
-  allUsers.push(newUser)
-  setStoredAccounts(allUsers)
+  users.push(newUser)
+  setStoredUsers(users)
   DOM.get('#signInSwitch').click()
 }
 
-export { addAccount }
+export { addUser }

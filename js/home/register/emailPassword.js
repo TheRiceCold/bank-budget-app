@@ -1,4 +1,4 @@
-import { getStoredAccounts } from '../../utils/storage.js'
+import { getStoredUsers } from '../../utils/storage.js'
 import { getValidInput } from './validInput.js'
 
 const confirmPassword = form => {
@@ -13,8 +13,8 @@ const confirmPassword = form => {
 
 const findEmail = form => {
   const email = form.email
-  const accounts = getStoredAccounts()
-  const checkEmail = accounts.find(account => account.email === email.value)
+  const users = getStoredUsers()
+  const checkEmail = users.find(user => user.email === email.value)
 
   if (checkEmail) 
     getValidInput(email, 'condition', 'Email already exist')

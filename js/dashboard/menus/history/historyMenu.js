@@ -1,5 +1,5 @@
-import { getLoggedAccount } from '../../../utils/storage.js'
 import { buttons, cards, cardContent } from './content.js'
+import { getLoggedUser } from '../../../utils/storage.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
 
@@ -38,7 +38,7 @@ class HistoryMenu extends MenuHTML {
   }
 
   allCards() {
-    const history = getLoggedAccount().history
+    const history = getLoggedUser().history
     let cards = history.map(card => {
       const { type } = card
       const icon = 

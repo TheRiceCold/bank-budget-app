@@ -1,6 +1,6 @@
 import { sidebarLabels } from './sidebar/sidebarLabels.js'
-import { getLoggedAccount } from '../utils/storage.js'
 import { removeAllChild } from '../utils/helpers.js'
+import { getLoggedUser } from '../utils/storage.js'
 import MainMenu from './menus/main/MainMenu.js'
 import { sidebar } from './sidebar/sidebar.js'
 import MyHTML from '../utils/MyHTML.js'
@@ -46,7 +46,7 @@ class Dashboard extends MyHTML {
   }
   
   showName() {
-    const name = getLoggedAccount().fullname || ''
+    const name = getLoggedUser().fullname || ''
     const firstName = name.substring(0, name.indexOf(' '))
     const nameTxt = DOM.get('#accountName')
     nameTxt.innerText = 'Hello ' + firstName
@@ -55,7 +55,7 @@ class Dashboard extends MyHTML {
   changeMenu(i) {
    if (sidebarLabels[i].menu === 'logout') {
       location.reload()
-      delete localStorage.loggedAccount
+      delete localStorage.loggedUser
     }
 
     const dashboard = DOM.get('#dashboard')
