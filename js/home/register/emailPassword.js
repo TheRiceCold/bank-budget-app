@@ -1,4 +1,4 @@
-import { getStoredUsers } from '../../storage/control.js'
+import { getStoredAccounts } from '../../utils/storage.js'
 import { getValidInput } from './validInput.js'
 
 const confirmPassword = form => {

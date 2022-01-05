@@ -1,6 +1,6 @@
-import { clientLogin } from './logClient/clientLogin.js'
-import { adminLogin } from './logAdmin/adminLogin.js'
 import { removeAllChild } from '../utils/helpers.js'
+import { register } from './register/register.js'
+import { login } from './login/login.js'
 import MyHTML from '../utils/MyHTML.js'
 import { content } from './content.js'
 import * as DOM from '../utils/dom.js'
@@ -24,8 +24,8 @@ class Home extends MyHTML {
     this.togglePassword(callback)
     this.switchAnim(mode)
 
-    adminLogin()
-    clientLogin()
+    register()
+    login()
   }
 
   togglePassword(callback) {

@@ -3,9 +3,7 @@
   --color-danger: #ff7782;
   --color-success: #41f1b6;
   --color-warning: #ffbb55;
-  --color-white: #fff;
   --color-info-dark: #7d8da1;
-  --color-info-light: #dce1eb;
   --color-dark: #363949;
   --color-light: rgba(132, 139, 200, 0.18);
   --color-primary-variant: #111e88;
@@ -23,16 +21,7 @@
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
-.dark-theme-variables {
-  --color-background: #181a1e;
-  --color-white: #202528;
-  --color-dark: #edeffd;
-  --color-dark-variant: #a3bdcc;
-  --color-light: rgba(0, 0, 0, .4);
-  --box-shadow: 0 2rem 3rem var(--color-light);
-}
-
-* { 
+*,*:after,*:before { 
   margin: 0;
   padding: 0;
   outline: 0;
@@ -60,110 +49,21 @@ body {
 
 #dashboard {
   display: grid;
-  width: 96%;
   margin: 0 auto;
   gap: 1.8rem;
   grid-template-columns: 14rem auto;
-}
-
-a {
-  color: var(--color-dark);
-}
-
-img {
-  display: block;
-  width: 100%;
-}
-
-h1 { font-size: 1.8rem; }
-
-h2 {
-  font-size: 1.4rem;
-}
-
-h3 {
-  font-size: .87rem;
-}
-
-h4 {
-  font-size: .8rem;
-}
-
-h5 {
-  font-size: .77rem;
-}
-
-small {
-  font-size: .85rem;
-}
-
-.profile-photo {
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-p {
-  color: var(--color-dark-variant);
-}
-
-b {
-  color: var(--color-dark);
-}
-
-.primary {
-  color: var(--color-primary);
-}
-
-.danger {
-  color: var(--color-danger);
-}
-
-.success {
-  color: var(--color-success);
-}
-
-.warning {
-  color: var(--color-warning);
 }
 
 aside {
   height: 100vh;
 }
 
-aside .top {
-  backgroun white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1.4rem;
-}
-
-aside .logo {
-  display: flex;
-  gap: .8rem;
-}
-
-aside .logo img {
-  width: 2rem;
-  height: 2rem;
-}
-
-aside .close {
-  display: none;
-}
-
 aside .sidebar {
-  margin-top: 15px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
-  height: 86vh;
+  height: 85vh;
   position: relative;
-}
-
-aside h3 {
-  font-weight: 500;
 }
 
 aside .sidebar a {
@@ -186,25 +86,6 @@ aside .sidebar a i {
 aside .sidebar a:last-child {
   position: absolute;
   bottom: 2rem;
-  width: 100%;
-}
-
-aside .sidebar a.active {
-  background: var(--color-light);
-  color: var(--color-primary);
-  margin-left: 0;
-}
-
-aside .sidebar a.active:before {
-  content: '';
-  width: 6px;
-  height: 100%;
-  background: var(--color-primary);
-}
-
-aside .sidebar a.active i {
-  color: var(--color-primary);
-  margin-left: calc(1rem - 3px);
 }
 
 aside .sidebar a:hover {
@@ -215,14 +96,6 @@ aside .sidebar a:hover i {
   margin-left: 1rem;
 }
 
-aside .sidebar .message-count {
-  background: var(--color-danger);
-  color: var(--color-white);
-  padding: 2px 10px;
-  font-size: 11px;
-  border-radius: var(--border-radius-1);
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -231,6 +104,7 @@ header {
 
 main {
   margin-top: 1.4rem;
+  margin-right: 2rem;
 }
 
 main .date {
@@ -251,7 +125,7 @@ main #insights {
 }
 
 main #insights .card {
-  background: var(--color-white);
+  background: #fff;
   padding: var(--card-padding);
   border-radius: var(--card-border-radius);
   margin-top: 1rem;
@@ -262,7 +136,7 @@ main #insights .card i {
   background: var(--color-primary);
   padding: .5rem;
   border-radius: 50%;
-  color: var(--color-white);
+  color: #fff;
   font-size: 2rem;
 }
 
@@ -281,6 +155,7 @@ main #insights h3 {
 main #insights small {
   color: var(--color-info-dark);
   margin-top: 1.6rem;
+  font-size: .85rem;
   display: block;
 }
 
@@ -294,10 +169,10 @@ main #insights small {
 }
 
 #newAccounts table {
-  background: var(--color-white);
+  background: #fff;
   width: 100%;
   border-radius: var(--card-border-radius);
-  padding: var(--card-padding);
+  padding: 20px;
   text-align: center;
   box-shadow: var(--box-shadow);
   transition: all .3s ease;
@@ -324,168 +199,6 @@ main table tbody tr:last-child td {
   display: block;
   margin: 1rem auto;
   color: var(--color-primary);
-}
-
-@media screen and (max-width: 1200px) {
-  .container {
-    width: 94%;
-    grid-template-columns: 7rem auto 23rem;
-  }
-
-  aside .logo h2 {
-    display: none;
-  }
-
-  aside .sidebar h3 {
-    display: none;
-  }
-
-  aside .sidebar a {
-    width: 5.6rem;
-  }
-
-  aside .sidebar a:last-child {
-    position: relative;
-    margin-top: 1.8rem;
-  }
-
-  main .insights {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  main .recent-orders {
-    width: 94%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 2rem 0 0 8.8rem;
-  }
-
-  main .recent-orders table {
-    width: 83vw;
-  }
-
-  main table thead tr th:last-child,
-  main table thead tr th:first-child {
-    display: none;
-  }
-
-  main table tbody tr td:last-child,
-  main table tbody tr td:first-child {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    width: 100%;
-    grid-template-columns: 1fr;
-  }
-
-  aside {
-    position: fixed;
-    left: 0;
-    background: var(--color-white);
-    width: 18rem;
-    z-index: 3;
-    box-shadow: 1rem 3rem 4rem var(--color-light);
-    height: 100vh;
-    padding-right: var(--card-padding);
-    display: none;
-    animation: showMenu .4s ease forwards;
-  }
-
-  @keyframes showMenu {
-    to {
-      left: 0;
-    }
-  }
-
-  aside .logo {
-    margin-left: 1rem;
-  }
-
-  aside .logo h2 {
-    display: inline;
-  }
-
-  aside .sidebar h3 {
-    display: inline;
-  }
-
-  aside .sidebar a {
-    width: 100%;
-    height: 3.4rem;
-  }
-
-  aside .sidebar a:last-child {
-    position: absolute;
-    bottom: 5rem;
-  }
-
-  aside .close {
-    display: inline-block;
-    cursor: pointer;
-  }
-
-  main {
-    margin-top: 8rem;
-    padding: 0 1rem;
-  }
-
-  main .recent-orders {
-    position: relative;
-    margin: 3rem 0 0 0;
-    width: 100%;
-  }
-
-  main .recent-orders table {
-    width: 100%;
-    margin: 0;
-  }
-
-  .right {
-    width: 94%;
-    margin: 0 auto 4rem;
-  }
-
-  .right .top {
-    position: fixed;
-    top: 0;
-    left: 0;
-    align-items: center;
-    padding: 0 .8rem;
-    height: 4.6rem;
-    background: var(--color-white);
-    width: 100%;
-    margin: 0;
-    z-index: 2;
-    box-shadow: 0 1rem 1rem var(--color-light);
-  }
-
-  .right .top .theme-toggler {
-    width: 4.4rem;
-    position: absolute;
-    left: 66%;
-  }
-
-  .right .profile .info {
-    display: none;
-  }
-
-  .right .top button {
-    display: inline-block;
-    background: transparent;
-    cursor: pointer;
-    color: var(--color-dark);
-    position: absolute;
-    left: 1rem;
-  }
-
-  .right .top button span {
-    font-size: 2rem;
-  }
 }
 
 .input-field i:not(:first-child) {
@@ -1110,7 +823,7 @@ main .modal {
   border-radius: 5px;
   width: 450px;
   top: 150px;
-  left: calc(50% - 175px);
+  left: calc(50% - 210px);
   position: absolute;
   font-family: sans-serif;
 }

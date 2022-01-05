@@ -1,4 +1,4 @@
-import { getLoggedUser } from '../../../storage/control.js'
+import { getLoggedUser } from '../../../storage/adminStorage.js'
 import { buttons, cards, cardContent } from './content.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
@@ -14,7 +14,8 @@ class HistoryMenu extends MenuHTML {
   manager() {
     const menu = '#historyMenu '
     const cardList = DOM.get(menu + '#cards')
-    cardList.innerHTML = this.allCards()
+    cardList.innerHTML = this.updatedCards
+
     this.historyFilter()
   }
 
@@ -37,7 +38,7 @@ class HistoryMenu extends MenuHTML {
      })
   }
 
-  allCards() {
+  get updatedCards() {
     const history = getLoggedUser().history
     let cards = history.map(card => {
       const { type } = card

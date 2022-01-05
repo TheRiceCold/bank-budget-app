@@ -2,9 +2,9 @@ import FormHTML from '../html/FormHTML.js'
 
 const inputList = [
   {
-    id: 'email',
-    placeHolder: 'Email', 
-    icon: 'fas fa-envelope'
+    id: 'username',
+    placeHolder: 'Username', 
+    icon: 'fas fa-user'
   },
   {
     id: 'password',
@@ -16,8 +16,8 @@ const inputList = [
 
 const content = { 
   className:'sign-in-form', 
-  id: 'clientSignInForm', 
-  title: 'User'
+  id: 'signInForm', 
+  title: 'Sign In' 
 }
 
 const signInForm = new FormHTML(content) 

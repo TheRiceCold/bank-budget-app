@@ -1,10 +1,10 @@
 const root = document.body
 
+const getAll = query => Array.from(root.querySelectorAll(query))
+
 const get = query => root.querySelector(query)
 
 const create = node => document.createElement(node)
-
-const getAll = query => Array.from(root.querySelectorAll(query))
 
 const addClass = (node, className) => node.classList.add(className)
 

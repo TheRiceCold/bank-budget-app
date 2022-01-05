@@ -1,4 +1,5 @@
-import FormHTML from '../html/FormHTML.js'
+import MenuHTML from '../../html/MenuHTML.js'
+import FormHTML from '../../../home/html/FormHTML.js'
 
 const inputList = [
   {
@@ -36,11 +37,25 @@ const inputList = [
 ]
 
 const content = {
-  className: 'sign-up-form',
+  className: 'addAccount',
   id: 'signUpForm',
   title: 'Sign Up'
 }
 
 const signUpForm = new FormHTML(content)
 signUpForm.inputList = inputList
-export { signUpForm }
+
+class NewAccount extends MenuHTML {
+  constructor() {
+    const id = 'newAccountMenu'
+    const title = 'Create new account'
+    const content = signUpForm.string
+    super({ id: id, title: title, inner: content })
+  }
+
+  manager() {
+
+  }
+}
+
+export default NewAccount

@@ -1,5 +1,5 @@
-import { getStoredUsers } from '../../../storage/control.js'
-import { getLoggedUser } from '../../../storage/control.js'
+import { getLoggedUser } from '../../../storage/adminStorage.js'
+import { getStoredAccounts } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 
 const getTotalFromHistory = type => {

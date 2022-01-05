@@ -3,7 +3,7 @@ import { removeAllChild } from '../../../utils/helpers.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
 
-class UsersMenu extends MenuHTML {
+class AccountListMenu extends MenuHTML {
   constructor() {
     const id = 'accountsMenu'
     const title = 'All Users'
@@ -77,4 +77,4 @@ class UsersMenu extends MenuHTML {
   }
 }
 
-export default UsersMenu
+export default AccountListMenu

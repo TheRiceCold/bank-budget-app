@@ -1,5 +1,6 @@
-import {getStoredUsers} from '../../storage/control.js'
-import {jsonToTable} from './jsonToTable.js'
+import { getStoredAccounts } from '../../utils/storage.js'
+import { jsonToTable } from './jsonToTable.js'
+import MyHTML from '../../utils/MyHTML.js'
 
 const usersToDisplay = list => {
   const accounts = list.map(account => {
@@ -7,7 +8,6 @@ const usersToDisplay = list => {
 
     delete cloneAccount.password
     delete cloneAccount.mobile
-    delete cloneAccount.history
     delete cloneAccount.expenses
     
     return cloneAccount
@@ -17,15 +17,13 @@ const usersToDisplay = list => {
 }
 
 const getUsersAsTable = (sort = '', size) => {
-  let usersForDisplay = usersToDisplay(getStoredUsers())
+  let usersForDisplay = usersToDisplay(getStoredAccounts())
   const tableSize = usersForDisplay.length
-
-  if (sort === 'desc') 
-    usersForDisplay = usersForDisplay.reverse()
-
+  if (sort === 'desc') usersForDisplay = usersForDisplay.reverse()
   usersForDisplay.length = size || tableSize
 
-  return jsonToTable(usersForDisplay).outerHTML
+  const table = jsonToTable(usersForDisplay).outerHTML
+  return table
 }
 
 export { getUsersAsTable }

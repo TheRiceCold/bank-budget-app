@@ -1,23 +1,42 @@
 import { sidebarLabels } from './sidebarLabels.js'
 import MyHTML from '../../utils/MyHTML.js'
+import * as DOM from '../../utils/dom.js'
+import { content } from './content.js'
 
-const sidebarButtons = sidebarLabels
-  .map(label => {
-    const { icon, text } = label
+class Sidebar extends MyHTML {
+  constructor() {
+    super({ tag: 'aside', inner: content })
+  }
 
-    return new MyHTML({
-      tag: 'a', id: label.id,
-      inner: `<i class="${icon}"></i>${text}`
-    }).string
-  }).join('')
+  manager() {
+    const buttons = DOM.getAll('.sidebar a')
+    buttons.forEach((button, i) => 
+      button.onclick = () => {
+        this.changeMenu(i)
+        this.setCurrentDate() 
+      })
+  }
 
-const accountName = '<h2 id="accountName"></h2>'
-const content = { className: 'sidebar', inner: sidebarButtons }
-const sidebarMenu = new MyHTML(content).string
+  changeMenu(i) {
+   if (sidebarLabels[i].menu === 'logout') {
+      location.reload()
+      delete localStorage.loggedUser
+    }
 
-const sidebar = new MyHTML({ 
-  tag: 'aside', 
-  inner: [accountName, sidebarMenu] 
-}).string
+    const dashboard = DOM.get('#dashboard')
+    const lastMenu = DOM.get('#dashboard main')
+    const currentMenu = sidebarLabels[i].menu
 
-export { sidebar }
+    lastMenu.remove()
+    dashboard.append(currentMenu.html)
+    currentMenu.manager()
+  }
+
+  setCurrentDate() {
+    const today = new Date().toISOString().split('T')[0]
+    const date = DOM.get('header input[type="date"]')
+    date.value = today
+  }
+}
+
+export default Sidebar

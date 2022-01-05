@@ -1,5 +1,6 @@
-import { getStoredUsers } from '../../storage/control.js'
-import { setStoredUsers } from '../../storage/control.js'
+import { getStoredAccounts } from '../../utils/storage.js'
+import { setStoredAccounts } from '../../utils/storage.js'
+import { getValidInput } from './validInput.js'
 import * as DOM from '../../utils/dom.js'
 
 const addUser = form => {

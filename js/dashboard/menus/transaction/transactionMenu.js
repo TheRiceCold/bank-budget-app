@@ -1,4 +1,4 @@
-import { getLoggedUser } from '../../../storage/control.js'
+import { getLoggedUser } from '../../../storage/adminStorage.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
 import { openModal } from './modal.js'
@@ -13,14 +13,6 @@ class TransactionMenu extends MenuHTML {
 
   manager() {
     this.transactionButtons()
-    this.showBalance()  
-  }
-
-  showBalance() {
-    const id = '#transactionMenu '
-    const balanceTxt = DOM.get(id + '#balance')
-    const balance = '₱' + getLoggedUser().balance
-    balanceTxt.innerText = balance
   }
 
   transactionButtons() {

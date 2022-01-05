@@ -1,3 +1,4 @@
+import { copyText } from '../../utils/helpers.js'
 import * as dom from '../../utils/dom.js'
 
 const jsonToTable = (data, container) => { 

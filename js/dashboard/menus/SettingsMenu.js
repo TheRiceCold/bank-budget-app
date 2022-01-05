@@ -1,15 +1,15 @@
 import MenuHTML from '../html/MenuHTML.js'
 
 class SettingsMenu extends MenuHTML {
-  constructor() {
-    const id = 'settingsMenu'
-    const title = 'Account Settings'
-    super({ id: id, title: title })
-  }
+    constructor() {
+        const id = 'settingsMenu'
+        const title = 'Account Settings'
+        super({ id: id, title: title })
+    }
 
-  manager() {
+    manager() {
 
-  }
+    }
 }
 
 export default SettingsMenu

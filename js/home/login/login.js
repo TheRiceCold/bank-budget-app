@@ -1,12 +1,13 @@
-import { setLoggedUser } from '../../storage/control.js'
+import { setLoggedUser } from '../../storage/adminStorage.js'
+import { removeAllChild } from '../../utils/helpers.js'
 import Dashboard from '../../dashboard/Dashboard.js'
-import { findClient } from './findClient.js'
 import * as DOM from '../../utils/dom.js'
+import { getUser } from './findUser.js'
 
 const callback = e => {
   e.preventDefault()
   const form = e.target
-  const user = findClient(form)
+  const user = getUser(form)
 
   if (user) {
     setLoggedUser(user)
@@ -14,12 +15,12 @@ const callback = e => {
     dashboard.render()
   } 
   else
-    alert('admin not found')
+    alert('user not found')
 }
 
-const clientLogin = () => { 
-  const form =  DOM.get('#clientSignInForm')
+const login = () => { 
+  const form =  DOM.get('#signInForm')
   form.onsubmit = callback
 }
 
-export { clientLogin }
+export { login }
