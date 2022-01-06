@@ -1,4 +1,4 @@
-import { defaultAccounts } from './defaultStorage.js'
+import { defaultAccounts } from './defaultAccounts.js'
 
 const setStoredAccounts = list => {
   list = JSON.stringify(list)
@@ -11,6 +11,20 @@ const getStoredAccounts = () => {
 
   return JSON.parse(localStorage.accounts)
 }
+
+const setLoggedAccount = account => {
+  account = JSON.stringify(account)
+  localStorage.loggedAccount = account
+}
+
+const getLoggedAccount = () => {
+  if (!localStorage.loggedAccount)
+    localStorage.loggedAccount = '[]'
+
+  return JSON.parse(localStorage.loggedAccount)
+}
+
+const isAccountLoggedIn = !Array.isArray(getLoggedAccount())
 
 const updateAccountInStorage = newAccount => {
   const accountList = [...getStoredAccounts()]
@@ -26,6 +40,7 @@ const updateAccountInStorage = newAccount => {
 }
 
 export { 
+  isAccountLoggedIn,
   updateAccountInStorage,
   setStoredAccounts, getStoredAccounts
 }

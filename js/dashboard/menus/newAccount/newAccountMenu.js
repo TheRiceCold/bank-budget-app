@@ -1,5 +1,5 @@
-import { setStoredAccounts } from '../../../utils/storage.js'
-import { getStoredAccounts } from '../../../utils/storage.js'
+import { setStoredAccounts } from '../../../storage/accountStorage.js'
+import { getStoredAccounts } from '../../../storage/accountStorage.js'
 import { togglePassword } from '../../../utils/helpers.js'
 import { newAccountForm } from './newAccountForm.js'
 import MenuHTML from '../../html/MenuHTML.js'

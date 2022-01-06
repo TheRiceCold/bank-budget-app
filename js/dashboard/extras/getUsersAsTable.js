@@ -1,4 +1,4 @@
-import { getStoredAccounts } from '../../utils/storage.js'
+import { getStoredAccounts } from '../../storage/accountStorage.js'
 import { jsonToTable } from './jsonToTable.js'
 import MyHTML from '../../utils/MyHTML.js'
 

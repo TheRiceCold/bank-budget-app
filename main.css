@@ -943,3 +943,225 @@ main #modalBg.show { display: block; }
 .transaction-container #cancel:hover {
   background: red;
 }
+
+#budgetApp {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 56px 0;
+}
+@media (max-width: 1192px) {
+  #budgetApp {
+    margin: 0 16px;
+  }
+}
+#budgetApp.modal-active:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+}
+#budgetApp h1.marketing {
+  font-size: 72px;
+}
+#budgetApp h2 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+#budgetApp h2.marketing {
+  font-size: 36px;
+}
+#budgetApp p {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #BDC2C4;
+}
+#budgetApp a {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  color: #BDC2C4;
+  transition: all 275ms;
+}
+#budgetApp a:hover {
+  color: #FFFFFF;
+}
+#budgetApp input {
+  display: block;
+  height: 40px;
+  margin-bottom: 16px;
+  padding: 0 12px;
+  border: 1px solid #4F5E65;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: transparent;
+  color: #FFFFFF;
+  outline: none;
+  transition: all 275ms;
+}
+#budgetApp input:focus {
+  border-color: #31C3A2;
+}
+#budgetApp input::placeholder {
+  color: #BDC2C4;
+}
+#budgetApp button {
+  min-width: 70px;
+  height: 40px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #31C3A2;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 275ms;
+}
+#budgetApp button:hover {
+  background-color: #3fcfae;
+}
+#budgetApp table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#budgetApp th {
+  padding: 12px 10px;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  color: #4F5E65;
+}
+#budgetApp th:last-child {
+  text-align: right;
+}
+#budgetApp tbody tr:nth-child(odd) {
+  background-color: #2B383F;
+}
+#budgetApp td {
+  padding: 10px;
+  font-size: 14px;
+  color: #E3E8EB;
+}
+#budgetApp td:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+#budgetApp td:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  text-align: right;
+}
+#budgetApp hr {
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid #2B383F;
+}
+#budgetApp .budget {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+}
+#budgetApp .budget .marketing {
+  grid-column: span 3;
+  margin-bottom: 8px;
+}
+#budgetApp .budget__budget-input,
+#budgetApp .budget__expense-input {
+  border-radius: 8px;
+  padding: 24px;
+  background: #2B383F;
+}
+#budgetApp .budget__budget-input h2,
+#budgetApp .budget__expense-input h2 {
+  margin-bottom: 24px;
+}
+#budgetApp .budget__budget-input input,
+#budgetApp .budget__expense-input input,
+#budgetApp .budget__budget-input button,
+#budgetApp .budget__expense-input button {
+  width: 100%;
+}
+#budgetApp .budget__budget-input {
+  margin-bottom: 40px;
+}
+#budgetApp .budget__details {
+  grid-column: 2 / span 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+}
+#budgetApp .budget__item {
+  border-right: 1px solid #2B383F;
+}
+#budgetApp .budget__item:nth-child(3) {
+  margin-right: 0;
+  border-right: none;
+}
+#budgetApp .budget__item-amount {
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 500;
+}
+#budgetApp .budget__item-label {
+  font-size: 12px;
+  color: #4F5E65;
+}
+#budgetApp .budget__transactions {
+  grid-column: span 3;
+}
+#budgetApp .budget__transactions th:nth-child(2),
+#budgetApp .budget__transactions td:nth-child(2) {
+  width: 80px;
+  text-align: right;
+}
+#budgetApp .budget__transactions th:nth-child(3),
+#budgetApp .budget__transactions td:nth-child(3),
+#budgetApp .budget__transactions th:last-child,
+#budgetApp .budget__transactions td:last-child {
+  width: 1%;
+  text-align: center;
+}
+#budgetApp .budget__transactions th:nth-child(3),
+#budgetApp .budget__transactions td:nth-child(3) {
+  text-align: right;
+}
+#budgetApp .delete__modal {
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  background: #2B383F;
+  border-radius: 8px;
+}
+#budgetApp .delete__modal p {
+  margin-bottom: 16px;
+}
+#budgetApp .delete__modal-buttons {
+  display: flex;
+  justify-content: center;
+}
+#budgetApp .delete__modal-buttons button {
+  transition: all 275ms;
+}
+#budgetApp .delete__modal-buttons button:first-child {
+  background: #F85640;
+  margin-right: 16px;
+}
+#budgetApp .delete__modal-buttons button:first-child:hover {
+  background: #f96c59;
+}
+#budgetApp .delete__modal-buttons button:last-child {
+  background: #4F5E65;
+}
+#budgetApp .delete__modal-buttons button:last-child:hover {
+  background: #5a6b73;
+}

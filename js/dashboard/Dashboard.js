@@ -32,7 +32,7 @@ class Dashboard extends MyHTML {
   }
 
   showName() {
-    const name = getLoggedAdmin().fullname || ''
+    const name = getLoggedAdmin().fullname
     const firstName = name.substring(0, name.indexOf(' '))
     const nameTxt = DOM.get('#accountName')
     nameTxt.innerText = 'Hello ' + firstName
