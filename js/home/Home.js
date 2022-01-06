@@ -1,5 +1,5 @@
 import { removeAllChild } from '../utils/helpers.js'
-import { register } from './register/register.js'
+import { togglePassword } from '../utils/helpers.js'
 import { login } from './login/login.js'
 import MyHTML from '../utils/MyHTML.js'
 import { content } from './content.js'
@@ -18,47 +18,24 @@ class Home extends MyHTML {
   }
 
   manager() {
-    const callback = this.toggleCallback
-    const mode = this.mode
-
-    this.togglePassword(callback)
-    this.switchAnim(mode)
-
-    register()
+    togglePassword()
+    this.switchAnim()
     login()
   }
-
-  togglePassword(callback) {
-    const eyeIcons = DOM.getAll('input[type="password"] + #eye')
-    eyeIcons.forEach(icon => icon.onclick = callback)
+  
+  switchAnim() {
+    const adminMode = DOM.get('#adminSwitch')
+    const userMode = DOM.get('#userSwitch')
+    adminMode.onclick = this.modeSwitch
+    userMode.onclick = this.modeSwitch
   }
 
-  toggleCallback(e) {
-    const icon = e.target
-    const input = icon.parentElement.querySelector('input')
-
-    if (icon.classList.contains('fa-eye')) {
-      input.setAttribute('type', 'text')
-      DOM.changeClass(icon, 'fa-eye', 'fa-eye-slash')
-    } else {
-      input.setAttribute('type', 'password')
-      DOM.changeClass(icon, 'fa-eye-slash', 'fa-eye')
-    }
-  }
-
-  switchAnim(mode) {
-    const signUp = DOM.get('#signUpSwitch')
-    const signIn = DOM.get('#signInSwitch')
-    signUp.onclick = mode
-    signIn.onclick = mode
-  }
-
-  mode(e) {
+  modeSwitch(e) {
     const container = DOM.get('#loginPage')
-    if (e.target.id === 'signUpSwitch')
-      DOM.addClass(container, 'sign-up-mode')
+    if (e.target.id === 'adminSwitch')
+      DOM.addClass(container, 'admin-mode')
     else 
-      DOM.delClass(container, 'sign-up-mode')
+      DOM.delClass(container, 'admin-mode')
   }
 }
 

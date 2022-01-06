@@ -1,16 +1,16 @@
-import { setLoggedUser } from '../../storage/adminStorage.js'
+import { setLoggedAdmin } from '../../storage/adminStorage.js'
 import { removeAllChild } from '../../utils/helpers.js'
 import Dashboard from '../../dashboard/Dashboard.js'
 import * as DOM from '../../utils/dom.js'
-import { getUser } from './findUser.js'
+import { getAdmin } from './findUser.js'
 
 const callback = e => {
   e.preventDefault()
   const form = e.target
-  const user = getUser(form)
+  const admin = getAdmin(form)
 
-  if (user) {
-    setLoggedUser(user)
+  if (admin) {
+    setLoggedAdmin(admin)
     const dashboard = new Dashboard()
     dashboard.render()
   } 
@@ -19,7 +19,7 @@ const callback = e => {
 }
 
 const login = () => { 
-  const form =  DOM.get('#signInForm')
+  const form =  DOM.get('#adminForm')
   form.onsubmit = callback
 }
 

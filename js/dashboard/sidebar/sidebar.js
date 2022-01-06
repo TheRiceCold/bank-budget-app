@@ -20,7 +20,7 @@ class Sidebar extends MyHTML {
   changeMenu(i) {
    if (sidebarLabels[i].menu === 'logout') {
       location.reload()
-      delete localStorage.loggedUser
+      delete localStorage.loggedAdmin
     }
 
     const dashboard = DOM.get('#dashboard')

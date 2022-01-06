@@ -9,7 +9,7 @@ class InputHTML extends MyHTML {
 
   setContent(options) {
     const { 
-      id, name, placeHolder, 
+      id, name, placeholder, 
       icon, type } = options
 
     this.type = !type ? 'text' : type
@@ -19,7 +19,7 @@ class InputHTML extends MyHTML {
 
     this.html.innerHTML = `
       <i class="${icon}"></i>
-      <input type="${this.type}" name="${name}" placeholder="${placeHolder}" id="${id}"/>${eyeIcon}`
+      <input type="${this.type}" name="${name}" placeholder="${placeholder}" id="${id}"/>${eyeIcon}`
   }
 
   validateIcons() {

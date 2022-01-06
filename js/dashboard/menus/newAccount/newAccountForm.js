@@ -1,46 +1,52 @@
-import FormHTML from '../html/FormHTML.js'
+import FormHTML from '../../../home/html/FormHTML.js'
 
 const inputList = [
   {
     id: 'fullname',
     name: 'fullname',
-    placeHolder: 'Fullname',
+    placeholder: 'Fullname',
     icon: 'fas fa-user'
   },
   {
     id: 'email',
     name: 'email',
-    placeHolder: 'Email',
+    placeholder: 'Email',
     icon: 'fas fa-envelope'
   },
   {
     id: 'mobile',
     name: 'mobile',
-    placeHolder: 'Mobile No.',
+    placeholder: 'Mobile No.',
     icon: 'fas fa-phone'
   },
   {
     id: 'password',
     name: 'password',
-    placeHolder: 'Password',
+    placeholder: 'Password',
     icon: 'fas fa-lock',
     type: 'password'
   },
   {
     id: 'confirmPassword',
     name: 'confirmPassword',
-    placeHolder: 'Confirm Password',
+    placeholder: 'Confirm Password',
     icon: 'fas fa-lock',
     type: 'password'
+  },
+  {
+    id: 'balance',
+    name: 'balance',
+    placeholder: 'Balance',
+    icon: 'fas fa-coins',
   }
 ]
 
 const content = {
-  className: 'sign-up-form',
-  id: 'signUpForm',
-  title: 'Sign Up'
+  className: 'addAccount',
+  id: 'addAccount'
 }
 
-const signUpForm = new FormHTML(content)
-signUpForm.inputList = inputList
-export { signUpForm }
+const newAccountForm = new FormHTML(content)
+newAccountForm.inputList = inputList
+
+export { newAccountForm }

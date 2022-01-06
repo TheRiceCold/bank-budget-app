@@ -1,8 +1,8 @@
-import { isUserLoggedIn } from './storage/adminStorage.js'
+import { isAdminLoggedIn } from './storage/adminStorage.js'
 import Dashboard from './dashboard/Dashboard.js'
 import Home from './home/Home.js'
 
-if (isUserLoggedIn) {
+if (isAdminLoggedIn) {
   const dashboard = new Dashboard()
   dashboard.render()
 } else {

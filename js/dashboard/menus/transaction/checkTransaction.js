@@ -1,6 +1,6 @@
 import { updateAccountInStorage } from '../../../utils/storage.js'
-import { setLoggedUser } from '../../../storage/adminStorage.js'
-import { getLoggedUser } from '../../../storage/adminStorage.js'
+import { setLoggedAdmin } from '../../../storage/adminStorage.js'
+import { getLoggedAdmin } from '../../../storage/adminStorage.js'
 import { getStoredAccounts } from '../../../utils/storage.js'
 import { addToHistory } from '../history/addToHistory.js'
 import * as DOM from '../../../utils/dom.js'

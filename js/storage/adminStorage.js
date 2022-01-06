@@ -6,25 +6,30 @@ const adminUsers = [
   }
 ]
 
-const getStoredUsers = () => {
+const getStoredAdmins = () => {
   if (!localStorage.users)
     localStorage.users = JSON.stringify(adminUsers)
 
   return JSON.parse(localStorage.users)
 }
 
-const setLoggedUser = user => {
-  user = JSON.stringify(user)
-  localStorage.loggedUser = user
+const setLoggedAdmin = admin => {
+  admin = JSON.stringify(admin)
+  localStorage.loggedAdmin = admin
 }
 
-const getLoggedUser = () => {
-  if (!localStorage.loggedUser)
-    localStorage.loggedUser = '[]'
+const getLoggedAdmin = () => {
+  if (!localStorage.loggedAdmin)
+    localStorage.loggedAdmin = '[]'
       
-  return JSON.parse(localStorage.loggedUser)
+  return JSON.parse(localStorage.loggedAdmin)
 }
 
-const isUserLoggedIn = !Array.isArray(getLoggedUser())
+const isAdminLoggedIn = !Array.isArray(getLoggedAdmin())
 
-export { getStoredUsers, setLoggedUser, getLoggedUser, isUserLoggedIn }
+export { 
+  getStoredAdmins, 
+  isAdminLoggedIn,
+  setLoggedAdmin, 
+  getLoggedAdmin 
+}

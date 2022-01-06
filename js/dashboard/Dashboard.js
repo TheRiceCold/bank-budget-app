@@ -1,4 +1,4 @@
-import { getLoggedUser } from '../storage/adminStorage.js'
+import { getLoggedAdmin } from '../storage/adminStorage.js'
 import { removeAllChild } from '../utils/helpers.js'
 import MainMenu from './menus/main/MainMenu.js'
 import Sidebar from './sidebar/sidebar.js'
@@ -32,7 +32,7 @@ class Dashboard extends MyHTML {
   }
 
   showName() {
-    const name = getLoggedUser().fullname || ''
+    const name = getLoggedAdmin().fullname || ''
     const firstName = name.substring(0, name.indexOf(' '))
     const nameTxt = DOM.get('#accountName')
     nameTxt.innerText = 'Hello ' + firstName

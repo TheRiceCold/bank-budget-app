@@ -6,10 +6,10 @@ const content = {
   description: `
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
     ex ratione. Aliquid!`,
-  buttonId: 'signUpSwitch',
-  buttonText: 'Register',
+  buttonId: 'adminSwitch',
+  buttonText: 'Admin',
   image: 'log.svg'
 }
 
-const signInPanel = new PanelHTML(content).string
-export { signInPanel }
+const userPanel = new PanelHTML(content).string
+export { userPanel }

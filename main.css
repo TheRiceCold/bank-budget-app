@@ -262,7 +262,7 @@ main table tbody tr:last-child td {
   left: 0;
 }
 
-.signin-signup {
+.user-admin {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -286,12 +286,12 @@ form {
   grid-row: 1 / 2;
 }
 
-form.sign-up-form {
+form.admin-form {
   opacity: 0;
   z-index: 1;
 }
 
-form.sign-in-form {
+form.user-form {
   z-index: 2;
 }
 
@@ -437,40 +437,40 @@ form.sign-in-form {
 
 /* ANIMATION */
 
-#loginPage.sign-up-mode:before {
+#loginPage.admin-mode:before {
   transform: translate(100%, -50%);
   right: 52%;
 }
 
-#loginPage.sign-up-mode .left-panel .image,
-#loginPage.sign-up-mode .left-panel .content {
+#loginPage.admin-mode .left-panel .image,
+#loginPage.admin-mode .left-panel .content {
   transform: translateX(-800px);
 }
 
-#loginPage.sign-up-mode .signin-signup {
+#loginPage.admin-mode .user-admin {
   left: 25%;
 }
 
-#loginPage.sign-up-mode form.sign-up-form {
+#loginPage.admin-mode form.admin-form {
   opacity: 1;
   z-index: 2;
 }
 
-#loginPage.sign-up-mode form.sign-in-form {
+#loginPage.admin-mode form.user-form {
   opacity: 0;
   z-index: 1;
 }
 
-#loginPage.sign-up-mode .right-panel .image,
-#loginPage.sign-up-mode .right-panel .content {
+#loginPage.admin-mode .right-panel .image,
+#loginPage.admin-mode .right-panel .content {
   transform: translateX(0%);
 }
 
-#loginPage.sign-up-mode .left-panel {
+#loginPage.admin-mode .left-panel {
   pointer-events: none;
 }
 
-#loginPage.sign-up-mode .right-panel {
+#loginPage.admin-mode .right-panel {
   pointer-events: all;
 }
 
@@ -479,15 +479,14 @@ form.sign-in-form {
     min-height: 800px;
     height: 100vh;
   }
-  .signin-signup {
+  .user-admin {
     width: 100%;
     top: 95%;
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
   }
 
-  .signin-signup,
-  #loginPage.sign-up-mode .signin-signup {
+  .user-admin, #loginPage.admin-mode .user-admin {
     left: 50%;
   }
 
@@ -550,13 +549,13 @@ form.sign-in-form {
     transition: 2s ease-in-out;
   }
 
-  #loginPage.sign-up-mode .left-panel .image,
-  #loginPage.sign-up-mode .left-panel .content {
+  #loginPage.admin-mode .left-panel .image,
+  #loginPage.admin-mode .left-panel .content {
     transform: translateY(-300px);
   }
 
-  #loginPage.sign-up-mode .right-panel .image,
-  #loginPage.sign-up-mode .right-panel .content {
+  #loginPage.admin-mode .right-panel .image,
+  #loginPage.admin-mode .right-panel .content {
     transform: translateY(0px);
   }
 
@@ -565,7 +564,7 @@ form.sign-in-form {
     transform: translateY(300px);
   }
 
-  #loginPage.sign-up-mode .signin-signup {
+  #loginPage.admin-mode .user-admin {
     top: 5%;
     transform: translate(-50%, 0);
   }
@@ -591,7 +590,7 @@ form.sign-in-form {
     left: 50%;
   }
 
-  #loginPage.sign-up-mode:before {
+  #loginPage.admin-mode:before {
     bottom: 28%;
     left: 50%;
   }

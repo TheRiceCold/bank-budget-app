@@ -18,7 +18,11 @@ const regexList = [
   {
     regex: null,
     message: ''
+  },
+  {
+    regex: null,
+    message: ''
   }
 ]
 
-export { regexList }
+export { regexList } 

@@ -1,7 +1,7 @@
-import { getStoredUsers } from '../../storage/adminStorage.js'
+import { getStoredAdmins } from '../../storage/adminStorage.js'
 
-const getUser = form => {
-  const users = getStoredUsers()
+const getAdmin = form => {
+  const users = getStoredAdmins()
 
   const username = form.username
   const password = form.password 
@@ -18,4 +18,4 @@ const getUser = form => {
   return found
 }
 
-export { getUser }
+export { getAdmin }

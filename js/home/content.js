@@ -1,21 +1,21 @@
-import { signInForm } from './forms/signInForm.js'
-import { signUpForm } from './forms/signUpForm.js'
-import { signInPanel } from './panels/signInPanel.js'
-import { signUpPanel } from './panels/signUpPanel.js'
+import { adminPanel } from './panels/adminPanel.js'
+import { userPanel } from './panels/userPanel.js'
+import { adminForm } from './forms/adminForm.js'
+import { userForm } from './forms/userForm.js'
 import MyHTML from '../utils/MyHTML.js'
 
 const panels = new MyHTML( {
   className: 'panels-container',
-  inner: [signInPanel, signUpPanel]
+  inner: [userPanel, adminPanel]
 }).string
 
-const signInSignUp = new MyHTML({
-  className: 'signin-signup',
-  inner: [signInForm.string, signUpForm.string]
+const userAdmin = new MyHTML({
+  className: 'user-admin',
+  inner: [userForm.string, adminForm.string]
 }).string
 
-const forms = new MyHTML({ className: 'forms-container', inner: signInSignUp }).string
+const forms = new MyHTML({ className: 'forms-container', inner: userAdmin }).string
 
-const content = [ forms, panels ]
+const content = [forms, panels]
 
 export { content }

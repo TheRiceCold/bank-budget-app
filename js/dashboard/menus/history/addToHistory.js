@@ -1,4 +1,4 @@
-import { getLoggedUser } from '../../../storage/adminStorage.js'
+import { getLoggedAdmin } from '../../../storage/adminStorage.js'
 import * as DOM from '../../../utils/dom.js'
 
 const addToHistory = (type, amount, email) => {

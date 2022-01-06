@@ -1,9 +1,9 @@
-import { getLoggedUser } from '../../../storage/adminStorage.js'
+import { getLoggedAdmin } from '../../../storage/adminStorage.js'
 import { getStoredAccounts } from '../../../utils/storage.js'
 import * as DOM from '../../../utils/dom.js'
 
 const getTotalFromHistory = type => {
-  const user = {...getLoggedUser()}
+  const user = {...getLoggedAdmin()}
   const history = user.history
   if (!history) location.reload()
 
@@ -19,7 +19,7 @@ const getTotalFromHistory = type => {
 }
 
 const getLastFromHistory = type => {
-  const user = {...getLoggedUser()}
+  const user = {...getLoggedAdmin()}
   const history = user.history.reverse()
   const lastTransfer = history.find(obj => {
     if (obj.type === type)
@@ -29,7 +29,7 @@ const getLastFromHistory = type => {
 }
 
 const getInsightsUpdate = () => {
-  const user = getLoggedUser()
+  const user = getLoggedAdmin()
 
   const balance = user.balance
   const lastDeposit = getLastFromHistory('deposit')
