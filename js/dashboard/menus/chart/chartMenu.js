@@ -1,11 +1,12 @@
 import MenuHTML from '../../html/MenuHTML.js'
-import { inner } from './inner.js'
 
-const chartMenu = new MenuHTML(
-  { 
-    id: 'chartMenu',
-    title: 'Chart',
-    inner: inner
-  })
+class ChartMenu extends MenuHTML {
+  constructor() {
+    const content = '<canvas id="canvas"></canvas>'
+    super({ inner: content })
+  }
+  manager() {
+  }
+}
 
-export { chartMenu }
+export default ChartMenu

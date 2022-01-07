@@ -24,14 +24,17 @@ const getLoggedAccount = () => {
   return JSON.parse(localStorage.loggedAccount)
 }
 
-const isAccountLoggedIn = !Array.isArray(getLoggedAccount())
+const logoutAccount = () => {
+  location.reload()
+  localStorage.loggedAccount = '[]'
+}
 
-const updateAccountInStorage = newAccount => {
+const updateAccountInStorage = updatedAccount => {
   const accountList = [...getStoredAccounts()]
 
-  const updateList = accountList.map(account => {
-    if (account.email === newAccount.email) 
-      account = newAccount
+  const updatedList = accountList.map(account => {
+    if (account.email === updatedAccount.email) 
+      account = updatedAccount
     
     return account
   })
@@ -39,8 +42,25 @@ const updateAccountInStorage = newAccount => {
   setStoredAccounts(updatedList)
 }
 
+const getAccountByEmail = email => {
+  let found = false
+  const accountList = getStoredAccounts()
+  found = accountList.find(account => {
+    if (account.email === email)
+      return account
+  })
+  return found
+}
+
+const isAccountLoggedIn = !Array.isArray(getLoggedAccount())
+
 export { 
+  logoutAccount,
+  setLoggedAccount,
+  getLoggedAccount,
+  setStoredAccounts, 
+  getStoredAccounts,
   isAccountLoggedIn,
-  updateAccountInStorage,
-  setStoredAccounts, getStoredAccounts
+  getAccountByEmail,
+  updateAccountInStorage
 }

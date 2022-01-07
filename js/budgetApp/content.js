@@ -1,5 +1,4 @@
 export const content = `
-  <main id="budgetApp">
     <div class="budget">
       <h2 class="marketing">Budget App</h2>
         <div>
@@ -18,16 +17,16 @@ export const content = `
         </div>
 
         <div class="budget__details">
-          <div class="budget__item">
+          <div class="budget__item" id="budgetAmount">
             <h2 class="budget__item-amount"></h2>
             <span class="budget__item-label">Budget</span>
           </div>
           <div class="budget__item">
-            <h2 class="budget__item-amount"></h2>
+            <h2 class="budget__item-amount" id="totalExpenses"></h2>
             <span class="budget__item-label">Expenses</span>
           </div>
           <div class="budget__item">
-            <h2 class="budget__item-amount"></h2>
+            <h2 class="budget__item-amount" id="balance"></h2>
             <span class="budget__item-label">Balance</span>
           </div>
 
@@ -60,4 +59,4 @@ export const content = `
           <button>Cancel</button>
         </div>
       </div>
-    </main>`
+      <button id="logoutBtn">logout</button>`

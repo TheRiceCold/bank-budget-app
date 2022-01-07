@@ -1,5 +1,4 @@
-import { adminPanel } from './panels/adminPanel.js'
-import { userPanel } from './panels/userPanel.js'
+import { userPanel, adminPanel } from './panels.js'
 import { adminForm } from './forms/adminForm.js'
 import { userForm } from './forms/userForm.js'
 import MyHTML from '../utils/MyHTML.js'

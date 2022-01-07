@@ -1,7 +1,7 @@
-import { sidebarLabels } from './sidebarLabels.js'
+import { sidebarMenus } from './sidebarMenus.js'
 import MyHTML from '../../utils/MyHTML.js'
 
-const sidebarButtons = sidebarLabels
+const sidebarButtons = sidebarMenus
   .map(label => {
     const { id, icon, text } = label
 

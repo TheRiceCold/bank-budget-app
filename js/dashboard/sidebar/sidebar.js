@@ -1,4 +1,5 @@
-import { sidebarLabels } from './sidebarLabels.js'
+import { logoutAdmin } from '../../storage/adminStorage.js'
+import { sidebarMenus } from './sidebarMenus.js'
 import MyHTML from '../../utils/MyHTML.js'
 import * as DOM from '../../utils/dom.js'
 import { content } from './content.js'
@@ -18,14 +19,14 @@ class Sidebar extends MyHTML {
   }
 
   changeMenu(i) {
-   if (sidebarLabels[i].menu === 'logout') {
-      location.reload()
-      delete localStorage.loggedAdmin
+    if (sidebarMenus[i].menu === 'logout') {
+      logoutAdmin()
+      return
     }
 
     const dashboard = DOM.get('#dashboard')
     const lastMenu = DOM.get('#dashboard main')
-    const currentMenu = sidebarLabels[i].menu
+    const currentMenu = sidebarMenus[i].menu
 
     lastMenu.remove()
     dashboard.append(currentMenu.html)

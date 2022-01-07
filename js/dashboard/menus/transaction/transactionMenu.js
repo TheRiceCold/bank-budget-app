@@ -1,7 +1,7 @@
 import { getLoggedAdmin } from '../../../storage/adminStorage.js'
+import { transactionType } from './transactionType.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
-import { openModal } from './modal.js'
 import { content } from './content.js'
 
 class TransactionMenu extends MenuHTML {
@@ -18,7 +18,37 @@ class TransactionMenu extends MenuHTML {
   transactionButtons() {
     const container = '.transaction-container '
     const buttons = DOM.getAll(container + 'button')
-    buttons.forEach(btn => btn.onclick = openModal)
+    buttons.forEach(btn => btn.onclick = e => this.openModal(e))
+  }
+
+  openModal(e) {
+    const modal = DOM.get('.modal')
+    const modalBg = DOM.get('#modalBg')
+
+    DOM.addClass(modal, 'show')
+    DOM.addClass(modalBg, 'show')
+
+    const title =  modal.querySelector('#transactionType')
+    title.innerText = e.target.innerText 
+
+    transactionType(modal)
+    modalBg.onclick = e => this.closeModal(e)
+  }
+
+  closeModal(e) {
+    const modalBg = e.target
+    const modal = DOM.get('.modal')
+
+    DOM.delClass(modal, 'show')
+    DOM.delClass(modalBg, 'show')
+
+    const email = DOM.get('#email')
+    const receiver = DOM.get('#receiver')
+    DOM.delClass(receiver, 'show')
+
+    email.value = ''
+    receiver.value = ''
+    modal.querySelector('#amount').value = ''
   }
 }
 

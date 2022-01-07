@@ -3,11 +3,11 @@ import AccountListMenu from '../menus/accountList/AccountListMenu.js'
 import NewAccountMenu from '../menus/newAccount/NewAccountMenu.js'
 import { scheduleMenu } from '../menus/schedule/scheduleMenu.js'
 import HistoryMenu from '../menus/history/HistoryMenu.js'
-import { chartMenu } from '../menus/chart/chartMenu.js'
 import SettingsMenu from '../menus/SettingsMenu.js'
+import ChartMenu from '../menus/chart/ChartMenu.js'
 import MainMenu from '../menus/main/MainMenu.js'
 
-const sidebarLabels = [
+const sidebarMenus = [
     {
       text: 'Dashboard',
       icon: 'fas fa-th-large',
@@ -48,7 +48,7 @@ const sidebarLabels = [
     {
       text: 'Daily Stats',
       icon: 'fas fa-chart-bar',
-      menu: chartMenu.html
+      menu: new ChartMenu()
     },
     {
       text: 'Logout',
@@ -57,4 +57,4 @@ const sidebarLabels = [
     }
   ]
 
-export { sidebarLabels }
+export { sidebarMenus }

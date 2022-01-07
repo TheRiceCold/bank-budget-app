@@ -1,3 +1,5 @@
+import { getStoredAccounts } from '../storage/accountStorage.js'
+import { setLoggedAccount } from '../storage/accountStorage.js'
 import { getStoredAdmins } from '../storage/adminStorage.js'
 import { setLoggedAdmin } from '../storage/adminStorage.js'
 import { removeAllChild } from '../utils/helpers.js'
@@ -50,7 +52,8 @@ class Home extends MyHTML {
   loginAdminCallback(e) {
     e.preventDefault()
     const form = e.target
-    const admin = this.getAdmin(form)
+    const adminList = getStoredAdmins()
+    const admin = this.getUser(form, adminList)
 
     if (admin) {
       setLoggedAdmin(admin)
@@ -61,24 +64,6 @@ class Home extends MyHTML {
       alert('user not found')
   }
 
-  getAdmin(form) {
-    const users = getStoredAdmins()
-
-    const username = form.username
-    const password = form.password 
-
-    const found = users.find(user => {
-      const decryptPassword = atob(user.password)
-
-      const foundEmail = user.username === username.value
-      const foundPassword = decryptPassword === password.value
-      const foundUser = foundEmail && foundPassword
-
-      if (foundUser) return user
-    })
-    return found
-  }
-  
   loginAccount() {
     const form = DOM.get('#userForm')
     form.onsubmit = e => this.loginAccountCallback(e)
@@ -86,8 +71,45 @@ class Home extends MyHTML {
 
   loginAccountCallback(e) {
     e.preventDefault()
-    const budgetApp = new BudgetApp()
-    budgetApp.render()
+    const form = e.target
+    const accountList = getStoredAccounts()
+    const account = this.getUser(form, accountList, false)
+
+    if (account) {
+      setLoggedAccount(account)
+      const budgetApp = new BudgetApp()
+      budgetApp.render()
+    } else
+      alert('user not found')
+  }
+
+  getUser(form, list, isAdmin = true) {
+    let username, email
+    if (isAdmin)
+      username = form.username
+    else
+      email = form.email
+
+    const password = form.password 
+
+    const found = list.find(user => {
+      const decryptPassword = atob(user.password)
+      let foundUsername, foundEmail
+      const foundPassword = decryptPassword === password.value
+      let foundUser = false
+
+      if (isAdmin) {
+        foundUsername = user.username === username.value
+        foundUser = foundUsername && foundPassword
+      }
+      else {
+        foundEmail = user.email === email.value
+        foundUser = foundEmail && foundPassword
+      }
+
+      if (foundUser) return user
+    })
+    return found
   }
 }
 

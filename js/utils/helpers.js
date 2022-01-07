@@ -38,7 +38,7 @@ const togglePassword = () => {
 }
 
 export { 
+  copyText, 
   togglePassword,
-  removeAllChild, 
-  copyText 
+  removeAllChild
 }

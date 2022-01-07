@@ -1018,13 +1018,13 @@ main #modalBg.show { display: block; }
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
-  background-color: #31C3A2;
+  background: #31C3A2;
   color: #FFFFFF;
   cursor: pointer;
   transition: all 275ms;
 }
 #budgetApp button:hover {
-  background-color: #3fcfae;
+  background: #3fcfae;
 }
 #budgetApp table {
   width: 100%;
@@ -1041,7 +1041,7 @@ main #modalBg.show { display: block; }
   text-align: right;
 }
 #budgetApp tbody tr:nth-child(odd) {
-  background-color: #2B383F;
+  background: #2B383F;
 }
 #budgetApp td {
   padding: 10px;

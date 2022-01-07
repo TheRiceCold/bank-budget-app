@@ -24,7 +24,7 @@ const cardContent = (card, icon) => {
 const cards = new MyHTML({ id: 'cards' }).string
 
 const getButtons = () => {
-  const buttons = ['All', 'Deposit', 'Withdraw', 'Transfer', 'Expense']
+  const buttons = ['All', 'Deposit', 'Withdraw', 'Transfer']
 
   return buttons.map((button, i) => {
     const isActive = (i === 0) ? ' active' : ''

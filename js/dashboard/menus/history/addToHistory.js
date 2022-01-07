@@ -1,8 +1,9 @@
 import { getLoggedAdmin } from '../../../storage/adminStorage.js'
+import { setLoggedAdmin } from '../../../storage/adminStorage.js'
 import * as DOM from '../../../utils/dom.js'
 
 const addToHistory = (type, amount, email) => {
-  const user = {...getLoggedUser()}
+  const user = {...getLoggedAdmin()}
   const history = user.history
 
   const date = new Date()
@@ -26,7 +27,7 @@ const addToHistory = (type, amount, email) => {
     }
 
   history.push(toPush)
-  setLoggedUser(user)
+  setLoggedAdmin(user)
 }
 
 export { addToHistory }

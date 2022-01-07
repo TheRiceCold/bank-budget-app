@@ -39,7 +39,7 @@ class HistoryMenu extends MenuHTML {
   }
 
   get updatedCards() {
-    const history = getLoggedUser().history
+    const history = getLoggedAdmin().history
     let cards = history.map(card => {
       const { type } = card
       const icon = 

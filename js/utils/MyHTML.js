@@ -1,13 +1,13 @@
 class MyHTML {
   constructor(options) {
-    const className = options.className || ''
-    const inner = options.inner || ''
-    const tag = options.tag || 'div'
-    const id = options.id || ''
+    this.className = options.className || ''
+    this.content = options.inner || ''
+    this.tag = options.tag || 'div'
+    this.id = options.id || ''
 
-    this.html = document.createElement(tag)
-    this.setInner(inner)
-    this.init(className, id)
+    this.html = document.createElement(this.tag)
+    this.setContents(this.content)
+    this.init(this.className, this.id)
   }
 
   init(className, id) {
@@ -17,7 +17,7 @@ class MyHTML {
       this.html.className = className
   }
 
-  setInner(content) {
+  setContents(content) {
     this.html.innerHTML = 
       Array.isArray(content) 
         ? content.join('') 

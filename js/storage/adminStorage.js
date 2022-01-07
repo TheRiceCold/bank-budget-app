@@ -1,4 +1,4 @@
-const adminUsers = [
+const adminList = [
   {
     username: 'dalewaltergh',
     password: 'dGVzdDEyMzQ=',
@@ -7,10 +7,10 @@ const adminUsers = [
 ]
 
 const getStoredAdmins = () => {
-  if (!localStorage.users)
-    localStorage.users = JSON.stringify(adminUsers)
+  if (!localStorage.admins)
+    localStorage.admins = JSON.stringify(adminList)
 
-  return JSON.parse(localStorage.users)
+  return JSON.parse(localStorage.admins)
 }
 
 const setLoggedAdmin = admin => {
@@ -25,11 +25,17 @@ const getLoggedAdmin = () => {
   return JSON.parse(localStorage.loggedAdmin)
 }
 
+const logoutAdmin = () => {
+  location.reload()
+  localStorage.loggedAdmin = '[]'
+}
+
 const isAdminLoggedIn = !Array.isArray(getLoggedAdmin())
 
 export { 
-  getStoredAdmins, 
-  isAdminLoggedIn,
+  logoutAdmin,
   setLoggedAdmin, 
-  getLoggedAdmin 
+  getLoggedAdmin,
+  getStoredAdmins, 
+  isAdminLoggedIn
 }

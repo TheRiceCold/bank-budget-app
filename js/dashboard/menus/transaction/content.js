@@ -4,25 +4,25 @@ import MyHTML from '../../../utils/MyHTML.js'
 const buttonInfos = [
   {
     id: 'depositBtn',
-    value: 'deposit money',
+    value: 'deposit',
   },
   {
     id: 'withdrawBtn',
-    value: 'withdraw money'
+    value: 'withdraw',
   },
   {
     id: 'transferBtn',
-    value: 'transfer money'
+    value: 'transfer',
   },
   {
     id: 'balanceBtn',
-    value: 'balance inquiry'
+    value: 'balance inquiry',
   }
 ]
 
 const buttons = buttonInfos.map(btn => {
-  const { id, value } = btn 
-  return `<button id="${id}">${value}</button>`
+  const { id, value, type } = btn 
+  return `<button id="${id}" class="transaction-btn" data-type="${type}">${value}</button>`
 }).join(' ')
 
 const modal = new ModalHTML({ id: 'transactionModal' }).string
