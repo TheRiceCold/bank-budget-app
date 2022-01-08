@@ -4,10 +4,11 @@ import MyHTML from '../../utils/MyHTML.js'
 
 const usersToDisplay = list => {
   const accounts = list.map(account => {
-    const cloneAccount = Object.assign({}, account)
+    const cloneAccount = {...account}
 
     delete cloneAccount.password
     delete cloneAccount.mobile
+    delete cloneAccount.budget
     delete cloneAccount.expenses
     
     return cloneAccount

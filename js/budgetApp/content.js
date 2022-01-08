@@ -1,62 +1,83 @@
+import MyHTML from '../utils/MyHTML.js'
+
+const deleteModal = new MyHTML({
+  className: 'modal',
+  id: 'deleteModal',
+  inner: ` 
+    <p>Are you sure you want to delete from list?</p>
+    <div id="buttons">
+      <button id="ok">OK</button>
+      <button id="cancel">Cancel</button>
+    </div>`
+}).string
+
+const editModal = new MyHTML({
+  className: 'modal',
+  id: 'editModal',
+  inner: ` 
+    <p>Edit</p>
+    <input type="text" id="description" required placeholder="Description">
+    <input type="number" id="amount" required placeholder="Amount">
+    <div id="buttons">
+      <button id="ok">OK</button>
+      <button id="cancel">Cancel</button>
+    </div>`
+}).string
+
+const budgetTransaction = new MyHTML({
+  id: 'budgetExpenses',
+  inner: `
+    <h2>Expenses</h2>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody></tbody>
+    </table>`
+}).string
+
+const inputs = new MyHTML({
+  inner:  `
+   <form id="budgetForm">
+      <h2>Enter your Budget</h2>
+      <input type="number" id="amount" placeholder="Budget Amount">
+      <button>Enter</button>
+    </form>
+
+    <form id="expenseForm">
+      <h2>Expense</h2>
+      <input type="text" id="description" required placeholder="Description">
+      <input type="number" id="amount" required placeholder="Amount">
+      <button>Expense</button>
+    </form>`
+}).string
+
+const container = new MyHTML({
+  className: 'container',
+  inner: `
+  <h2 id="title">Budget App</h2>
+  ${inputs}
+  <div class="budget__details">
+    <div class="budget__item">
+      <span class="budget__item-label">Budget</span>
+      <h2 class="budget__item-amount" id="totalBudget"></h2>
+    </div>
+    <div class="budget__item">
+      <span class="budget__item-label">Expenses</span>
+      <h2 class="budget__item-amount" id="totalExpenses"></h2>
+    </div>
+    <div class="budget__item">
+      <span class="budget__item-label">Balance</span>
+      <h2 class="budget__item-amount" id="totalBalance"></h2>
+    </div>
+    ${budgetTransaction}
+  </div>`
+}).string
+
 export const content = `
-    <div class="budget">
-      <h2 class="marketing">Budget App</h2>
-        <div>
-          <form class="budget__budget-input">
-            <h2>Create Your Budget</h2>
-            <input type="number" placeholder="Budget Amount">
-            <button>Calculate</button>
-          </form>
-
-          <form class="budget__expense-input">
-            <h2>Expense</h2>
-            <input type="text" required placeholder="Expense Name">
-            <input type="number" required placeholder="Expense Amount">
-            <button>Expense</button>
-          </form>
-        </div>
-
-        <div class="budget__details">
-          <div class="budget__item" id="budgetAmount">
-            <h2 class="budget__item-amount"></h2>
-            <span class="budget__item-label">Budget</span>
-          </div>
-          <div class="budget__item">
-            <h2 class="budget__item-amount" id="totalExpenses"></h2>
-            <span class="budget__item-label">Expenses</span>
-          </div>
-          <div class="budget__item">
-            <h2 class="budget__item-amount" id="balance"></h2>
-            <span class="budget__item-label">Balance</span>
-          </div>
-
-          <div class="budget__transactions">
-            <h1>Transactions</h1>
-            <table>
-              <thead>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td> <a href="#"><i class="fas fa-pen"></i></a></td>
-                  <td> <a href="#"><i class="fas fa-trash-alt"></i></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="delete__modal">
-        <p>Are you sure you want to delete this transaction?</p>
-        <div class="delete__modal-buttons">
-          <button>OK</button>
-          <button>Cancel</button>
-        </div>
-      </div>
-      <button id="logoutBtn">logout</button>`
+${container}
+${deleteModal}${editModal}
+<button id="logoutBtn">logout</button>`

@@ -964,15 +964,12 @@ main #modalBg.show { display: block; }
   background: #000;
   opacity: 0.5;
 }
-#budgetApp h1.marketing {
-  font-size: 72px;
-}
 #budgetApp h2 {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.1;
 }
-#budgetApp h2.marketing {
+#budgetApp #title {
   font-size: 36px;
 }
 #budgetApp p {
@@ -999,7 +996,7 @@ main #modalBg.show { display: block; }
   border: 1px solid #4F5E65;
   border-radius: 4px;
   font-size: 14px;
-  background-color: transparent;
+  background: transparent;
   color: #FFFFFF;
   outline: none;
   transition: all 275ms;
@@ -1040,13 +1037,10 @@ main #modalBg.show { display: block; }
 #budgetApp th:last-child {
   text-align: right;
 }
-#budgetApp tbody tr:nth-child(odd) {
-  background: #2B383F;
-}
 #budgetApp td {
   padding: 10px;
   font-size: 14px;
-  color: #E3E8EB;
+  color: black;
 }
 #budgetApp td:first-child {
   border-top-left-radius: 4px;
@@ -1063,32 +1057,28 @@ main #modalBg.show { display: block; }
   border: none;
   border-bottom: 1px solid #2B383F;
 }
-#budgetApp .budget {
+#budgetApp .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
 }
-#budgetApp .budget .marketing {
+#budgetApp .container #title {
   grid-column: span 3;
   margin-bottom: 8px;
 }
-#budgetApp .budget__budget-input,
-#budgetApp .budget__expense-input {
+#budgetApp form {
   border-radius: 8px;
   padding: 24px;
-  background: #2B383F;
 }
-#budgetApp .budget__budget-input h2,
-#budgetApp .budget__expense-input h2 {
+#budgetApp form h2 {
   margin-bottom: 24px;
 }
-#budgetApp .budget__budget-input input,
-#budgetApp .budget__expense-input input,
-#budgetApp .budget__budget-input button,
-#budgetApp .budget__expense-input button {
+#budgetApp form input,
+#budgetApp form button {
+  color: black;
   width: 100%;
 }
-#budgetApp .budget__budget-input {
+#budgetApp #budgetForm {
   margin-bottom: 40px;
 }
 #budgetApp .budget__details {
@@ -1096,6 +1086,7 @@ main #modalBg.show { display: block; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
+  height: 150px;
 }
 #budgetApp .budget__item {
   border-right: 1px solid #2B383F;
@@ -1113,26 +1104,30 @@ main #modalBg.show { display: block; }
   font-size: 12px;
   color: #4F5E65;
 }
-#budgetApp .budget__transactions {
+#budgetApp #budgetExpenses {
   grid-column: span 3;
 }
-#budgetApp .budget__transactions th:nth-child(2),
-#budgetApp .budget__transactions td:nth-child(2) {
+#budgetApp #budgetExpenses th:nth-child(2),
+#budgetApp #budgetExpenses td:nth-child(2) {
   width: 80px;
   text-align: right;
 }
-#budgetApp .budget__transactions th:nth-child(3),
-#budgetApp .budget__transactions td:nth-child(3),
-#budgetApp .budget__transactions th:last-child,
-#budgetApp .budget__transactions td:last-child {
+#budgetApp #budgetExpenses th:nth-child(3),
+#budgetApp #budgetExpenses td:nth-child(3),
+#budgetApp #budgetExpenses th:last-child,
+#budgetApp #budgetExpenses td:last-child {
   width: 1%;
   text-align: center;
 }
-#budgetApp .budget__transactions th:nth-child(3),
-#budgetApp .budget__transactions td:nth-child(3) {
+#budgetApp #budgetExpenses th:nth-child(3),
+#budgetApp #budgetExpenses td:nth-child(3) {
   text-align: right;
 }
-#budgetApp .delete__modal {
+#budgetApp #budgetExpenses td i {
+  cursor: pointer;
+}
+#budgetApp .modal{
+  display: none;
   position: fixed;
   text-align: center;
   top: 50%;
@@ -1142,26 +1137,29 @@ main #modalBg.show { display: block; }
   background: #2B383F;
   border-radius: 8px;
 }
-#budgetApp .delete__modal p {
+#budgetApp .modal.show {
+  display: block;
+}
+#budgetApp .modal p {
   margin-bottom: 16px;
 }
-#budgetApp .delete__modal-buttons {
+#budgetApp .modal #buttons {
   display: flex;
   justify-content: center;
 }
-#budgetApp .delete__modal-buttons button {
+#budgetApp .modal #buttons button {
   transition: all 275ms;
 }
-#budgetApp .delete__modal-buttons button:first-child {
+#budgetApp .modal #buttons button:first-child {
   background: #F85640;
   margin-right: 16px;
 }
-#budgetApp .delete__modal-buttons button:first-child:hover {
+#budgetApp .modal #buttons button:first-child:hover {
   background: #f96c59;
 }
-#budgetApp .delete__modal-buttons button:last-child {
+#budgetApp .modal #buttons button:last-child {
   background: #4F5E65;
 }
-#budgetApp .delete__modal-buttons button:last-child:hover {
+#budgetApp .modal #buttons button:last-child:hover {
   background: #5a6b73;
 }

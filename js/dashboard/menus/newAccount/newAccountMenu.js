@@ -131,6 +131,7 @@ class NewAccount extends MenuHTML {
       mobile: mobile.value,
       password: encryptPassword,
       balance: initBalance,
+      budget: 0,
       expenses: [],
       date: today
     }
