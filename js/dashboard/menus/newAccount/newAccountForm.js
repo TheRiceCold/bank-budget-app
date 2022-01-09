@@ -1,49 +1,57 @@
-import FormHTML from '../../../home/html/FormHTML.js'
+import FormHTML from '../../html/FormHTML.js'
 
 const inputList = [
   {
     id: 'fullname',
     name: 'fullname',
     placeholder: 'Fullname',
-    icon: 'fas fa-user'
+    icon: 'fas fa-user',
+    validateIcons: true
   },
   {
     id: 'email',
     name: 'email',
     placeholder: 'Email',
-    icon: 'fas fa-envelope'
+    icon: 'fas fa-envelope',
+    validateIcons: true
   },
   {
     id: 'mobile',
     name: 'mobile',
     placeholder: 'Mobile No.',
-    icon: 'fas fa-phone'
+    icon: 'fas fa-phone',
+    validateIcons: true
   },
   {
     id: 'password',
     name: 'password',
     placeholder: 'Password',
     icon: 'fas fa-lock',
-    type: 'password'
+    type: 'password',
+    validateIcons: true
   },
   {
     id: 'confirmPassword',
     name: 'confirmPassword',
     placeholder: 'Confirm Password',
     icon: 'fas fa-lock',
-    type: 'password'
+    type: 'password',
+    validateIcons: true
   },
   {
     id: 'balance',
     name: 'balance',
     placeholder: 'Balance',
     icon: 'fas fa-coins',
+    validateIcons: true
   }
 ]
 
 const content = {
   className: 'addAccount',
-  id: 'addAccount'
+  id: 'addAccount',
+  title: 'Enter Credentials',
+  btnLabel: 'Add Account'
 }
 
 const newAccountForm = new FormHTML(content)

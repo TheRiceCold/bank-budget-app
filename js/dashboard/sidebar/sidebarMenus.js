@@ -1,7 +1,7 @@
 import TransactionMenu from '../menus/transaction/TransactionMenu.js'
 import AccountListMenu from '../menus/accountList/AccountListMenu.js'
 import NewAccountMenu from '../menus/newAccount/NewAccountMenu.js'
-import { scheduleMenu } from '../menus/schedule/scheduleMenu.js'
+import RemindersMenu from '../menus/schedule/remindersMenu.js'
 import HistoryMenu from '../menus/history/HistoryMenu.js'
 import SettingsMenu from '../menus/SettingsMenu.js'
 import ChartMenu from '../menus/chart/ChartMenu.js'
@@ -43,7 +43,7 @@ const sidebarMenus = [
     {
       text: 'Reminders',
       icon: 'fas fa-calendar-alt',
-      menu: scheduleMenu.html
+      menu: new RemindersMenu()
     },
     {
       text: 'Daily Stats',

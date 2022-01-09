@@ -7,8 +7,9 @@ import { content } from './content.js'
 class TransactionMenu extends MenuHTML {
   constructor() {
     const id = 'transactionMenu'
-    const title = 'Transaction'
+    const title = 'Transaction Manager'
     super({ id: id, title: title, inner: content })
+    this.appId = '#transactionMenu '
   }
 
   manager() {
@@ -16,8 +17,7 @@ class TransactionMenu extends MenuHTML {
   }
 
   transactionButtons() {
-    const container = '.transaction-container '
-    const buttons = DOM.getAll(container + 'button')
+    const buttons = DOM.getAll(this.appId + 'button')
     buttons.forEach(btn => btn.onclick = e => this.openModal(e))
   }
 

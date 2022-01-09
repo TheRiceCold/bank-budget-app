@@ -1,38 +1,80 @@
+import { accountsForDisplay } from '../../extras/getUsersAsTable.js'
 import { getUsersAsTable } from '../../extras/getUsersAsTable.js'
 import { removeAllChild } from '../../../utils/helpers.js'
+import { jsonToTable } from '../../extras/jsonToTable.js'
 import MenuHTML from '../../html/MenuHTML.js'
 import * as DOM from '../../../utils/dom.js'
 
 class AccountListMenu extends MenuHTML {
   constructor() {
     const id = 'accountsMenu'
-    const title = 'All Users'
+    const title = 'Account Masterlist'
     const searchInput = `<input type="text" id="accountSearch" class="search" placeholder="Search"/>`
     super({ id: id, title: title, inner: searchInput })
+    this.appId = '#accountsMenu '
+    this.currentPage = 0 // 1st Page
+    this.numOfRows = 10
+    this.allAccounts = accountsForDisplay()
   }
 
   manager() {
     this.updateTable()
-    this.search()
   }
 
   updateTable() {
-    const oldTable = DOM.get('#accountsMenu table')
+    // resets
+    const oldTable = DOM.get(this.appId+'table')
     if (oldTable) oldTable.remove()
+    const oldPagination = DOM.get(this.appId+'#pagination')
+    if (oldPagination) oldPagination.remove()
 
-    const newTable = getUsersAsTable()
-    this.html.innerHTML += newTable
+    const start = this.numOfRows * this.currentPage
+    const end = start + this.numOfRows
+    this.paginatedAccounts = this.allAccounts.slice(start, end)
+    const newTable = jsonToTable(this.paginatedAccounts).outerHTML
+    const pagination = '<ul id="pagination"></ul>'
+    this.html.innerHTML += newTable + pagination
+
+    this.setupPagination()
+    this.search()
+  }
+
+  setupPagination() {
+    const pagination = DOM.get('#pagination')
+    let pageCount = Math.ceil(this.allAccounts.length / this.numOfRows)
+    for (let i = 1; i <= pageCount; i++) {
+      let btn = this.paginationButton(i, pagination)
+      pagination.append(btn)
+    }
+  }
+
+  paginationButton(pageNo, pagination) {
+    let button = DOM.create('button')
+    button.innerText = pageNo
+
+    //if (this.currentPage === pageNo) 
+      //button.classList.add('active')
+
+    button.onclick = () => {
+      this.currentPage = pageNo-1
+      pagination.remove()
+      this.updateTable()
+    }
+      //displayList(items, listEl, rows, curPage)
+    //}
+
+    return button
   }
 
   search() {
     const menu = '#accountsMenu '
     const table = DOM.get(menu + 'table')
-    const tableData = this.tableToArray(table)
+    const accountListData = accountsForDisplay().map(account => Object.values(account))
     const searchInput = DOM.get('#accountSearch')
 
     searchInput.onkeyup = e => {
       const term = e.target.value
-      this.searchTable(tableData, term)
+      this.searchTable(accountListData, term)
     }
   }
 
@@ -43,15 +85,6 @@ class AccountListMenu extends MenuHTML {
 
     removeAllChild(tbody)
     this.createTable(tbody, data)  
-  }
-
-  tableToArray(table) {
-    const rowList = Array.from(table.children[1].children)
-    const searchData = rowList.map(row => {
-      const datas = Array.from(row.children)
-      return datas.map(cell => cell.innerText) 
-    })
-    return searchData
   }
 
   createTable (tbody, data) {
@@ -68,12 +101,13 @@ class AccountListMenu extends MenuHTML {
 
   findTerm(tableData, term) {
     term = term.toLowerCase()
+    const accountListData = this.paginatedAccounts
+      .map(account => Object.values(account))
 
-    if (!term) return tableData
+    if (!term) return accountListData
 
     return tableData.filter(row => 
-      row.find(item => 
-        item.toLowerCase().includes(term)))
+      row.find(item => item.toString().toLowerCase().includes(term)))
   }
 }
 

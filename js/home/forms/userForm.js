@@ -1,4 +1,4 @@
-import FormHTML from '../html/FormHTML.js'
+import FormHTML from '../../dashboard/html/FormHTML.js'
 
 const inputList = [
   {
@@ -17,7 +17,8 @@ const inputList = [
 const content = { 
   className:'user-form', 
   id: 'userForm', 
-  title: 'User' 
+  title: 'Client', 
+  btnLabel: 'Sign in'
 }
 
 const userForm = new FormHTML(content) 

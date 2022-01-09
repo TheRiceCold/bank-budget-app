@@ -32,8 +32,14 @@ class BudgetApp extends MyHTML {
   }
 
   showBalanceExpense() {
-    const expensesList = this.account.expenses.map(e => e.amount)
-    const expensesTotal = expensesList.reduce((prevVal, nextVal) => prevVal + nextVal)
+    let expensesList, expensesTotal
+    if (this.account.expenses.length !== 0) {
+      expensesList = this.account.expenses.map(e => e.amount)
+      expensesTotal = expensesList.reduce((prevVal, nextVal) => prevVal + nextVal)
+    } else {
+      expensesTotal = 0
+    }
+
     const balance = this.account.balance
     const balanceTxt = DOM.get(this.appId+'#totalBalance')
     const expensesTxt = DOM.get(this.appId+'#totalExpenses')
@@ -46,12 +52,18 @@ class BudgetApp extends MyHTML {
     budgetForm.onsubmit = e => {
       e.preventDefault()
       let amountInput = e.target.amount
-      this.account.budget = Number(amount.value)
+      this.account.budget = Number(amountInput.value)
       setLoggedAccount(this.account)
       updateAccountInStorage(this.account)
       this.showBudget()
       amountInput.value = ''
     }
+  }
+
+  showBudget() {
+    const budget = this.account.budget 
+    const budgetTxt = DOM.get(this.appId+'#totalBudget')
+    budgetTxt.innerText = budget
   }
 
   submitExpense() { 
@@ -77,12 +89,6 @@ class BudgetApp extends MyHTML {
       this.showExpenses()
       this.showBalanceExpense()
     }
-  }
-
-  showBudget() {
-    const budget = this.account.budget 
-    const budgetTxt = DOM.get(this.appId+'#totalBudget')
-    budgetTxt.innerText = budget
   }
 
   showExpenses() {

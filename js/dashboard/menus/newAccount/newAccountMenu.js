@@ -76,19 +76,21 @@ class NewAccount extends MenuHTML {
     const confirmPassword = form.confirmPassword
 
     confirmPassword.onkeyup = () => {
-      if (password.value !== confirmPassword.value)
-        this.getValidInput(confirmPassword, 'condition', 'password does not match')
+      const condition = password.value !== confirmPassword.value
+      this.getValidInput(confirmPassword, 'condition', 'password does not match', condition)
     }
   }
 
-  getValidInput(input, regex = null, message = '') {
+  getValidInput(input, regex = null, message = '', condition) {
     const value = input.value
 
     if (value.trim() === '')
       this.setMessage(input, 'This field cannot be blank', 'error')
     else if (regex) {
-      if (regex === 'condition') 
-        this.setMessage(input, message, 'warning')
+      if (regex === 'condition') { 
+        if (condition) this.setMessage(input, message, 'warning')
+        else this.setMessage(input, '', 'success')
+      }
       else if (!regex.test(value))
         this.setMessage(input, message, 'warning')
       else {
@@ -117,6 +119,7 @@ class NewAccount extends MenuHTML {
     const fullname = wordsInName.map(word => word[0].toUpperCase() + word.substring(1)).join(" ")
 
     const id = accounts.length + 1
+    const paddId = String(id).padStart(5, '0')
     const email = form.email.value
     const mobile = form.mobile.value
     const initBalance = Number(form.balance.value)
@@ -125,7 +128,7 @@ class NewAccount extends MenuHTML {
     const today = new Date().toLocaleDateString()
     
     const newAccount = {
-      id: id,
+      id: paddId,
       fullname: fullname,
       email: email,
       mobile: mobile.value,

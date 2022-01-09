@@ -4,7 +4,7 @@ class InputHTML extends MyHTML {
   constructor(options) {
     super({ className: 'input-field' })
     this.setContent(options)
-    this.validateIcons()
+    if(options.validateIcons) this.validateIcons()
   }
 
   setContent(options) {

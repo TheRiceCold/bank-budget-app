@@ -13,10 +13,6 @@ const buttonInfos = [
   {
     id: 'transferBtn',
     value: 'transfer',
-  },
-  {
-    id: 'balanceBtn',
-    value: 'balance inquiry',
   }
 ]
 
@@ -27,7 +23,7 @@ const buttons = buttonInfos.map(btn => {
 
 const modal = new ModalHTML({ id: 'transactionModal' }).string
 const content = new MyHTML({
-  className: 'transaction-container',
+  id: 'container',
   inner: [ buttons, modal ]
 }).string
 

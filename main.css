@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #7380ec;
+  --color-primary: #FF5555;
   --color-danger: #ff7782;
   --color-success: #41f1b6;
   --color-warning: #ffbb55;
@@ -214,38 +214,6 @@ main table tbody tr:last-child td {
   right: 40px;
 }
 
-.input-field small {
-  font-size: 1em;
-  visibility: hidden;
-  position: absolute;
-  bottom: -20px;
-  left: 15px;
-}
-
-.input-field.success i.fa-check-circle {
-  color: #2ecc71;
-  visibility: visible;
-}
-
-.input-field.error { outline: 2px solid #E74C3C; }
-.input-field.warning { outline: 2px solid orange; }
-.input-field.success { outline: 2px solid #2ECC71; }
-
-.input-field.error i.fa-exclamation-circle {
-  color: #e74c3c;
-  visibility: visible;
-}
-
-.input-field.error small {
-  color: #e74c3c;
-  visibility: visible;
-}
-
-.input-field.warning small {
-  color: orange; 
-  visibility: visible;
-}
-
 #loginPage {
   position: relative;
   width: 100%;
@@ -254,7 +222,7 @@ main table tbody tr:last-child td {
   overflow: hidden;
 }
 
-.forms-container {
+#loginPage .forms-container {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -262,7 +230,7 @@ main table tbody tr:last-child td {
   left: 0;
 }
 
-.user-admin {
+#loginPage .user-admin {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -274,7 +242,7 @@ main table tbody tr:last-child td {
   z-index: 5;
 }
 
-form {
+#loginPage form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,22 +254,22 @@ form {
   grid-row: 1 / 2;
 }
 
-form.admin-form {
+#loginPage form.admin-form {
   opacity: 0;
   z-index: 1;
 }
 
-form.user-form {
+#loginPage form.user-form {
   z-index: 2;
 }
 
-.title {
+#loginPage .title {
   font-size: 2.2rem;
   color: #444;
   margin-bottom: 20px;
 }
 
-.input-field {
+#loginPage .input-field {
   max-width: 380px;
   width: 100%;
   background: #f0f0f0;
@@ -313,14 +281,14 @@ form.user-form {
   position: relative;
 }
 
-.input-field i {
+#loginPage .input-field i {
   text-align: center;
   line-height: 45px;
   color: #acacac;
   font-size: 1.1rem;
 }
 
-.input-field input {
+#loginPage .input-field input {
   background: none;
   outline: none;
   border: none;
@@ -330,12 +298,12 @@ form.user-form {
   color: #333;
 }
 
-.input-field input::placeholder {
+#loginPage .input-field input::placeholder {
   color: #aaa;
   font-weight: 500;
 }
 
-.btn {
+#loginPage .btn {
   width: 150px;
   background: var(--color-primary);
   outline: none;
@@ -349,10 +317,12 @@ form.user-form {
   transition: 0.5s;
 }
 
-.btn:hover {
-  background: #4d84e2;
+#loginPage form .btn:hover {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
-.panels-container {
+#loginPage .panels-container {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -361,7 +331,10 @@ form.user-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-
+#loginPage .panel .btn:hover {
+  background: white;
+  color: var(--color-primary);
+}
 #loginPage:before {
   content: "";
   position: absolute;
@@ -370,7 +343,7 @@ form.user-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background: #7380ec;
+  background: var(--color-primary);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -434,8 +407,6 @@ form.user-form {
 .right-panel .content {
   transform: translateX(800px);
 }
-
-/* ANIMATION */
 
 #loginPage.admin-mode:before {
   transform: translate(100%, -50%);
@@ -596,6 +567,33 @@ form.user-form {
   }
 }
 
+#transactionMenu #container {
+  margin-top: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#transactionMenu #container > button {
+  cursor: pointer;
+  font-size: 24px;
+  text-transform: capitalize;
+  width: 150px;
+  height: 150px;
+  padding: 25px;
+  margin: 0 30px;
+  border: 3px solid var(--color-primary);
+  border-radius: 10px;
+}
+
+#transactionMenu .modal button {
+  background: var(--color-primary);
+  color: #FFF;
+  font-size: 14px;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
 #accountsMenu table {
   font-size: 1.15em;
 }
@@ -616,7 +614,29 @@ form.user-form {
   width: 100%;
   margin: 0 auto;
   display: table;
-  padding: 0 0 8em 0;
+}
+
+#accountsMenu #pagination {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+}
+
+#accountsMenu #pagination button {
+  width: 30px;
+  height: 30px;
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: var(--color-primary);
+  border-radius: 10px;
+  margin: 3px;
+  transition: .4s;
+  color: #FFF;
+  font-size: 14px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 #accountsMenu td, #accountsMenu th {
@@ -729,19 +749,99 @@ form.user-form {
   cursor: pointer;
 }
 
-#historyMenu .btn:hover { background: #ddd; }
-
 #historyMenu .btn.active {
-  color: white;
-  background: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 20px;
 }
 
-#scheduleMenu #container {
+#newAccountMenu form {
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#newAccountMenu .input-field {
+  max-width: 380px;
+  width: 100%;
+  background: #FFF;
+  margin: 20px 0;
+  height: 45px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  position: relative;
+}
+
+#newAccountMenu .input-field i {
+  text-align: center;
+  line-height: 45px;
+  color: #acacac;
+  font-size: 1.1rem;
+}
+
+#newAccountMenu .input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+#newAccountMenu .input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+#newAccountMenu form input[type="submit"] {
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  background: var(--color-primary);
+  cursor: pointer;
+}
+#newAccountMenu .input-field small {
+  font-size: 1em;
+  visibility: hidden;
+  position: absolute;
+  bottom: -20px;
+  left: 15px;
+}
+
+#newAccountMenu .input-field.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+#newAccountMenu .input-field.error { outline: 2px solid #E74C3C; }
+#newAccountMenu .input-field.warning { outline: 2px solid orange; }
+#newAccountMenu .input-field.success { outline: 2px solid #2ECC71; }
+
+#newAccountMenu .input-field.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+#newAccountMenu .input-field.error small {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+#newAccountMenu .input-field.warning small {
+  color: orange; 
+  visibility: visible;
+}
+
+
+
+#remindersMenu #container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#scheduleMenu button {
+#remindersMenu button {
   width: 75px;
   cursor: pointer;
   box-shadow: 0px 0px 2px gray;
@@ -751,7 +851,7 @@ form.user-form {
   border-radius: 5px;
   color: white;
 }
-#scheduleMenu #header {
+#remindersMenu #header {
   width: 100%;
   color: #d36c6c;
   font-size: 26px;
@@ -759,24 +859,24 @@ form.user-form {
   display: flex;
   justify-content: space-around;
 }
-#scheduleMenu #header button {
+#remindersMenu #header button {
   background:#92a1d1;
 }
-#scheduleMenu #weekdays {
+#remindersMenu #weekdays {
   display: flex;
   color: #247BA0;
 }
-#scheduleMenu #weekdays h3{
+#remindersMenu #weekdays h3{
   text-align: center;
   width: 150px;
   padding: 10px;
 }
-#scheduleMenu #calendar {
+#remindersMenu #calendar {
   display: grid;
   grid-template-columns: repeat(7, 150px);
   justify-items: center;
 }
-#scheduleMenu .day {
+#remindersMenu .day {
   width: 125px;
   padding: 10px;
   height: 80px;
@@ -789,14 +889,14 @@ form.user-form {
   flex-direction: column;
   justify-content: space-between;
 }
-#scheduleMenu .day:hover {
+#remindersMenu .day:hover {
   background: #e8faed;
 }
 
-#scheduleMenu .day + #currentDay {
+#remindersMenu .day + #currentDay {
   background-color:#e8f4fa;
 }
-#scheduleMenu .event {
+#remindersMenu .event {
   font-size: 10px;
   padding: 3px;
   background-color: #58bae4;
@@ -805,7 +905,7 @@ form.user-form {
   max-height: 55px;
   overflow: hidden;
 }
-#scheduleMenu .padding {
+#remindersMenu .padding {
   cursor: default !important;
   background-color: #FFFCFF !important;
   box-shadow: none !important;
@@ -845,16 +945,16 @@ main .modal input {
 }
 main .modal #receiver { display: none; }
 main .modal #receiver.show { display: block; }
-#scheduleMenu #eventTitleInput.error {
+#remindersMenu #eventTitleInput.error {
   border: 2px solid red;
 }
 main .modal #cancelButton, main .modal #deleteButton {
   background: #d36c6c;
 }
-#scheduleMenu #saveButton, #scheduleMenu #closeButton {
+#remindersMenu #saveButton, #scheduleMenu #closeButton {
   background: #92a1d1;
 }
-#scheduleMenu #eventText {
+#remindersMenu #eventText {
   font-size: 14px;
 }
 main #modalBg {
@@ -868,12 +968,6 @@ main #modalBg {
   background-color: rgba(0,0,0,0.8);
 }
 main #modalBg.show { display: block; }
-#chartMenu .canvas-wrapper {
-  width: 1000px;
-  height: 500px;
-  display: inline-block;
-  margin: auto;
-}
 
 .transaction-container .topbar {
   margin-top: 50px;
@@ -944,6 +1038,10 @@ main #modalBg.show { display: block; }
   background: red;
 }
 
+#chartMenu {
+  height: 500px;
+}
+
 #budgetApp {
   max-width: 1160px;
   margin: 0 auto;
@@ -982,11 +1080,8 @@ main #modalBg.show { display: block; }
   font-size: 14px;
   font-weight: 500;
   text-decoration: underline;
-  color: #BDC2C4;
+  color: var(--color-primary);
   transition: all 275ms;
-}
-#budgetApp a:hover {
-  color: #FFFFFF;
 }
 #budgetApp input {
   display: block;
@@ -1015,8 +1110,8 @@ main #modalBg.show { display: block; }
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
-  background: #31C3A2;
-  color: #FFFFFF;
+  background: var(--color-primary);
+  color: #FFF;
   cursor: pointer;
   transition: all 275ms;
 }
@@ -1075,8 +1170,10 @@ main #modalBg.show { display: block; }
 }
 #budgetApp form input,
 #budgetApp form button {
-  color: black;
   width: 100%;
+}
+#budgetApp form input {
+  color: black;
 }
 #budgetApp #budgetForm {
   margin-bottom: 40px;

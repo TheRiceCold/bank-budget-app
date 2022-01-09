@@ -3,9 +3,10 @@ import InputHTML from './InputHTML.js'
 
 class FormHTML extends MyHTML {
   constructor(options) {
-    const { className, id, title } = options
+    const { className, id, title, btnLabel } = options
     super({ tag: 'form', className: className, id: id })
-    this.title = title
+    this.title = title ? title : ''
+    this.btnLabel = btnLabel
   }
 
   set inputList(inputList = []) {
@@ -14,7 +15,7 @@ class FormHTML extends MyHTML {
     
     this.html.innerHTML = 
       `<h2 class="title">${this.title}</h2> ${inputs}
-      <input type="submit" value="${this.title}" class="btn solid"/>`
+      <input type="submit" value="${this.btnLabel}" class="btn solid"/>`
   }
 }
 

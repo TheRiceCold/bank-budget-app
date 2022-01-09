@@ -1,4 +1,6 @@
 import MyHTML from '../../../utils/MyHTML.js'
+import { newEventModal } from './modals.js'
+import { delEventModal } from './modals.js'
 
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
@@ -23,4 +25,6 @@ const container = new MyHTML({
   inner: [header, days, '<div id="calendar"></div>']
 }).string
 
-export { container }
+const content = [container, newEventModal, delEventModal, '<div id="modalBg"></div>']
+
+export { content }
