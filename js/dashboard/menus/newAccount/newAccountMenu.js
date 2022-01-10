@@ -42,7 +42,7 @@ class NewAccount extends MenuHTML {
         this.pushAccount(form)
         alert('Account has been added!')
     } 
-    else console.log('INVALID!')
+    else alert('INVALID!')
   }
 
   typingCheck() {

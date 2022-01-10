@@ -583,12 +583,18 @@ main table tbody tr:last-child td {
   cursor: pointer;
   font-size: 24px;
   text-transform: capitalize;
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
   padding: 25px;
   margin: 0 30px;
-  border: 3px solid var(--color-primary);
   border-radius: 10px;
+  background: white;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .2)
+}
+
+#transactionMenu #container button i {
+  color: var(--color-primary);
+  font-size: 2em;
 }
 
 #transactionMenu .modal button {
@@ -903,12 +909,12 @@ main table tbody tr:last-child td {
 }
 
 #remindersMenu .day + #currentDay {
-  background-color:#e8f4fa;
+  background:#e8f4fa;
 }
 #remindersMenu .event {
-  font-size: 10px;
+  font-size: 14px;
   padding: 3px;
-  background-color: #58bae4;
+  background: var(--color-primary);
   color: white;
   border-radius: 5px;
   max-height: 55px;
@@ -960,11 +966,19 @@ main .modal #receiverId.show { display: block; }
 main .modal #cancelButton, main .modal #deleteButton {
   background: #d36c6c;
 }
-#remindersMenu #saveButton, #scheduleMenu #closeButton {
-  background: #92a1d1;
+#remindersMenu .modal button {
+  background: var(--color-primary);
 }
 #remindersMenu #eventText {
   font-size: 14px;
+}
+#remindersMenu #buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 100px;
+}
+#remindersMenu #buttons button {
+  background: var(--color-primary);
 }
 main #modalBg {
   display: none;

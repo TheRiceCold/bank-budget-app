@@ -10,6 +10,7 @@ const days = new MyHTML({
 }).string
 
 const buttons = new MyHTML({
+  id: 'buttons',
   inner: ['back', 'next']
   .map(btn => `<button id="${btn}Button">${btn}</button>`)
   .join(' ')

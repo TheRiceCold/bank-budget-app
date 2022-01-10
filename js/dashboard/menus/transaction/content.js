@@ -5,20 +5,24 @@ const buttonInfos = [
   {
     id: 'depositBtn',
     value: 'deposit',
+    icon: 'far fa-credit-card'
   },
   {
     id: 'withdrawBtn',
     value: 'withdraw',
+    icon: 'far fa-money-bill-alt'
   },
   {
     id: 'transferBtn',
     value: 'transfer',
+    icon: 'fas fa-hand-holding-usd'
   }
 ]
 
 const buttons = buttonInfos.map(btn => {
-  const { id, value, type } = btn 
-  return `<button id="${id}" class="transaction-btn" data-type="${type}">${value}</button>`
+  const { id, value, icon } = btn 
+  return `<button id="${id}" class="transaction-btn">
+    <i class="${icon}"></i>${value}</button>`
 }).join(' ')
 
 const modal = new ModalHTML({ id: 'transactionModal' }).string

@@ -30,6 +30,7 @@ const addToHistory = (type, amount, email, receiver = '') => {
   history.push(toPush)
   setLoggedAdmin(admin)
   updateAdminInStorage(admin)
+  alert('Transaction Successful!')
 }
 
 export { addToHistory }
