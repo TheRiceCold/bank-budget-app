@@ -9,8 +9,8 @@ class ModalHTML extends MyHTML {
   setContent(options) {
     const inner =
       `<h2 id="transactionType"></h2>
-      <input type="text" id="email" placeholder="Email"/>
-      <input type="text" id="receiver" placeholder="Receiver\'s email"/>
+      <input type="text" id="senderId" placeholder="Account ID"/>
+      <input type="text" id="receiverId" placeholder="Receiver\'s ID"/>
       <input type="number" id="amount" placeholder="Amount"/>
       <button class="btn" id="enterBtn">Enter</button>`
     this.html.innerHTML = inner

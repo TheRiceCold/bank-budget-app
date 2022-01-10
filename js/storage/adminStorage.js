@@ -2,9 +2,15 @@ const adminList = [
   {
     username: 'dalewaltergh',
     password: 'dGVzdDEyMzQ=',
-    history: []
+    history: [],
+    reminders: []
   }
 ]
+
+const setStoredAdmins = list => {
+  list = JSON.stringify(list)
+  localStorage.admins = list
+}
 
 const getStoredAdmins = () => {
   if (!localStorage.admins)
@@ -25,6 +31,19 @@ const getLoggedAdmin = () => {
   return JSON.parse(localStorage.loggedAdmin)
 }
 
+const updateAdminInStorage = updatedAdmin => {
+  const adminList = [...getStoredAdmins()]
+
+  const updateList = adminList.map(admin => {
+    if (admin.username === updatedAdmin.username)
+      admin = updatedAdmin
+    
+    return admin
+  })
+
+  setStoredAdmins(updateList)
+}
+
 const logoutAdmin = () => {
   location.reload()
   localStorage.loggedAdmin = '[]'
@@ -37,5 +56,6 @@ export {
   setLoggedAdmin, 
   getLoggedAdmin,
   getStoredAdmins, 
-  isAdminLoggedIn
+  isAdminLoggedIn,
+  updateAdminInStorage
 }

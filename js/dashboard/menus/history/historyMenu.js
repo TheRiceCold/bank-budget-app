@@ -47,9 +47,7 @@ class HistoryMenu extends MenuHTML {
           'far fa-credit-card' :
         type === 'withdraw' ?
           'fas fa-money-check-alt' :
-        type === 'transfer' ? 
-          'fas fa-hand-holding-usd' :
-          'fas fa-coins'
+          'fas fa-hand-holding-usd'
 
       return cardContent(card, icon)
     })

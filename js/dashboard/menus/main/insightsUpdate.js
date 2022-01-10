@@ -28,36 +28,40 @@ const getLastFromHistory = type => {
   return lastTransfer
 }
 
+const getLastInfo = type => {
+  const last = getLastFromHistory(type)
+  const amount = last ? Number(last.amount) : 0
+  const email = last ? last.email : ''
+  const date = last ? last.date: ''
+  const info = last ? 
+    `Last ${type}: ${date} Email: ${email} Amount: ₱${amount.toLocaleString()}` 
+    : 'No deposits yet.'
+  return info
+}
+
 const getInsightsUpdate = () => {
-  const user = getLoggedAdmin()
+  const accounts = getStoredAccounts()
+  const totalAccounts = accounts.length
+  const lastRegistered = accounts[totalAccounts - 1]
 
-  const balance = user.balance
-  const lastDeposit = getLastFromHistory('deposit')
-  const depositAmount = lastDeposit ? lastDeposit.amount : 0
-  const depositDate = lastDeposit ? lastDeposit.date : ''
-  const depositInfo = lastDeposit ? 
-    `Last deposit: ${depositAmount} at ${depositDate}` : 'No deposits yet'
+  const totalDeposits = getTotalFromHistory('deposit').toLocaleString()
+  const depositInfo = getLastInfo('deposit')
 
-  const totalExpenses = getTotalFromHistory('expense')
-
-  const totalWithdrawals = getTotalFromHistory('withdraw') 
-  const lastWithdraw = getLastFromHistory('withdraw')
-  const withdrawAmount = lastWithdraw ? lastWithdraw.amount : 0
-  const withdrawDate = lastWithdraw ? lastWithdraw.date : ''
-  const withdrawInfo = lastWithdraw ?
-    `Last withdraw: ${withdrawAmount} at ${withdrawDate}` : 'No withdrawals yet'
+  const totalWithdrawals = getTotalFromHistory('withdraw').toLocaleString()
+  const withdrawInfo = getLastInfo('withdraw')
 
   const lastTransfer = getLastFromHistory('transfer')
   const transferAmount = lastTransfer ? lastTransfer.amount : 0
   const transferEmail = lastTransfer ? lastTransfer.email : ''
+  const transferReceiver = lastTransfer ? lastTransfer.receiver : ''
   const transferInfo = lastTransfer ?
-    `Receiver: ${transferEmail}` : 'No transfers yet'
+    `Sender: ${transferEmail} Receiver: ${transferReceiver}` : 'No transfers yet'
   
   const content = [
-    { total: balance, info: depositInfo },
-    { total: totalExpenses, info: 'info' },
-    { total: totalWithdrawals, info: withdrawInfo },
-    { total: transferAmount, info: transferInfo }
+    { total: totalAccounts, info: `Last registered: ${lastRegistered.fullname} Date: ${lastRegistered.date}` },
+    { total: '₱'+totalDeposits, info: depositInfo },
+    { total: '₱'+totalWithdrawals, info: withdrawInfo },
+    { total: '₱'+transferAmount, info: transferInfo }
   ]
 
   return content 

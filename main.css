@@ -125,6 +125,10 @@ main #insights {
 }
 
 main #insights .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #fff;
   padding: var(--card-padding);
   border-radius: var(--card-border-radius);
@@ -147,6 +151,7 @@ main #insights .card div {
 }
 
 main #insights h3 {
+  text-align: center;
   text-transform: capitalize;
   margin: 1rem 0 .6rem;
   font-size: 1rem;
@@ -568,7 +573,7 @@ main table tbody tr:last-child td {
 }
 
 #transactionMenu #container {
-  margin-top: 170px;
+  margin-top: 175px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -587,10 +592,11 @@ main table tbody tr:last-child td {
 }
 
 #transactionMenu .modal button {
+  cursor: pointer;
   background: var(--color-primary);
   color: #FFF;
   font-size: 14px;
-  padding: 10px 10px;
+  padding: 10px 30px;
   border-radius: 10px;
 }
 
@@ -704,6 +710,7 @@ main table tbody tr:last-child td {
 }
 
 #historyMenu #buttons {
+  margin: 30px 0;
   display: flex;
   justify-content: space-evenly;
 }
@@ -734,6 +741,7 @@ main table tbody tr:last-child td {
 }
 
 #historyMenu h3 {
+  text-transform: capitalize;
   font-size: 1.25em;
 }
 
@@ -771,6 +779,7 @@ main table tbody tr:last-child td {
   display: grid;
   grid-template-columns: 15% 85%;
   position: relative;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .2);
 }
 
 #newAccountMenu .input-field i {
@@ -943,8 +952,8 @@ main .modal input {
   border: none;
   box-shadow: 0 0 3px gray;
 }
-main .modal #receiver { display: none; }
-main .modal #receiver.show { display: block; }
+main .modal #receiverId { display: none; }
+main .modal #receiverId.show { display: block; }
 #remindersMenu #eventTitleInput.error {
   border: 2px solid red;
 }
@@ -1096,9 +1105,6 @@ main #modalBg.show { display: block; }
   outline: none;
   transition: all 275ms;
 }
-#budgetApp input:focus {
-  border-color: #31C3A2;
-}
 #budgetApp input::placeholder {
   color: #BDC2C4;
 }
@@ -1116,7 +1122,9 @@ main #modalBg.show { display: block; }
   transition: all 275ms;
 }
 #budgetApp button:hover {
-  background: #3fcfae;
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 #budgetApp table {
   width: 100%;
@@ -1231,8 +1239,11 @@ main #modalBg.show { display: block; }
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 24px;
-  background: #2B383F;
+  background: whitesmoke;
   border-radius: 8px;
+}
+#budgetApp .modal input {
+  color: black;
 }
 #budgetApp .modal.show {
   display: block;
@@ -1242,21 +1253,10 @@ main #modalBg.show { display: block; }
 }
 #budgetApp .modal #buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
-#budgetApp .modal #buttons button {
-  transition: all 275ms;
-}
-#budgetApp .modal #buttons button:first-child {
-  background: #F85640;
-  margin-right: 16px;
-}
-#budgetApp .modal #buttons button:first-child:hover {
-  background: #f96c59;
-}
-#budgetApp .modal #buttons button:last-child {
-  background: #4F5E65;
-}
-#budgetApp .modal #buttons button:last-child:hover {
-  background: #5a6b73;
+#budgetApp #logoutBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }

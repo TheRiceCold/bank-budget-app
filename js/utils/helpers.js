@@ -6,19 +6,6 @@ const removeAllChild = parent => {
   }
 }
 
-const copyText = e => {
-  const textCopy = e.target.textContent
-  const copyInput = DOM.create('input')
-
-  e.target.classList.toggle('copied')
-
-  copyInput.value = textCopy
-  DOM.root.append(copyInput)
-  copyInput.select()
-  DOM.root.execCommand('copy')
-  copyInput.remove()
-}
-
 const toggleCallback = e => {
   const icon = e.target
   const input = icon.parentElement.querySelector('input')
@@ -38,7 +25,6 @@ const togglePassword = () => {
 }
 
 export { 
-  copyText, 
   togglePassword,
   removeAllChild
 }

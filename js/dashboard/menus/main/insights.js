@@ -4,18 +4,18 @@ import CardHTML from '../../html/CardHTML.js'
 const insightList = [
   {
     id: 'balance',
-    title: 'balance',
-    icon: 'fas fa-piggy-bank'
+    title: 'registered accounts',
+    icon: 'fas fa-users'
   },
   {
     id: 'expenses',
-    title: 'total expenses',
-    icon: 'fas fa-coins'
+    title: 'total deposits',
+    icon: 'far fa-credit-card'
   },
   {
     id: 'withdrawals',
     title: 'total withdrawals',
-    icon: 'fas fa-money-check-alt'
+    icon: 'far fa-money-bill-alt'
   },
   {
     id: 'transfers',

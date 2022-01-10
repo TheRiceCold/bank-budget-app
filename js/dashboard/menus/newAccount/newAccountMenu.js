@@ -65,10 +65,11 @@ class NewAccount extends MenuHTML {
   findEmail(form) {
     const email = form.email
     const accounts = getStoredAccounts()
-    const checkEmail = accounts.find(account => account.email === email.value)
 
-    if (checkEmail) 
-      getValidInput(email, 'condition', 'Email already exist')
+    email.onkeyup = () => {
+      const checkEmail = accounts.find(account => account.email === email.value)
+      this.getValidInput(email, 'condition', 'Email already exist', checkEmail)
+    }
   }
 
   confirmPassword(form) {
@@ -88,8 +89,11 @@ class NewAccount extends MenuHTML {
       this.setMessage(input, 'This field cannot be blank', 'error')
     else if (regex) {
       if (regex === 'condition') { 
-        if (condition) this.setMessage(input, message, 'warning')
-        else this.setMessage(input, '', 'success')
+        if (condition) {
+          this.setMessage(input, message, 'warning')
+        }
+        else 
+          this.setMessage(input, '', 'success')
       }
       else if (!regex.test(value))
         this.setMessage(input, message, 'warning')

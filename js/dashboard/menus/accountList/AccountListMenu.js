@@ -1,5 +1,4 @@
-import { accountsForDisplay } from '../../extras/getUsersAsTable.js'
-import { getUsersAsTable } from '../../extras/getUsersAsTable.js'
+import { accountsForDisplay } from '../../extras/accountsForDisplay.js'
 import { removeAllChild } from '../../../utils/helpers.js'
 import { jsonToTable } from '../../extras/jsonToTable.js'
 import MenuHTML from '../../html/MenuHTML.js'
@@ -14,7 +13,6 @@ class AccountListMenu extends MenuHTML {
     this.appId = '#accountsMenu '
     this.currentPage = 0 // 1st Page
     this.numOfRows = 10
-    this.allAccounts = accountsForDisplay()
   }
 
   manager() {
@@ -30,12 +28,15 @@ class AccountListMenu extends MenuHTML {
 
     const start = this.numOfRows * this.currentPage
     const end = start + this.numOfRows
+    this.allAccounts = accountsForDisplay()
     this.paginatedAccounts = this.allAccounts.slice(start, end)
+
     const newTable = jsonToTable(this.paginatedAccounts).outerHTML
     const pagination = '<ul id="pagination"></ul>'
     this.html.innerHTML += newTable + pagination
 
     this.setupPagination()
+    this.copyText()
     this.search()
   }
 
@@ -97,6 +98,7 @@ class AccountListMenu extends MenuHTML {
       })
       tbody.append(curRow)
     })
+    this.copyText()
   }
 
   findTerm(tableData, term) {
@@ -108,6 +110,23 @@ class AccountListMenu extends MenuHTML {
 
     return tableData.filter(row => 
       row.find(item => item.toString().toLowerCase().includes(term)))
+  }
+
+  copyText() {
+    const allTableData = DOM.getAll(this.appId+'table tbody td')
+    allTableData.forEach(data =>
+      data.onclick = () => {
+        const textCopy = data.innerText
+        const copyInput = DOM.create('input')
+
+        copyInput.value = textCopy
+        data.append(copyInput)
+        data.classList.toggle('copied')
+
+        copyInput.select()
+        document.execCommand('copy')
+        copyInput.remove()
+      })
   }
 }
 

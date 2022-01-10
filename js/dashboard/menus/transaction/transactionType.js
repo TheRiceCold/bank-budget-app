@@ -1,5 +1,5 @@
 import { updateAccountInStorage } from '../../../storage/accountStorage.js'
-import { getAccountByEmail } from '../../../storage/accountStorage.js'
+import { getAccountById } from '../../../storage/accountStorage.js'
 import { addToHistory } from '../history/addToHistory.js'
 import * as DOM from '../../../utils/dom.js'
 
@@ -11,39 +11,45 @@ const closeModal = () => {
   DOM.delClass(modal, 'show')
   DOM.delClass(modalBg, 'show')
 
-  const receiver = DOM.get('#receiver')
-  DOM.delClass(receiver, 'show')
+  const receiverId = DOM.get('#receiverId')
+  DOM.delClass(receiverId, 'show')
 
   modal.querySelector('#amount').value = ''
 }
 
 const transfer = (account, amount) => {
-  const email = DOM.get('#receiver').value
-  const receiver = getAccountByEmail(email)
+  const receiverId = DOM.get('#receiverId').value
+  const receiverAccount = getAccountById(receiverId)
 
-  if(receiver) {
+  if(receiverAccount) {
+    const senderEmail = account.email
+    const receiverEmail = receiverAccount.email
     account.balance -= Number(amount)
-    receiver.balance += Number(amount)
+    receiverAccount.balance += Number(amount)
     updateAccountInStorage(account)
-    updateAccountInStorage(receiver)
-    addToHistory('transfer', amount, receiver.email)
+    updateAccountInStorage(receiverAccount)
+    addToHistory('transfer', amount, senderEmail, receiverEmail)
     closeModal()
   }
-  else if(!receiver)
-    alert('cannot find email')
+  else if(!receiverAccount)
+    alert('Receiver ID cannot found')
   else 
     alert('email cannot be empty')
 }
 
-const checkTransaction = (type, email, amount) => {
-  const account = {...getAccountByEmail(email)}
+const checkTransaction = (type, senderId, amount) => {
+  const account = {...getAccountById(senderId)}
+  const email = account.email
   let balance = account.balance
 
-  if (type === 'deposit') {
+  if (Object.entries(account).length === 0) {
+    alert('account does not exits')
+  } 
+  else if (type === 'deposit') {
     balance += Number(amount)
     account.balance = balance
     updateAccountInStorage(account)
-    addToHistory(type, amount)
+    addToHistory(type, amount, email)
     closeModal()
   }
   else if (amount <= balance) {
@@ -51,11 +57,11 @@ const checkTransaction = (type, email, amount) => {
       balance -= Number(amount)
       account.balance = balance
       updateAccountInStorage(account)
-      addToHistory(type, amount)
+      addToHistory(type, amount, email)
       closeModal()
     }
     else if (type === 'transfer') 
-      transfer(account, amount)
+      transfer(account, amount, email)
   }
   else alert('not enough balance')
 }
@@ -65,20 +71,20 @@ const transactionType = modal => {
   const type = DOM.get('#transactionType').innerText.toLowerCase()
 
   if (type === 'transfer') {
-    const receiver = DOM.get('#receiver')
-    DOM.addClass(receiver, 'show')
+    const receiverId = DOM.get('.modal #receiverId')
+    DOM.addClass(receiverId, 'show')
   }
 
   const enterBtn = modal.querySelector('button')
   enterBtn.onclick = () => {
-    let email = DOM.get('#email').value
-    let amount = DOM.get('#amount').value
+    let senderId = DOM.get('.modal #senderId').value
+    let amount = DOM.get('.modal #amount').value
 
-    if (amount < 0) {
-      alert('Cannot in negative values')
+    if (amount <= 0 || !amount) {
+      alert('zero or negative values are not allowed')
       return
     }
-    checkTransaction(type, email, amount)
+    checkTransaction(type, senderId, amount)
     closeModal()
   }
 }

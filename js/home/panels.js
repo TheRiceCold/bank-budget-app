@@ -4,8 +4,7 @@ const adminContent = {
   position: 'right',
   title: 'Banking App',
   description: `
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-    ex ratione. Aliquid! `,
+    Start transaction today. Don't rob your future. Speed, save and manager your money all in one place.`,
   buttonId: 'userSwitch',
   buttonText: 'Go to Budget App',
   image: 'bank.svg'
@@ -15,8 +14,7 @@ const userContent = {
   position: 'left',
   title: 'Budget App',
   description: `
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-    ex ratione. Aliquid!`,
+    Manage your money in one place and easily keep track of expenses.`,
   buttonId: 'adminSwitch',
   buttonText: 'Go to Bank App',
   image: 'budget.svg'

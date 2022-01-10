@@ -7,6 +7,7 @@ const accountsForDisplay = () => {
     .map(account => {
       const cloneAccount = {...account}
 
+      cloneAccount.balance = '₱'+cloneAccount.balance.toLocaleString()
       delete cloneAccount.password
       delete cloneAccount.mobile
       delete cloneAccount.budget
@@ -18,14 +19,5 @@ const accountsForDisplay = () => {
   return accounts
 }
 
-const getUsersAsTable = (sort = '', size) => {
-  let users = accountsForDisplay()
-  const tableSize = users.length
-  if (sort === 'desc') users = users.reverse()
-  users.length = size || tableSize
 
-  const table = jsonToTable(users).outerHTML
-  return table
-}
-
-export { getUsersAsTable, accountsForDisplay }
+export { accountsForDisplay }

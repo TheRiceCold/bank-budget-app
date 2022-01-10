@@ -1,10 +1,8 @@
 import TransactionMenu from '../menus/transaction/TransactionMenu.js'
 import AccountListMenu from '../menus/accountList/AccountListMenu.js'
 import NewAccountMenu from '../menus/newAccount/NewAccountMenu.js'
-import RemindersMenu from '../menus/schedule/remindersMenu.js'
+import RemindersMenu from '../menus/reminders/remindersMenu.js'
 import HistoryMenu from '../menus/history/HistoryMenu.js'
-import SettingsMenu from '../menus/SettingsMenu.js'
-import ChartMenu from '../menus/chart/ChartMenu.js'
 import MainMenu from '../menus/main/MainMenu.js'
 
 const sidebarMenus = [
@@ -35,20 +33,9 @@ const sidebarMenus = [
       menu: new AccountListMenu()
     },
     {
-      text: 'Account Settings',
-      icon: 'fas fa-user-cog',
-      menu: new SettingsMenu()
-    },
-
-    {
       text: 'Reminders',
       icon: 'fas fa-calendar-alt',
       menu: new RemindersMenu()
-    },
-    {
-      text: 'Daily Stats',
-      icon: 'fas fa-chart-bar',
-      menu: new ChartMenu()
     },
     {
       text: 'Logout',

@@ -4,7 +4,7 @@ const deleteModal = new MyHTML({
   className: 'modal',
   id: 'deleteModal',
   inner: ` 
-    <p>Are you sure you want to delete from list?</p>
+    <h2>Are you sure you want to delete from list?</h2>
     <div id="buttons">
       <button id="ok">OK</button>
       <button id="cancel">Cancel</button>
@@ -15,13 +15,11 @@ const editModal = new MyHTML({
   className: 'modal',
   id: 'editModal',
   inner: ` 
-    <p>Edit</p>
+    <h2>Edit</h2>
     <input type="text" id="description" required placeholder="Description">
     <input type="number" id="amount" required placeholder="Amount">
-    <div id="buttons">
-      <button id="ok">OK</button>
-      <button id="cancel">Cancel</button>
-    </div>`
+    <button id="ok">Enter</button>
+    <button id="cancel">Cancel</button>`
 }).string
 
 const budgetTransaction = new MyHTML({

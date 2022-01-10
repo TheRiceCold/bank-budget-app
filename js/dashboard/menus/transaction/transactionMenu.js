@@ -42,11 +42,11 @@ class TransactionMenu extends MenuHTML {
     DOM.delClass(modal, 'show')
     DOM.delClass(modalBg, 'show')
 
-    const email = DOM.get('#email')
-    const receiver = DOM.get('#receiver')
+    const sender = DOM.get('.modal #senderId')
+    const receiver = DOM.get('#receiverId')
     DOM.delClass(receiver, 'show')
 
-    email.value = ''
+    sender.value = ''
     receiver.value = ''
     modal.querySelector('#amount').value = ''
   }

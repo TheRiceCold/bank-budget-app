@@ -52,10 +52,21 @@ const getAccountByEmail = email => {
   return found
 }
 
+const getAccountById = id => {
+  let found = false
+  const accountList = getStoredAccounts()
+  found = accountList.find(account => {
+    if (account.id === id)
+      return account
+  })
+  return found
+}
+
 const isAccountLoggedIn = !Array.isArray(getLoggedAccount())
 
 export { 
   logoutAccount,
+  getAccountById,
   setLoggedAccount,
   getLoggedAccount,
   setStoredAccounts, 
