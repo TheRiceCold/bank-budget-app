@@ -1,7 +1,7 @@
 import TransactionMenu from '../menus/transaction/TransactionMenu.js'
 import AccountListMenu from '../menus/accountList/AccountListMenu.js'
 import NewAccountMenu from '../menus/newAccount/NewAccountMenu.js'
-import RemindersMenu from '../menus/reminders/remindersMenu.js'
+import RemindersMenu from '../menus/reminders/RemindersMenu.js'
 import HistoryMenu from '../menus/history/HistoryMenu.js'
 import MainMenu from '../menus/main/MainMenu.js'
 
