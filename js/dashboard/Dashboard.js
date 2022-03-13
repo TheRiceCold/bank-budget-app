@@ -1,7 +1,7 @@
 import { getLoggedAdmin } from '../storage/adminStorage.js'
 import { removeAllChild } from '../utils/helpers.js'
 import MainMenu from './menus/main/MainMenu.js'
-import Sidebar from './sidebar/sidebar.js'
+import Sidebar from './sidebar/Sidebar.js'
 import MyHTML from '../utils/MyHTML.js'
 import * as DOM from '../utils/dom.js'
 
